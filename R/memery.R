@@ -104,7 +104,7 @@ meme <- function(img, label, file, g, size = 7, fontfamily = "Impact", col = "wh
     ggplot2::annotation_custom(g0, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) +
     cowplot::theme_nothing()
   if(ext2 == "png") Cairo::CairoPNG(file, width = width, height = height)
-  if(ext2 == "jpg") jpeg(file, width = width, height = height)
+  if(ext2 == "jpg") grDevices::jpeg(file, width = width, height = height)
   grid::grid.newpage()
   vp_back <- grid::viewport(width = 1, height = 1, x = 0.5, y = 0.5)
   if(!missing(g))
