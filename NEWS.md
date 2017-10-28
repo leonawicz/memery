@@ -1,3 +1,8 @@
+# memery 0.1.5
+
+* Refactor `meme` code, add/remove arguments, add error checking.
+* Update documentation.
+
 # memery 0.1.0
 
 * Added `meme` function.
