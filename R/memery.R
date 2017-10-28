@@ -49,48 +49,53 @@ memetheme <- ggplot2::theme(
 #'
 #' Generate a meme with a background image, text label and optional plot.
 #'
-#' This function generates a meme, returning the plot or saving it to disk. The plot may optionally include
-#' an inset plot by passing a ggplot object to \code{g}. This makes the memes more fun for data analysts.
+#' This function generates a meme and saves to disk as a png. The meme plot may optionally include
+#' an inset plot by passing a ggplot object to \code{g}. This makes the memes more fun for data analysts. See examples.
 #'
-#' @param img path to image file. May be \code{.png} or \code{.jpg}.
+#' \code{mult} is typically set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
+#' \code{panel_background} ans \code{plot_bakcground} should be transparent or semi-transparent if occupying a large amount of the meme plot
+#' or it will obscure the meme image. An alternative is to use \code{g} as a tiny thumbnail in the corner of the meme plot, in which case full
+#' opacity is not an issue.
+#'
+#' @param img path to image file, \code{.png} or \code{.jpg}.
 #' @param g a ggplot object. This is an optional inset plot and may be excluded.
 #' @param label character, meme text.
-#' @param size labele size.
+#' @param file output file, \code{.png} or \code{.jpg}.
+#' @param size label size.
 #' @param fontfamily character, defaults to \code{"Impact"}, the classic meme font.
 #' @param col label color.
 #' @param shadow label shadow/outline color.
-#' @param file character, output file. The meme plot is returned if \code{file} is missing.
 #' @param width numeric, width of overall meme plot in pixels. If missing, taken from \code{img} size.
 #' @param height numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.
-#' @param mult numeric, a multiplier. Used to adjust width and height.
-#' Typically set less than one when relying on \code{img} for meme plot width and height but \code{img} is large.
+#' @param mult numeric, a multiplier. Used to adjust width and height. See details.
 #' @param g_pos list of position elements for the \code{g} inset plot.
 #' @param label_pos list of position elements for the meme text.
 #' @param ggtheme optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.
-#' @param panel_background color, overrides theme. Should be semi-transparent.
-#' @param plot_background color, overrides theme. Should be semi-transparent.
+#' @param panel_background color, overrides ggplot theme. See details.
+#' @param plot_background color, overrides ggplot theme. See details.
 #'
-#' @return a plot. Alternatively saved to disk (nothing returned).
 #' @export
 #'
 #' @examples
-#' \dontrun{meme("image.png", ggObject, "My first memery meme!")}
-meme <- function(img, g, label, size = 7, fontfamily = "Impact", col = "white", shadow = "black",
-                 file, width, height, mult = 1,
-                 g_pos = list(width = 0.9, height = 0.6, x = 0.5, y = 0.35),
+#' \dontrun{meme("image.png", ggObject, "My first memery meme!", "myfirstmeme.png")}
+meme <- function(img, label, file, g, size = 7, fontfamily = "Impact", col = "white", shadow = "black",
+                 width, height, mult = 1, g_pos = list(width = 0.9, height = 0.6, x = 0.5, y = 0.35),
                  label_pos = list(width = 0.9, height = 0.3, x = 0.5, y = 0.9),
                  ggtheme, panel_background = "#FFFFFF50", plot_background = "#FFFFFF50"){
   if(fontfamily == "Impact") suppressMessages(extrafont::font_import(pattern = "impact", prompt = FALSE))
   ext <- utils::tail(strsplit(img, "\\.")[[1]], 1)
-  if(!ext %in% c("jpeg", "jpg", "png")) stop("`img` must be a jpg or png. Check file extension.")
+  ext2 <- utils::tail(strsplit(file, "\\.")[[1]], 1)
+  .check_ext(ext, ext2)
   if(ext %in% c("jpeg", "jpg")) img <- jpeg::readJPEG(img)
   if(ext == "png") img <- png::readPNG(img)
   g0 <- grid::rasterGrob(img, interpolate = TRUE)
   rc <- dim(img)[1:2]
-  if(missing(ggtheme)) ggtheme <- memetheme
-  g <- g + ggtheme + ggplot2::theme(panel.background = ggplot2::element_rect(fill = panel_background),
-                           plot.background = ggplot2::element_rect(fill = plot_background),
-                           aspect.ratio = g_pos$height / g_pos$width)
+  if(!missing(g)){
+    if(missing(ggtheme)) ggtheme <- memetheme
+    g <- g + ggtheme + ggplot2::theme(panel.background = ggplot2::element_rect(fill = panel_background),
+                             plot.background = ggplot2::element_rect(fill = plot_background),
+                             aspect.ratio = g_pos$height / g_pos$width)
+  }
   if(missing(width)) width <- rc[2]
   if(missing(height)) height <- rc[1]
   width <- width*mult
@@ -98,16 +103,24 @@ meme <- function(img, g, label, size = 7, fontfamily = "Impact", col = "white", 
   p0 <- ggplot2::ggplot(data.frame(x = c(0, 1), y = c(0, 1)), ggplot2::aes_string("x", "y")) +
     ggplot2::annotation_custom(g0, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) +
     cowplot::theme_nothing()
-  if(!missing(file)) Cairo::CairoPNG(file, height = height, width = width)
+  if(ext2 == "png") Cairo::CairoPNG(file, width = width, height = height)
+  if(ext2 == "jpg") jpeg(file, width = width, height = height)
   grid::grid.newpage()
   vp_back <- grid::viewport(width = 1, height = 1, x = 0.5, y = 0.5)
-  vp_plot <- grid::viewport(width = g_pos$width, height = g_pos$height, x = g_pos$x, y = g_pos$y)
+  if(!missing(g))
+    vp_plot <- grid::viewport(width = g_pos$width, height = g_pos$height, x = g_pos$x, y = g_pos$y)
   vp_text <- grid::viewport(width = label_pos$width, height = label_pos$height,
                             x = label_pos$x, y = label_pos$y)
   print(p0, vp = vp_back)
-  print(g, vp = vp_plot)
+  if(!missing(g)) print(g, vp = vp_plot)
   grid::pushViewport(vp_text)
   .shadow(label, gp = grid::gpar(cex = size), fontfamily = fontfamily, col = col, shadow = shadow)
-  if(!missing(file)) grDevices::dev.off()
+  grDevices::dev.off()
   invisible()
+}
+
+.check_ext <- function(inext, outext){
+  stop_ext <- "must be a jpg or png. Check file extension."
+  if(!inext %in% c("jpeg", "jpg", "png")) stop(paste("`img`", stop_ext))
+  if(!outext %in% c("jpg", "png")) stop(paste("`g`", stop_ext))
 }

@@ -4,20 +4,22 @@
 \alias{meme}
 \title{Generate a meme}
 \usage{
-meme(img, g, label, size = 7, fontfamily = "Impact", col = "white",
-  shadow = "black", file, width, height, mult = 1, g_pos = list(width =
-  0.9, height = 0.6, x = 0.5, y = 0.35), label_pos = list(width = 0.9, height
-  = 0.3, x = 0.5, y = 0.9), ggtheme, panel_background = "#FFFFFF50",
+meme(img, label, file, g, size = 7, fontfamily = "Impact", col = "white",
+  shadow = "black", width, height, mult = 1, g_pos = list(width = 0.9,
+  height = 0.6, x = 0.5, y = 0.35), label_pos = list(width = 0.9, height =
+  0.3, x = 0.5, y = 0.9), ggtheme, panel_background = "#FFFFFF50",
   plot_background = "#FFFFFF50")
 }
 \arguments{
-\item{img}{path to image file. May be \code{.png} or \code{.jpg}.}
-
-\item{g}{a ggplot object. This is an optional inset plot and may be excluded.}
+\item{img}{path to image file, \code{.png} or \code{.jpg}.}
 
 \item{label}{character, meme text.}
 
-\item{size}{labele size.}
+\item{file}{output file, \code{.png} or \code{.jpg}.}
+
+\item{g}{a ggplot object. This is an optional inset plot and may be excluded.}
+
+\item{size}{label size.}
 
 \item{fontfamily}{character, defaults to \code{"Impact"}, the classic meme font.}
 
@@ -25,14 +27,11 @@ meme(img, g, label, size = 7, fontfamily = "Impact", col = "white",
 
 \item{shadow}{label shadow/outline color.}
 
-\item{file}{character, output file. The meme plot is returned if \code{file} is missing.}
-
 \item{width}{numeric, width of overall meme plot in pixels. If missing, taken from \code{img} size.}
 
 \item{height}{numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.}
 
-\item{mult}{numeric, a multiplier. Used to adjust width and height.
-Typically set less than one when relying on \code{img} for meme plot width and height but \code{img} is large.}
+\item{mult}{numeric, a multiplier. Used to adjust width and height. See details.}
 
 \item{g_pos}{list of position elements for the \code{g} inset plot.}
 
@@ -40,20 +39,22 @@ Typically set less than one when relying on \code{img} for meme plot width and h
 
 \item{ggtheme}{optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.}
 
-\item{panel_background}{color, overrides theme. Should be semi-transparent.}
+\item{panel_background}{color, overrides ggplot theme. See details.}
 
-\item{plot_background}{color, overrides theme. Should be semi-transparent.}
-}
-\value{
-a plot. Alternatively saved to disk (nothing returned).
+\item{plot_background}{color, overrides ggplot theme. See details.}
 }
 \description{
 Generate a meme with a background image, text label and optional plot.
 }
 \details{
-This function generates a meme, returning the plot or saving it to disk. The plot may optionally include
-an inset plot by passing a ggplot object to \code{g}. This makes the memes more fun for data analysts.
+This function generates a meme and saves to disk as a png. The meme plot may optionally include
+an inset plot by passing a ggplot object to \code{g}. This makes the memes more fun for data analysts. See examples.
+
+\code{mult} is typically set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
+\code{panel_background} ans \code{plot_bakcground} should be transparent or semi-transparent if occupying a large amount of the meme plot
+or it will obscure the meme image. An alternative is to use \code{g} as a tiny thumbnail in the corner of the meme plot, in which case full
+opacity is not an issue.
 }
 \examples{
-\dontrun{meme("image.png", ggObject, "My first memery meme!")}
+\dontrun{meme("image.png", ggObject, "My first memery meme!", "myfirstmeme.png")}
 }
