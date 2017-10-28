@@ -171,7 +171,7 @@
     </tr>
     <tr>
       <th>label</th>
-      <td><p>character, meme text.</p></td>
+      <td><p>character, meme text. May be a vector, matched to <code>lab_pos</code>.</p></td>
     </tr>
     <tr>
       <th>file</th>
@@ -215,7 +215,7 @@
     </tr>
     <tr>
       <th>label_pos</th>
-      <td><p>list of position elements for the meme text.</p></td>
+      <td><p>list of position elements for the meme text. Each element may be a vector. See details.</p></td>
     </tr>
     <tr>
       <th>ggtheme</th>
@@ -234,7 +234,9 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function generates a meme and saves to disk as a png. The meme plot may optionally include
-an inset plot by passing a ggplot object to <code>g</code>. This makes the memes more fun for data analysts. See examples.
+an inset plot by passing a ggplot object to <code>g</code>. This makes the memes more fun for data analysts. See examples.</p>
+<p>List elements in <code>lab_pos</code> must all be the same length and must match the length of <code>label</code>.
+This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
     <code>mult</code> is typically set less than one if relying on <code>img</code> dimension for meme plot width and height and <code>img</code> is large.
 <code>panel_background</code> ans <code>plot_bakcground</code> should be transparent or semi-transparent if occupying a large amount of the meme plot
 or it will obscure the meme image. An alternative is to use <code>g</code> as a tiny thumbnail in the corner of the meme plot, in which case full
