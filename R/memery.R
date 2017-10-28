@@ -24,9 +24,8 @@ NULL
     grid::textGrob(label = label, x = x+cos(theta)*r*wlet,
              y = y + sin(theta)*r*hlet, gp = grid::gpar(col = shadow, fontfamily = fontfamily),
              just = just, hjust = hjust, vjust = vjust, rot = rot,
-             check.overlap = check.overlap, default.units = default.units)
-  }), list(tg))
-  g <- grid::gTree(children = do.call(grid::gList, tgl), vp = vp, name = name, gp = gp)
+             check.overlap = check.overlap, default.units = default.units)}), list(tg))
+  grid::gTree(children = do.call(grid::gList, tgl), vp = vp, name = name, gp = gp)
 }
 
 .shadow <- function(...){
@@ -88,14 +87,10 @@ meme <- function(img, g, label, size = 7, fontfamily = "Impact", col = "white", 
   if(ext == "png") img <- png::readPNG(img)
   g0 <- grid::rasterGrob(img, interpolate = TRUE)
   rc <- dim(img)[1:2]
-
   if(missing(ggtheme)) ggtheme <- memetheme
   g <- g + ggtheme + ggplot2::theme(panel.background = element_rect(fill = panel_background),
                            plot.background = element_rect(fill = plot_background),
                            aspect.ratio = g_pos$height / g_pos$width)
-  g <- ggplot2::ggplotGrob(g)
-  dev.off()
-
   if(missing(width)) width <- rc[2]
   if(missing(height)) height <- rc[1]
   width <- width*mult
@@ -110,7 +105,7 @@ meme <- function(img, g, label, size = 7, fontfamily = "Impact", col = "white", 
   vp_text <- grid::viewport(width = label_pos$width, height = label_pos$height,
                             x = label_pos$x, y = label_pos$y)
   print(p0, vp = vp_back)
-  print(p, vp = vp_plot)
+  print(g, vp = vp_plot)
   grid::pushViewport(vp_text)
   .shadow(label, gp = grid::gpar(cex = size), fontfamily = fontfamily, col = col, shadow = shadow)
   if(!missing(file)) dev.off()
