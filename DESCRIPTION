@@ -1,0 +1,30 @@
+Package: memery
+Version: 0.0.0.9000
+Title: Internet Memes For Data Analysts
+Description: The memery package is used for generating internet memes that may optionally include a superimposed inset plot.
+   It also offers the classic Impact font family with shadow/outline effect for the meme text label.
+Authors@R: c(person("Matthew", "Leonawicz", email = "mfleonawicz@alaska.edu", role = c("aut", "cre")),
+    person("Scenarios Network for Alaska and Arctic Planning", role = c("cph", "fnd"))
+    )
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+URL: https://github.com/leonawicz/memery
+BugReports: https://github.com/leonawicz/memery/issues
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown,
+    covr,
+    snapmeta
+VignetteBuilder: knitr
+Imports: 
+    extrafont,
+    grid,
+    png,
+    jpeg,
+    Cairo,
+    ggplot2,
+    cowplot
+RoxygenNote: 6.0.1
