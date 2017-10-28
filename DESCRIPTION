@@ -16,8 +16,7 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    covr,
-    snapmeta
+    covr
 VignetteBuilder: knitr
 Imports: 
     extrafont,
