@@ -24,7 +24,7 @@ NULL
     grid::textGrob(label = label, x = x+cos(theta)*r*wlet,
              y = y + sin(theta)*r*hlet, gp = grid::gpar(col = shadow, fontfamily = fontfamily),
              just = just, hjust = hjust, vjust = vjust, rot = rot,
-             check.overlap = check.overlap, default.units = default.units)}), list(tg))
+             check.overlap = check.overlap, default.units = default.units)}), list(tg)) # nolint
   grid::gTree(children = do.call(grid::gList, tgl), vp = vp, name = name, gp = gp)
 }
 
