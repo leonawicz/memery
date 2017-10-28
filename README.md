@@ -1,0 +1,30 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+memery
+======
+
+[![Travis-CI Build Status](https://travis-ci.org/leonawicz/memery.svg?branch=master)](https://travis-ci.org/leonawicz/memery) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/leonawicz/memery?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/memery) [![Coverage Status](https://img.shields.io/codecov/c/github/leonawicz/memery/master.svg)](https://codecov.io/github/leonawicz/memery?branch=master)
+
+The `memery` package is used for generating internet memes suited specifically to data analysts.
+
+`merery` offers the following:
+
+-   Memes can use jpg or png inputs for the background info.
+-   You can control the font family.
+-   The classic Impact font family with shadow/outline effect for the meme text label is the default.
+-   Shadow effect is available for other fonts.
+-   Memes may optionally include a superimposed inset plot (ggplot object).
+    -   The default is to draw the optional plot directly on top of the background image, so it is recommended to use a transparent or semi-transparent background color for the ggplot panel and plot regions.
+    -   Size and placement of the optional inset plot can be adjusted to your needs.
+
+*Note: `memery` is in early development and still contains bugs.*
+
+Installation
+------------
+
+You can install memery from github with:
+
+``` r
+# install.packages('devtools')
+devtools::install_github("leonawicz/memery")
+```
