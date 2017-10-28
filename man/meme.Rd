@@ -13,7 +13,7 @@ meme(img, label, file, g, size = 7, fontfamily = "Impact", col = "white",
 \arguments{
 \item{img}{path to image file, \code{.png} or \code{.jpg}.}
 
-\item{label}{character, meme text.}
+\item{label}{character, meme text. May be a vector, matched to \code{lab_pos}.}
 
 \item{file}{output file, \code{.png} or \code{.jpg}.}
 
@@ -35,7 +35,7 @@ meme(img, label, file, g, size = 7, fontfamily = "Impact", col = "white",
 
 \item{g_pos}{list of position elements for the \code{g} inset plot.}
 
-\item{label_pos}{list of position elements for the meme text.}
+\item{label_pos}{list of position elements for the meme text. Each element may be a vector. See details.}
 
 \item{ggtheme}{optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.}
 
@@ -49,6 +49,9 @@ Generate a meme with a background image, text label and optional plot.
 \details{
 This function generates a meme and saves to disk as a png. The meme plot may optionally include
 an inset plot by passing a ggplot object to \code{g}. This makes the memes more fun for data analysts. See examples.
+
+List elements in \code{lab_pos} must all be the same length and must match the length of \code{label}.
+This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
 
 \code{mult} is typically set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
 \code{panel_background} ans \code{plot_bakcground} should be transparent or semi-transparent if occupying a large amount of the meme plot
