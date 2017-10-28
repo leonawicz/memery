@@ -1,7 +1,13 @@
+# memery 0.1.6
+
+* Vectorized `label` and `label_pos` arguments for `meme` text.
+* Improved viewport behavior.
+* Update documentation.
+
 # memery 0.1.5
 
-* Refactor `meme` code, add/remove arguments, add error checking.
-* Update documentation.
+* Refactored `meme` code, add/remove arguments, add error checking.
+* Updated documentation.
 
 # memery 0.1.0
 
