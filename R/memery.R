@@ -11,7 +11,7 @@ NULL
 # Does not appear to be available in current gridExtra.
 # Minor adjustments made.
 .shadowGrob <- function (label, fontfamily = "Impact", col = "white", shadow = "black",
-                       r=0.015, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
+                       r=0.015, x = grid::unit(0.5, "npc"), y = grid::unit(0.5, "npc"),
                        just = "centre", hjust = NULL, vjust = NULL, rot = 0, check.overlap = FALSE,
                        default.units = "npc", name = NULL, gp = grid::gpar(), vp = NULL){
   let <- grid::textGrob("a", gp = gp, vp = vp)
@@ -81,21 +81,21 @@ meme <- function(img, g, label, size = 7, fontfamily = "Impact", col = "white", 
                  label_pos = list(width = 0.9, height = 0.3, x = 0.5, y = 0.9),
                  ggtheme, panel_background = "#FFFFFF50", plot_background = "#FFFFFF50"){
   if(fontfamily == "Impact") extrafont::font_import(pattern = "impact", prompt = FALSE)
-  ext <- tail(strsplit(img, "\\.")[[1]], 1)
+  ext <- utils::tail(strsplit(img, "\\.")[[1]], 1)
   if(!ext %in% c("jpeg", "jpg", "png")) stop("`img` must be a jpg or png. Check file extension.")
   if(ext %in% c("jpeg", "jpg")) img <- jpeg::readJPEG(img)
   if(ext == "png") img <- png::readPNG(img)
   g0 <- grid::rasterGrob(img, interpolate = TRUE)
   rc <- dim(img)[1:2]
   if(missing(ggtheme)) ggtheme <- memetheme
-  g <- g + ggtheme + ggplot2::theme(panel.background = element_rect(fill = panel_background),
-                           plot.background = element_rect(fill = plot_background),
+  g <- g + ggtheme + ggplot2::theme(panel.background = ggplot2::element_rect(fill = panel_background),
+                           plot.background = ggplot2::element_rect(fill = plot_background),
                            aspect.ratio = g_pos$height / g_pos$width)
   if(missing(width)) width <- rc[2]
   if(missing(height)) height <- rc[1]
   width <- width*mult
   height <- height*mult
-  p0 <- ggplot2::ggplot(data.frame(x = c(0, 1), y = c(0, 1)), aes(x, y)) +
+  p0 <- ggplot2::ggplot(data.frame(x = c(0, 1), y = c(0, 1)), ggplot2::aes_string("x", "y")) +
     ggplot2::annotation_custom(g0, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) +
     cowplot::theme_nothing()
   if(!missing(file)) Cairo::CairoPNG(file, height = height, width = width)
@@ -108,6 +108,6 @@ meme <- function(img, g, label, size = 7, fontfamily = "Impact", col = "white", 
   print(g, vp = vp_plot)
   grid::pushViewport(vp_text)
   .shadow(label, gp = grid::gpar(cex = size), fontfamily = fontfamily, col = col, shadow = shadow)
-  if(!missing(file)) dev.off()
+  if(!missing(file)) grDevices::dev.off()
   invisible()
 }
