@@ -52,6 +52,9 @@ memetheme <- ggplot2::theme(
 #' This function generates a meme and saves to disk as a png. The meme plot may optionally include
 #' an inset plot by passing a ggplot object to \code{g}. This makes the memes more fun for data analysts. See examples.
 #'
+#' List elements in \code{lab_pos} must all be the same length and must match the length of \code{label}.
+#' This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
+#'
 #' \code{mult} is typically set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
 #' \code{panel_background} ans \code{plot_bakcground} should be transparent or semi-transparent if occupying a large amount of the meme plot
 #' or it will obscure the meme image. An alternative is to use \code{g} as a tiny thumbnail in the corner of the meme plot, in which case full
@@ -59,7 +62,7 @@ memetheme <- ggplot2::theme(
 #'
 #' @param img path to image file, \code{.png} or \code{.jpg}.
 #' @param g a ggplot object. This is an optional inset plot and may be excluded.
-#' @param label character, meme text.
+#' @param label character, meme text. May be a vector, matched to \code{lab_pos}.
 #' @param file output file, \code{.png} or \code{.jpg}.
 #' @param size label size.
 #' @param fontfamily character, defaults to \code{"Impact"}, the classic meme font.
@@ -69,7 +72,7 @@ memetheme <- ggplot2::theme(
 #' @param height numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.
 #' @param mult numeric, a multiplier. Used to adjust width and height. See details.
 #' @param g_pos list of position elements for the \code{g} inset plot.
-#' @param label_pos list of position elements for the meme text.
+#' @param label_pos list of position elements for the meme text. Each element may be a vector. See details.
 #' @param ggtheme optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.
 #' @param panel_background color, overrides ggplot theme. See details.
 #' @param plot_background color, overrides ggplot theme. See details.
@@ -83,6 +86,9 @@ meme <- function(img, label, file, g, size = 7, fontfamily = "Impact", col = "wh
                  label_pos = list(width = 0.9, height = 0.3, x = 0.5, y = 0.9),
                  ggtheme, panel_background = "#FFFFFF50", plot_background = "#FFFFFF50"){
   if(fontfamily == "Impact") suppressMessages(extrafont::font_import(pattern = "impact", prompt = FALSE))
+  n <- length(label)
+  if(!all(sapply(label_pos, length) == n))
+    stop("`lab_pos` list elements must be same length as `label`.")
   ext <- utils::tail(strsplit(img, "\\.")[[1]], 1)
   ext2 <- utils::tail(strsplit(file, "\\.")[[1]], 1)
   .check_ext(ext, ext2)
@@ -109,12 +115,20 @@ meme <- function(img, label, file, g, size = 7, fontfamily = "Impact", col = "wh
   vp_back <- grid::viewport(width = 1, height = 1, x = 0.5, y = 0.5)
   if(!missing(g))
     vp_plot <- grid::viewport(width = g_pos$width, height = g_pos$height, x = g_pos$x, y = g_pos$y)
-  vp_text <- grid::viewport(width = label_pos$width, height = label_pos$height,
-                            x = label_pos$x, y = label_pos$y)
+  vp_text <- purrr::map(seq_along(label_pos$width),
+                        ~grid::viewport(width = label_pos$width[.x], height = label_pos$height[.x],
+                                        x = label_pos$x[.x], y = label_pos$y[.x]))
   print(p0, vp = vp_back)
-  if(!missing(g)) print(g, vp = vp_plot)
-  grid::pushViewport(vp_text)
-  .shadow(label, gp = grid::gpar(cex = size), fontfamily = fontfamily, col = col, shadow = shadow)
+  if(!missing(g)){
+    grid::pushViewport(vp_plot)
+    print(g, vp = vp_plot)
+    grid::popViewport()
+  }
+  for(i in seq_along(vp_text)){
+    grid::pushViewport(vp_text[[i]])
+    .shadow(label, gp = grid::gpar(cex = size), fontfamily = fontfamily, col = col, shadow = shadow)
+    grid::popViewport()
+  }
   grDevices::dev.off()
   invisible()
 }
