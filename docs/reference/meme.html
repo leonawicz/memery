@@ -156,10 +156,10 @@
     <p>Generate a meme with a background image, text label and optional plot.</p>
     
 
-    <pre class="usage"><span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>g</span>, <span class='no'>label</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>7</span>, <span class='kw'>fontfamily</span> <span class='kw'>=</span> <span class='st'>"Impact"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
-  <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='no'>file</span>, <span class='no'>width</span>, <span class='no'>height</span>, <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>g_pos</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>width</span> <span class='kw'>=</span>
-  <span class='fl'>0.9</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0.6</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0.35</span>), <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>height</span>
-  <span class='kw'>=</span> <span class='fl'>0.3</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0.9</span>), <span class='no'>ggtheme</span>, <span class='kw'>panel_background</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF50"</span>,
+    <pre class="usage"><span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>label</span>, <span class='no'>file</span>, <span class='no'>g</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>7</span>, <span class='kw'>fontfamily</span> <span class='kw'>=</span> <span class='st'>"Impact"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
+  <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='no'>width</span>, <span class='no'>height</span>, <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>g_pos</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0.6</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0.35</span>), <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>height</span> <span class='kw'>=</span>
+  <span class='fl'>0.3</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0.9</span>), <span class='no'>ggtheme</span>, <span class='kw'>panel_background</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF50"</span>,
   <span class='kw'>plot_background</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF50"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
@@ -167,19 +167,23 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>img</th>
-      <td><p>path to image file. May be <code>.png</code> or <code>.jpg</code>.</p></td>
-    </tr>
-    <tr>
-      <th>g</th>
-      <td><p>a ggplot object. This is an optional inset plot and may be excluded.</p></td>
+      <td><p>path to image file, <code>.png</code> or <code>.jpg</code>.</p></td>
     </tr>
     <tr>
       <th>label</th>
       <td><p>character, meme text.</p></td>
     </tr>
     <tr>
+      <th>file</th>
+      <td><p>output file, <code>.png</code> or <code>.jpg</code>.</p></td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td><p>a ggplot object. This is an optional inset plot and may be excluded.</p></td>
+    </tr>
+    <tr>
       <th>size</th>
-      <td><p>labele size.</p></td>
+      <td><p>label size.</p></td>
     </tr>
     <tr>
       <th>fontfamily</th>
@@ -194,10 +198,6 @@
       <td><p>label shadow/outline color.</p></td>
     </tr>
     <tr>
-      <th>file</th>
-      <td><p>character, output file. The meme plot is returned if <code>file</code> is missing.</p></td>
-    </tr>
-    <tr>
       <th>width</th>
       <td><p>numeric, width of overall meme plot in pixels. If missing, taken from <code>img</code> size.</p></td>
     </tr>
@@ -207,8 +207,7 @@
     </tr>
     <tr>
       <th>mult</th>
-      <td><p>numeric, a multiplier. Used to adjust width and height.
-Typically set less than one when relying on <code>img</code> for meme plot width and height but <code>img</code> is large.</p></td>
+      <td><p>numeric, a multiplier. Used to adjust width and height. See details.</p></td>
     </tr>
     <tr>
       <th>g_pos</th>
@@ -224,27 +223,27 @@ Typically set less than one when relying on <code>img</code> for meme plot width
     </tr>
     <tr>
       <th>panel_background</th>
-      <td><p>color, overrides theme. Should be semi-transparent.</p></td>
+      <td><p>color, overrides ggplot theme. See details.</p></td>
     </tr>
     <tr>
       <th>plot_background</th>
-      <td><p>color, overrides theme. Should be semi-transparent.</p></td>
+      <td><p>color, overrides ggplot theme. See details.</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>a plot. Alternatively saved to disk (nothing returned).</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function generates a meme, returning the plot or saving it to disk. The plot may optionally include
-an inset plot by passing a ggplot object to <code>g</code>. This makes the memes more fun for data analysts.</p>
+    <p>This function generates a meme and saves to disk as a png. The meme plot may optionally include
+an inset plot by passing a ggplot object to <code>g</code>. This makes the memes more fun for data analysts. See examples.
+    <code>mult</code> is typically set less than one if relying on <code>img</code> dimension for meme plot width and height and <code>img</code> is large.
+<code>panel_background</code> ans <code>plot_bakcground</code> should be transparent or semi-transparent if occupying a large amount of the meme plot
+or it will obscure the meme image. An alternative is to use <code>g</code> as a tiny thumbnail in the corner of the meme plot, in which case full
+opacity is not an issue.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>meme</span>(<span class='st'>"image.png"</span>, <span class='no'>ggObject</span>, <span class='st'>"My first memery meme!"</span>)
+<span class='fu'>meme</span>(<span class='st'>"image.png"</span>, <span class='no'>ggObject</span>, <span class='st'>"My first memery meme!"</span>, <span class='st'>"myfirstmeme.png"</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -252,8 +251,6 @@ an inset plot by passing a ggplot object to <code>g</code>. This makes the memes
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
