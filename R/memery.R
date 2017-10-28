@@ -80,7 +80,7 @@ meme <- function(img, g, label, size = 7, fontfamily = "Impact", col = "white", 
                  g_pos = list(width = 0.9, height = 0.6, x = 0.5, y = 0.35),
                  label_pos = list(width = 0.9, height = 0.3, x = 0.5, y = 0.9),
                  ggtheme, panel_background = "#FFFFFF50", plot_background = "#FFFFFF50"){
-  if(fontfamily == "Impact") extrafont::font_import(pattern = "impact", prompt = FALSE)
+  if(fontfamily == "Impact") suppressMessages(extrafont::font_import(pattern = "impact", prompt = FALSE))
   ext <- utils::tail(strsplit(img, "\\.")[[1]], 1)
   if(!ext %in% c("jpeg", "jpg", "png")) stop("`img` must be a jpg or png. Check file extension.")
   if(ext %in% c("jpeg", "jpg")) img <- jpeg::readJPEG(img)
