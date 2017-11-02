@@ -28,6 +28,7 @@
 #' Of course, the plot and panel background fill should still be transparent or semi-transparent if occupying a large amount of the total meme plot area
 #' or it will obscure the meme image itself. An alternative is to use \code{inset} as, for example,
 #' a tiny thumbnail in the corner of the meme plot, in which case full opacity is not necessarily an issue.
+#' If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by \code{ggtheme}, you can set \code{ggtheme = NULL}
 #'
 #' @param img path to image file, png or jpg.
 #' @param g a ggplot object. This is an optional inset plot and may be excluded.

@@ -28,7 +28,7 @@ The `memery` package is used for generating internet memes suited specifically t
 * Arbitrary number of text labels and placement using vectorized arguments; ideal for top/bottom or title/subtitle meme text pairs.
 * Memes may optionally include a superimposed inset plot (ggplot object).
     * The default is to draw the optional plot directly on top of the background image, so it is recommended to use a transparent or semi-transparent background color for the ggplot panel and plot regions.
-    * Alternatively, if you want a solid background for the plot inset, size and placement can be adjusted to your needs.
+    * Alternatively, if you want an opaque background for the plot inset, size and placement can be adjusted to your needs.
 * Output file can be jpg or png.
 
 *Note: `memery` is in early development.*
