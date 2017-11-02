@@ -7,7 +7,7 @@
 \alias{inset_templates}
 \title{Meme plot inset templates}
 \usage{
-inset_position(type = "default", ...)
+inset_position(type = "default")
 
 inset_background(type = "default")
 

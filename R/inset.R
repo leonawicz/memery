@@ -20,11 +20,10 @@ NULL
 
 #' @export
 #' @rdname inset
-inset_position <- function(type = "default", ...){
+inset_position <- function(type = "default"){
   if(!type %in% inset_templates("position")) stop("Invalid inset position template.")
   switch(type,
-         default = list(w = 0.95, h = 0.6, x = 0.5, y = 0.325),
-         topleft = list(x = -Inf, y = Inf, ...)
+         default = list(w = 0.95, h = 0.6, x = 0.5, y = 0.325)
   )
 }
 
@@ -49,6 +48,8 @@ inset_templates <- function(type){
 #' Default meme theme
 #'
 #' The default ggplot2 theme for meme plots.
+#'
+#' @param base_col the base color for all title text and axis lines and ticks.
 #'
 #' @return a ggplot2 theme.
 #' @export

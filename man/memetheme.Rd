@@ -6,6 +6,9 @@
 \usage{
 memetheme(base_col = "white")
 }
+\arguments{
+\item{base_col}{the base color for all title text and axis lines and ticks.}
+}
 \value{
 a ggplot2 theme.
 }

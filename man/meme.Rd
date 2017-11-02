@@ -12,6 +12,8 @@ meme(img, inset, label, file, size, family = "Impact", col = "white",
 \arguments{
 \item{img}{path to image file, png or jpg.}
 
+\item{inset}{a ggplot object. This is an optional inset plot and may be excluded.}
+
 \item{label}{character, meme text. May be a vector, matched to \code{lab_pos}.}
 
 \item{file}{output file, png or jpg.}
@@ -37,8 +39,6 @@ meme(img, inset, label, file, size, family = "Impact", col = "white",
 \item{ggtheme}{optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.}
 
 \item{inset_bg}{a list of background settings for the plotting region containing \code{inset}. See details.}
-
-\item{g}{a ggplot object. This is an optional inset plot and may be excluded.}
 }
 \description{
 Generate a meme with a background image, text label and optional plot.

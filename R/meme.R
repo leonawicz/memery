@@ -31,7 +31,7 @@
 #' If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by \code{ggtheme}, you can set \code{ggtheme = NULL}
 #'
 #' @param img path to image file, png or jpg.
-#' @param g a ggplot object. This is an optional inset plot and may be excluded.
+#' @param inset a ggplot object. This is an optional inset plot and may be excluded.
 #' @param label character, meme text. May be a vector, matched to \code{lab_pos}.
 #' @param file output file, png or jpg.
 #' @param size label size. Actual size affected by image size (i.e., \code{cex}).
