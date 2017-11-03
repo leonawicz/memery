@@ -1,3 +1,12 @@
+# memery 0.3.0
+
+* Breaking changes: updated some arguments for `meme` and `text_position`.
+* Added introduction vignette content.
+* Added resource image file for examples and testing.
+* Added unit tests.
+* Minor bug fixes.
+* Update documentation.
+
 # memery 0.2.0
 
 * Breaking changes: updated several `meme` arguments.
