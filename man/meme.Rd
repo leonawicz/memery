@@ -4,17 +4,15 @@
 \alias{meme}
 \title{Generate a meme}
 \usage{
-meme(img, inset, label, file, size, family = "Impact", col = "white",
-  shadow = "black", width, height, mult = 1, inset_pos = inset_position(),
-  label_pos = memetext_position(length(label)), ggtheme = memetheme(),
-  inset_bg = inset_background())
+meme(img, label, file, size = 1, family = "Impact", col = "white",
+  shadow = "black", label_pos = text_position(length(label)),
+  inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
+  inset_pos = inset_position(), width, height, mult = 1)
 }
 \arguments{
 \item{img}{path to image file, png or jpg.}
 
-\item{inset}{a ggplot object. This is an optional inset plot and may be excluded.}
-
-\item{label}{character, meme text. May be a vector, matched to \code{lab_pos}.}
+\item{label}{character, meme text. May be a vector, matched to \code{label_pos}.}
 
 \item{file}{output file, png or jpg.}
 
@@ -26,19 +24,21 @@ meme(img, inset, label, file, size, family = "Impact", col = "white",
 
 \item{shadow}{label shadow/outline color.}
 
+\item{label_pos}{named list of position elements for the meme text \code{w}, \code{h}, \code{x} and \code{y}. Each element may be a vector. See details.}
+
+\item{inset}{a ggplot object. This is an optional inset plot and may be excluded.}
+
+\item{ggtheme}{optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.}
+
+\item{inset_bg}{a list of background settings for the plotting region containing \code{inset}. See details.}
+
+\item{inset_pos}{named list of position elements for the \code{inset} inset plot: \code{w}, \code{h}, \code{x} and \code{y}.}
+
 \item{width}{numeric, width of overall meme plot in pixels. If missing, taken from \code{img} size.}
 
 \item{height}{numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.}
 
 \item{mult}{numeric, a multiplier. Used to adjust width and height. See details.}
-
-\item{inset_pos}{named list of position elements for the \code{inset} inset plot: \code{width}, \code{height}, \code{x} and \code{y}.}
-
-\item{label_pos}{list of position elements for the meme text. Each element may be a vector. See details.}
-
-\item{ggtheme}{optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.}
-
-\item{inset_bg}{a list of background settings for the plotting region containing \code{inset}. See details.}
 }
 \description{
 Generate a meme with a background image, text label and optional plot.
@@ -47,7 +47,7 @@ Generate a meme with a background image, text label and optional plot.
 This function generates a meme and saves to disk as a png. The meme plot may optionally include
 an inset plot by passing a ggplot object to \code{inset}. This makes the memes more fun for data analysts. See examples.
 
-List elements in \code{lab_pos} must all be the same length and must match the length of \code{label}.
+List elements in \code{label_pos} must all be the same length and must match the length of \code{label}.
 This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
 Similarly, \code{size}, \code{family}, \code{col} and \code{shadow} may be vectorized.
 For example, top and bottom text can have different font size and family and the font text and shadow can be different colors.
@@ -60,7 +60,7 @@ They define a rectangle that by default is semi-transparent with rounded corners
 This can be changed via the list arguments \code{fill}, \code{col} and \code{r}.
 
 The inset plot \code{inset} is placed above this layer and also fills the region.
-The default ggplot2 theme used my \code{meme}, \link{\code{memetheme}}, uses transparent ggplot plot and panel background fill and plot border color
+The default ggplot2 theme used my \code{meme}, \code{\link{memetheme}}, uses transparent ggplot plot and panel background fill and plot border color
 that allow the background viewport rectangle and its rounded corners to show through.
 The default theme also has no plot margins.
 If you supply a different theme via \code{ggtheme}, you can provide different plot and panel background fill and plot border color as part of the theme.
@@ -74,6 +74,7 @@ If you do not want to override the theme of your plot and do not wish to pass a 
 }
 \examples{
 \dontrun{
-meme("image.png", ggplotobject, "My first memery meme!", "meme.png", size = 5)
+img <- system.file("philosoraptor.jpg", package = "memery")
+meme(img, "My first memery meme!", "meme.png")
 }
 }
