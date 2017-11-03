@@ -8,6 +8,19 @@ authors:
   Matthew Leonawicz:
     href: http://leonawicz.github.io/
 
+reference:
+- title: Package
+  contents:
+  - memery
+- title: Meme generator
+  contents:
+  - meme
+- title: Supporting functions
+  contents:
+  - memetheme
+  - text_position
+  - inset
+
 navbar:
   type: inverse
   right:
