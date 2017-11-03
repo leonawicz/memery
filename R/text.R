@@ -9,14 +9,14 @@
 #'
 #' @param n integer, number of meme text labels.
 #'
-#' @return a list of meme text label position arguments: width, height, and x and y coordinates.
+#' @return a list of meme text label position arguments: \code{w} (width), \code{h} (height), and \code{x} and \code{y} coordinates.
 #' @export
 #'
-memetext_position <- function(n){
+text_position <- function(n){
   if(!n %in% c(1, 2)) stop("`n` must be 1 or 2.")
-  x <- list(width = 0.9, height = 0.3, x = 0.5, y = 0.9)
-  y <- list(width = 0.9, height = 0.3, x = 0.5, y = 0.1)
-  switch(n, "1" = x, "2" = purrr::transpose(list(x, y)))
+  x <- list(w = 0.9, h = 0.3, x = 0.5, y = 0.9)
+  y <- list(w = 0.9, h = 0.3, x = 0.5, y = 0.1)
+  switch(n, "1" = x, "2" = purrr::transpose(list(x, y)) %>% purrr::map(unlist))
 }
 
 
@@ -24,7 +24,7 @@ memetext_position <- function(n){
 # Does not appear to be available in current gridExtra.
 # Minor adjustments made.
 .shadowGrob <- function (label, fontfamily = "Impact", col = "white", shadow = "black",
-                         r=0.015, x = grid::unit(0.5, "npc"), y = grid::unit(0.5, "npc"),
+                         r = 0.015, x = grid::unit(0.5, "npc"), y = grid::unit(0.5, "npc"),
                          just = "center", hjust = NULL, vjust = NULL, rot = 0, check.overlap = FALSE,
                          default.units = "npc", name = NULL, gp = grid::gpar(), vp = NULL){
   let <- grid::textGrob("a", gp = gp, vp = vp)
