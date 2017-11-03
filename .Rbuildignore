@@ -4,6 +4,7 @@
 ^cran-comments\.md$
 ^data-raw$
 ^README\.Rmd$
+^README\.md$
 ^revdep$
 ^\.lintr$
 ^inst/\.lintr$
