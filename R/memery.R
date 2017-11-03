@@ -7,6 +7,5 @@
 #' @name memery
 NULL
 
-#' @importFrom grDevices windowsFonts
 #' @importFrom magrittr %>%
 NULL
