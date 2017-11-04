@@ -25,9 +25,8 @@ test_that("meme runs as expected", {
   expect_is(meme(loc, lab[1], out[2], width = 400, height = 300), x)
 
   fam <- "Consolas"
+  sysfonts::font_add(fam, "consola.ttf")
   expect_is(meme(loc, lab[1], out[1], family = fam), x)
-  suppressMessages(extrafont::font_import(pattern = "consola", prompt = FALSE))
-  if(.Platform$OS.type == "windows") extrafont::loadfonts("win", quiet = TRUE)
   expect_is(meme(loc, lab[1], out[2], family = fam), x)
   file.remove(out)
 })

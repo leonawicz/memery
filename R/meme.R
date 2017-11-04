@@ -95,6 +95,7 @@ meme <- function(img, label, file, size = 1, family = "Impact", col = "white", s
     cowplot::theme_nothing()
   if(ext2 == "png") Cairo::CairoPNG(file, width = width, height = height)
   if(ext2 == "jpg") grDevices::jpeg(file, width = width, height = height)
+  showtext::showtext_begin()
   grid::grid.newpage()
   vp_back <- grid::viewport(width = 1, height = 1, x = 0.5, y = 0.5)
   if(!missing(inset))
@@ -117,6 +118,7 @@ meme <- function(img, label, file, size = 1, family = "Impact", col = "white", s
     .shadow(label[i], gp = grid::gpar(cex = size[i]), fontfamily = family[i], col = col[i], shadow = shadow[i])
     grid::popViewport()
   }
+  showtext::showtext_end()
   grDevices::dev.off()
   invisible()
 }

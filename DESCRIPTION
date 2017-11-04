@@ -17,7 +17,8 @@ Suggests:
     covr
 VignetteBuilder: knitr
 Imports: 
-    extrafont,
+    sysfonts,
+    showtext,
     grid,
     png,
     jpeg,
