@@ -7,5 +7,6 @@
 #' @name memery
 NULL
 
+#' @import showtext
 #' @importFrom magrittr %>%
 NULL
