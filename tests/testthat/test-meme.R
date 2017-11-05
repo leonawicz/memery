@@ -24,8 +24,8 @@ test_that("meme runs as expected", {
   expect_is(meme(loc, lab[1], out[1], width = 400, height = 300), x)
   expect_is(meme(loc, lab[1], out[2], width = 400, height = 300), x)
 
-  fam <- "Consolas"
-  sysfonts::font_add(fam, "consola.ttf")
+  fam <- "Arial"
+  sysfonts::font_add(fam, "arial.ttf")
   expect_is(meme(loc, lab[1], out[1], family = fam), x)
   expect_is(meme(loc, lab[1], out[2], family = fam), x)
   file.remove(out)
