@@ -18,7 +18,7 @@ meme(img, label, file, size = 1, family = "Impact", col = "white",
 
 \item{size}{label size. Actual size affected by image size (i.e., \code{cex}).}
 
-\item{family}{character, defaults to \code{"Impact"}, the classic meme font.}
+\item{family}{character, defaults to \code{"Impact"}, the classic meme font. See details.}
 
 \item{col}{label color.}
 
@@ -41,18 +41,29 @@ meme(img, label, file, size = 1, family = "Impact", col = "white",
 \item{mult}{numeric, a multiplier. Used to adjust width and height. See details.}
 }
 \description{
-Generate a meme with a background image, text label and optional plot.
+Generate a meme with a background image, text label and optional inset graphic.
 }
 \details{
-This function generates a meme and saves to disk as a png. The meme plot may optionally include
-an inset plot by passing a ggplot object to \code{inset}. This makes the memes more fun for data analysts. See examples.
+This function generates and saves a meme as a jpg or png file.
 
+\subsection{Fonts}{
+Memes use the Impact font by default. This is a Windows font.
+If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system.
+If Impact or any other font passed to \code{family} is not installed on an operating system,
+\code{meme} will ignore it and fall back on \code{family = "serif"} internally.
+If unfamiliar, explore the documentation and examples available for the \code{showtext} and \code{sysfonts} packages, which \code{merery} leverages.
+}
+
+\subsection{Text labels}{
 List elements in \code{label_pos} must all be the same length and must match the length of \code{label}.
 This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
 Similarly, \code{size}, \code{family}, \code{col} and \code{shadow} may be vectorized.
 For example, top and bottom text can have different font size and family and the font text and shadow can be different colors.
+}
 
-\code{mult} is typically set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
+\subsection{Inset graphic}{
+The meme plot may optionally include an inset plot by passing a ggplot object to \code{inset}.
+This makes the memes more fun for data analysts. See examples.
 
 The plotting region containing \code{inset} is a specific viewport in the \code{grid} layout.
 \code{inset_bg} is a list of arguments that affect the background of this part of the meme plot.
@@ -71,6 +82,21 @@ Of course, the plot and panel background fill should still be transparent or sem
 or it will obscure the meme image itself. An alternative is to use \code{inset} as, for example,
 a tiny thumbnail in the corner of the meme plot, in which case full opacity is not necessarily an issue.
 If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by \code{ggtheme}, you can set \code{ggtheme = NULL}
+}
+
+\subsection{Dimensions and image processing}{
+Specifying \code{width} and \code{height} is not required. By default, output file dimensions are taken from the input file, \code{img}.
+However, these arguments can be used to override the default dimension matching. The aspect ratio is fixed so if you change the two
+disproportionately, you will increasing the canvas, adding bars on two sides; it will not stretch the image.
+
+\code{mult} can be set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
+It is equivalent to scaling proportionately with \code{width} and \code{height} maintaining the original aspect ratio.
+Whether or not \code{width} and/or \code{height} are provided, \code{mult} is always applied (defaults to \code{mult = 1}).
+
+Beyond this basic resizing to help control output file size, it is not the intent of \code{memery} to offer general image processing capabilities.
+If adjustments to source images are desired, you should use a dedicated package for image processing.
+\code{magick} is recommended.
+}
 }
 \examples{
 \dontrun{
