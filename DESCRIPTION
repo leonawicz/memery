@@ -16,6 +16,8 @@ Suggests:
     rmarkdown,
     covr
 VignetteBuilder: knitr
+Depends:
+    showtext,
 Imports: 
     sysfonts,
     showtext,
