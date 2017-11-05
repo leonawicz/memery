@@ -20,7 +20,12 @@ The `memery` package is used for generating internet memes suited specifically t
 
 ## The meme
 
-This consists of the background image and overlying text label(s). The image can be provided as a path to a local file or a URL. Below are examples of each, mixing up combinations of source file and output file format. Note that `memery` also provides the classic meme font, Impact, as the default as well as the text shadow outline effect, which is available for any font you use.
+This consists of the background image and overlying text label(s). The image can be provided as a path to a local file or a URL. Below are examples of each, mixing up combinations of source file and output file format. `memery` also provides the classic meme font, Impact, as the default as well as the text shadow outline effect, which is available for any font you use.
+
+### Note on fonts
+
+Note that Impact is a Windows font. If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme`, e.g. `family = "Consolas"`, is not installed on an operating system,
+`meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which \code{merery} leverages.
 
 ```{r sources_and_outputs}
 library(memery)

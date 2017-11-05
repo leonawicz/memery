@@ -8,7 +8,7 @@
 #' \subsection{Fonts}{
 #' Memes use the Impact font by default. This is a Windows font.
 #' If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system.
-#' If Impact or any other font passed to \code{family} is not installed on an operating system,
+#' If Impact or any other font family passed to \code{meme}, e.g. \code{family = "Consolas"}, is not installed on an operating system,
 #' \code{meme} will ignore it and fall back on \code{family = "serif"} internally.
 #' If unfamiliar, explore the documentation and examples available for the \code{showtext} and \code{sysfonts} packages, which \code{merery} leverages.
 #' }
