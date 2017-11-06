@@ -34,7 +34,7 @@ is_md <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "markdown_github-ascii_i
 ```
 
 ```{r ex_image1, echo = FALSE, results = "asis", eval = is_md}
-cat('![](https://github.com/leonawicz/memery/tree/master/docs/articles/meme4d.jpg)')
+cat('![](docs/articles/meme4d.jpg)')
 ```
 
 ```{r ex_image2, echo = FALSE, results = "asis", eval = !is_md}
