@@ -4,7 +4,7 @@ pos <- c("default", "tl", "tr", "br", "bl", "center")
 bg <- c("default", "op", "sq", "opsq", "blank")
 
 test_that("inset_position returns as expected", {
-  expect_identical(inset_position(pos[1]), list(w = 0.975, h = 0.6, x = 0.5, y = 0.325))
+  expect_identical(inset_position(pos[1]), list(w = 0.95, h = 0.6, x = 0.5, y = 0.325))
   expect_identical(inset_position(pos[2]), list(w = 0.2, h = 0.2, x = 0.125, y = 0.875))
   expect_identical(inset_position(pos[3]), list(w = 0.2, h = 0.2, x = 0.875, y = 0.875))
   expect_identical(inset_position(pos[4]), list(w = 0.2, h = 0.2, x = 0.875, y = 0.125))
