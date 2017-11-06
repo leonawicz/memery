@@ -22,7 +22,7 @@ test_that("meme runs as expected", {
 
   x <- "NULL"
   out <- c("meme_test.png", "meme_test.jpg")
-  lab <- c("This is a test.", "This is a test with a longer text string.")
+  lab <- c("What to call my R package?", "Perhaps...")
   expect_is(meme(loc, lab[1], out[1]), x)
   expect_is(meme(loc, lab, out[1]), x)
   expect_is(meme(loc, lab[1], out[2]), x)
@@ -41,5 +41,10 @@ test_that("meme runs as expected", {
   expect_is(meme(loc, lab[1], out[2], family = fam), x)
 
   expect_is(meme(loc, lab[1], out[1], family = "mono", inset = p, inset_bg = list()), x)
+  p2 <- ggplot(data_frame(x = rnorm(10000)), aes(x)) +
+    geom_density(adjust = 2, size = 1) + cowplot::theme_nothing()
+  pos <- list(w = 0.2, h = 0.2, x = 0.125, y = 0.125)
+  expect_is(meme(loc, lab[1], out[1], family = "mono", inset = p2,
+                 inset_bg = list(fill = "dodgerblue", col = "black"), inset_pos = pos), x)
   file.remove(out)
 })
