@@ -153,7 +153,7 @@
     </div>
 
     
-    <p>Generate a meme with a background image, text label and optional plot.</p>
+    <p>Generate a meme with a background image, text label and optional inset graphic.</p>
     
 
     <pre class="usage"><span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>label</span>, <span class='no'>file</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"Impact"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
@@ -182,7 +182,7 @@
     </tr>
     <tr>
       <th>family</th>
-      <td><p>character, defaults to <code>"Impact"</code>, the classic meme font.</p></td>
+      <td><p>character, defaults to <code>"Impact"</code>, the classic meme font. See details.</p></td>
     </tr>
     <tr>
       <th>col</th>
@@ -228,18 +228,25 @@
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function generates a meme and saves to disk as a png. The meme plot may optionally include
-an inset plot by passing a ggplot object to <code>inset</code>. This makes the memes more fun for data analysts. See examples.</p>
-<p>List elements in <code>label_pos</code> must all be the same length and must match the length of <code>label</code>.
+    <p>This function generates and saves a meme as a jpg or png file.</p><h3>Fonts</h3>
+    Memes use the Impact font by default. This is a Windows font.
+If using <code>memery</code> on Linux for example, you would have to first install the font if not already installed on the system.
+If Impact or any other font family passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is not installed on an operating system,
+<code>meme</code> will ignore it and fall back on <code>family = "serif"</code> internally.
+If unfamiliar, explore the documentation and examples available for the <code>showtext</code> and <code>sysfonts</code> packages, which <code>merery</code> leverages.
+    <h3>Text labels</h3>
+    List elements in <code>label_pos</code> must all be the same length and must match the length of <code>label</code>.
 This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
 Similarly, <code>size</code>, <code>family</code>, <code>col</code> and <code>shadow</code> may be vectorized.
 For example, top and bottom text can have different font size and family and the font text and shadow can be different colors.
-    <code>mult</code> is typically set less than one if relying on <code>img</code> dimension for meme plot width and height and <code>img</code> is large.</p>
-<p>The plotting region containing <code>inset</code> is a specific viewport in the <code>grid</code> layout.
+    <h3>Inset graphic</h3>
+    The meme plot may optionally include an inset plot by passing a ggplot object to <code>inset</code>.
+This makes the memes more fun for data analysts. See examples.
+    The plotting region containing <code>inset</code> is a specific viewport in the <code>grid</code> layout.
 <code>inset_bg</code> is a list of arguments that affect the background of this part of the meme plot.
 They define a rectangle that by default is semi-transparent with rounded corners and no border color.
-This can be changed via the list arguments <code>fill</code>, <code>col</code> and <code>r</code>.</p>
-<p>The inset plot <code>inset</code> is placed above this layer and also fills the region.
+This can be changed via the list arguments <code>fill</code>, <code>col</code> and <code>r</code>.
+    The inset plot <code>inset</code> is placed above this layer and also fills the region.
 The default ggplot2 theme used my <code>meme</code>, <code><a href='memetheme.html'>memetheme</a></code>, uses transparent ggplot plot and panel background fill and plot border color
 that allow the background viewport rectangle and its rounded corners to show through.
 The default theme also has no plot margins.
@@ -250,7 +257,17 @@ For opaque plot background fill this will not matter.
 Of course, the plot and panel background fill should still be transparent or semi-transparent if occupying a large amount of the total meme plot area
 or it will obscure the meme image itself. An alternative is to use <code>inset</code> as, for example,
 a tiny thumbnail in the corner of the meme plot, in which case full opacity is not necessarily an issue.
-If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by <code>ggtheme</code>, you can set <code>ggtheme = NULL</code></p>
+If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by <code>ggtheme</code>, you can set <code>ggtheme = NULL</code>
+    <h3>Dimensions and image processing</h3>
+    Specifying <code>width</code> and <code>height</code> is not required. By default, output file dimensions are taken from the input file, <code>img</code>.
+However, these arguments can be used to override the default dimension matching. The aspect ratio is fixed so if you change the two
+disproportionately, you will increasing the canvas, adding bars on two sides; it will not stretch the image.
+    <code>mult</code> can be set less than one if relying on <code>img</code> dimension for meme plot width and height and <code>img</code> is large.
+It is equivalent to scaling proportionately with <code>width</code> and <code>height</code> maintaining the original aspect ratio.
+Whether or not <code>width</code> and/or <code>height</code> are provided, <code>mult</code> is always applied (defaults to <code>mult = 1</code>).
+    Beyond this basic resizing to help control output file size, it is not the intent of <code>memery</code> to offer general image processing capabilities.
+If adjustments to source images are desired, you should use a dedicated package for image processing.
+<code>magick</code> is recommended.
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

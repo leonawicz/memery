@@ -18,7 +18,7 @@ The `memery` package is used for generating internet memes suited specifically t
 -   Output file can be jpg or png.
 
 <p style="text-align:center;">
-<img src="articles/meme4c.jpg" width="600px">
+<img src="articles/meme4d.jpg" width="600px">
 </p>
 Installation
 ------------

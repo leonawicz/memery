@@ -159,6 +159,10 @@
 <a href="#memery-0-3-0" class="anchor"></a>memery 0.3.0</h1>
 <ul>
 <li>Breaking changes: updated some arguments for <code>meme</code> and <code>text_position</code>.</li>
+<li>Attempts to load Impact font on package load or to use any fonts with <code>meme</code> when not installed on the system now fail gracefully, falling back on <code>serif</code>.</li>
+<li>
+<code>showtext</code>, <code>showtextdb</code> and <code>sysfonts</code> are now fully loaded ahead of <code>memery</code>.</li>
+<li>Font sizing adjustments have been made to attempt to maintain as consistent as possible a text display on jpg vs. png outputs. Better anti-aliasing may be achieved using png, particularly regarding the text, though they will be fairly similar.</li>
 <li>Added introduction vignette content.</li>
 <li>Added resource image file for examples and testing.</li>
 <li>Added unit tests.</li>
