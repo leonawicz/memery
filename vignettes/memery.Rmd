@@ -1,7 +1,6 @@
 ---
 title: "Introduction to memery"
 author: "Matthew Leonawicz"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to memery}
@@ -25,15 +24,15 @@ This consists of the background image and overlying text label(s). The image can
 ### Note on fonts
 
 Note that Impact is a Windows font. If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme`, e.g. `family = "Consolas"`, is not installed on an operating system,
-`meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which \code{merery} leverages.
+`meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which \code{memery} leverages.
 
 ```{r sources_and_outputs}
 library(memery)
 loc <- system.file("philosoraptor.jpg", package = "memery")
 web <- "https://imgflip.com/s/meme/Philosoraptor.jpg"
 lab <- c("What to call my R package?", "Perhaps...")
-meme(loc, lab[1], "meme1.jpg", size = 0.75)
-meme(web, lab[1], "meme1.png", size = 0.75)
+meme(loc, lab[1], "meme1.jpg")
+meme(web, lab[1], "meme1.png")
 ```
 
 <p style="text-align:center;"><img src="meme1.jpg"></p>
@@ -41,7 +40,7 @@ meme(web, lab[1], "meme1.png", size = 0.75)
 There is sensible default label placement. If `label` is a vector of length two, `meme` will make a symmetrical top and bottom title/subtitle pair of text labels.
 
 ```{r two_labels}
-meme(loc, lab, "meme2.jpg", size = 0.75)
+meme(loc, lab, "meme2.jpg")
 ```
 
 <p style="text-align:center;"><img src="meme2.jpg"></p>
@@ -56,20 +55,18 @@ The label and shadow color can be controlled by `col` and `shadow`.
 
 ```{r colors}
 clrs <- c("orange", "white")
-meme(loc, lab, "meme3.jpg", size = 0.75, col = clrs[1], shadow = clrs[2])
+meme(loc, lab, "meme3.jpg", col = clrs[1], shadow = clrs[2])
 ```
 
 <p style="text-align:center;"><img src="meme3.jpg"></p>
 
 The arguments `width` and `height` do not need to be provided. If missing, they are inferred from the dimensions of `img`. However, providing `width` and `height` overrides the source file dimension. This is useful for large source images. Whether or not `width` or `height` are provided, `mult` can also be used as an image dimensions multiplier. See below for details.
 
-### More about labels and fonts
+### Font size and image size
 
-Regarding `size`, while the default is set to $1$, this is rather arbitrary. There is really no perfect default because the ideal size depends on several factors including the text string length, font family, and the output file dimensions, as well as subjective taste such as how much of the image width should the text cover, whether it will display with insufficient or excessive height, or whether it will block the view of important areas of the meme image. It makes sense to explicitly supply `size` for every meme. Note that, all else being equal, in general if you use an image scaled to, say, twice the width and height of another, doubling `size` will retain proportional label width coverage, but then height coverage will change. Text may also display slightly differently in png vs. jpg output files. 
+While the default `size` is set to 1, this is rather arbitrary. There is really no perfect default because the ideal size depends on several factors including the text string length, font family, and the output file dimensions, as well as subjective taste such as how much of the image width should the text cover, whether it will display with insufficient or excessive height, or whether it will block the view of important areas of the meme image. It makes sense to explicitly supply `size` for every meme. Note that, all else being equal, in general if you use an image scaled to, say, twice the width and height of another, doubling `size` will retain proportional label width coverage, but then height coverage will change. Text may also display slightly differently in png vs. jpg output files. 
 
 Avoid using `mult` to *increase* your image size as it will expand the shadow effect. Use a larger source image instead. `mult` is best for multipliers less than one, used to shrink an image. For example, a picture taken with your phone may have dimensions well in excess of what you need for a meme and it will be more efficient to produce a smaller output file. `width` and `height` are useful when you need to change the canvas size. These will not alter the aspect ratio. These will all affect the displayed label size in so much as it relates to the image dimensions.
-
-On package load, `memery` only imports the Impact font via `extrafont::font_import`. If you wish to use other fonts from that package, you need to import them first. See the `extrafont` help documentation for details. On Windows, for jpg outputs you may find that you also then need to call `extrafont::loadfonts("win")` to make fonts available to the `jpeg` device. Again, `memery` only sets this up for you on package load for the Impact font to make the standard font readily available while avoiding a long load time importing fonts you do not need.
 
 ## Optional plot overlay
 
@@ -88,29 +85,41 @@ p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", size = 2) +
   geom_point(colour = "orange", size = 4) + facet_wrap(~grp) +
   labs(title = txt[1], subtitle = txt[2], caption = txt[3])
 
-meme(loc, lab, "meme4a.jpg", size = 0.75, inset = p)
+meme(loc, lab, "meme4a.jpg", inset = p)
 ```
 
 <p style="text-align:center;"><img src="meme4a.jpg"></p>
 
 Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the `grid` package. It is a rectangle layer in the same viewport as `p`; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to `ggtheme` or setting this to NULL, which falls back on whatever theme is set for your plot `p`. The default theme for meme plots comes from `memetheme`.
 
-Since the philosoraptor image is a bit small, it is enlarged below when including the inset plot again. The default `size = 1` is used here. For now, drop the second text label. It will be relocated later.
+An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.
 
-```{r inset2}
-meme(loc, lab[1], "meme4b.jpg", size = 1.5, inset = p, mult = 2)
+```{r inset1b}
+library(cowplot)
+p2 <- ggplot(data_frame(x = rnorm(10000)), aes(x)) +
+  geom_density(adjust = 2, size = 1) + theme_nothing()
+pos <- list(w = 0.2, h = 0.2, x = 0.875, y = 0.125)
+meme(loc, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue", col = "black"), inset_pos = pos)
 ```
 
 <p style="text-align:center;"><img src="meme4b.jpg"></p>
+
+Since the philosoraptor image is a bit small, it is enlarged below when including the inset plot again. The default `size = 1` is used here. For now, drop the second text label. It will be relocated later.
+
+```{r inset2}
+meme(loc, lab[1], "meme4c.jpg", size = 2, inset = p, mult = 2)
+```
+
+<p style="text-align:center;"><img src="meme4c.jpg"></p>
 
 Below is an example where the background panel is set to another semi-transparent color and the border color is no longer transparent.
 
 ```{r inset3}
 vp_bg <- list(fill = "#FF00FF50", col = "#FFFFFF75")
-meme(loc, lab[1], "meme4c.jpg", size = 1.5, inset = p, inset_bg = vp_bg, mult = 2)
+meme(loc, lab[1], "meme4d.jpg", size = 2, inset = p, inset_bg = vp_bg, mult = 2)
 ```
 
-<p style="text-align:center;"><img src="meme4c.jpg"></p>
+<p style="text-align:center;"><img src="meme4d.jpg"></p>
 
 You can also increase the radius of the rounded corners,  with, e.g.
 
@@ -127,7 +136,7 @@ As shown, more than one text label can be drawn on the meme plot and assigned a 
 ```{r inset4}
 lab[2:3] <- c("Perhaps raptr... NO!!!", "Pfft. Figures.")
 lab_pos <- list(w = rep(0.9, 3), h = rep(0.3, 3), x = rep(0.5, 3), y = c(0.95, 0.85, 0.3))
-meme(loc, lab, "meme5.jpg", size = c(1, 2, 1), family = c("Times", "Impact", "Impact"), col = clrs, shadow = rev(clrs), label_pos = lab_pos, inset = p, mult = 2)
+meme(loc, lab, "meme5.jpg", size = c(1.25, 2.5, 1), family = c("serif", "Impact", "Impact"), col = clrs, shadow = rev(clrs), label_pos = lab_pos, inset = p, mult = 2)
 ```
 
 <p style="text-align:center;"><img src="meme5.jpg"></p>
