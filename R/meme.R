@@ -108,8 +108,9 @@ meme <- function(img, label, file, size = 1, family = "Impact", col = "white", s
   if(missing(height)) height <- rc[1]
   width <- width*mult
   height <- height*mult
-  base_size_multiplier <- 4
+  base_size_multiplier <- 3.5
   if(missing(size)) size <- 1
+  if(ext2 == "jpg") size <- (3 / 4) * size
   size <- size * base_size_multiplier
   if(n > 1){
     size <- rep(size, length.out = n)
@@ -122,7 +123,7 @@ meme <- function(img, label, file, size = 1, family = "Impact", col = "white", s
     ggplot2::annotation_custom(g0, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) +
     cowplot::theme_nothing()
   if(ext2 == "png") Cairo::CairoPNG(file, width = width, height = height)
-  if(ext2 == "jpg") grDevices::jpeg(file, width = width, height = height)
+  if(ext2 == "jpg") grDevices::jpeg(file, width = width, height = height, type = "cairo")
   showtext::showtext_begin()
   grid::grid.newpage()
   vp_back <- grid::viewport(width = 1, height = 1, x = 0.5, y = 0.5)
