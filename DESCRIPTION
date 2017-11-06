@@ -1,6 +1,6 @@
 Package: memery
 Version: 0.3.0
-Title: Internet Memes For Data Analysts
+Title: Internet Memes for Data Analysts
 Description: The memery package is used for generating internet memes that may optionally include a superimposed inset plot.
    It also offers the classic Impact font family with shadow/outline effect for the meme text label.
 Authors@R: person("Matthew", "Leonawicz", email = "mfleonawicz@alaska.edu", role = c("aut", "cre"))
