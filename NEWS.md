@@ -3,6 +3,7 @@
 * Breaking changes: updated some arguments for `meme` and `text_position`.
 * Attempts to load Impact font on package load or to use any fonts with `meme` when not installed on the system now fail gracefully, falling back on `serif`.
 * `showtext`, `showtextdb` and `sysfonts` are now fully loaded ahead of `memery`.
+* Font sizing adjustments have been made to attempt to maintain as consistent as possible a text display on jpg vs. png outputs. Better anti-aliasing may be achieved using png, particularly regarding the text, though they will be fairly similar.
 * Added introduction vignette content.
 * Added resource image file for examples and testing.
 * Added unit tests.
