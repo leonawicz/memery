@@ -5,6 +5,8 @@
 * `showtext`, `showtextdb` and `sysfonts` are now fully loaded ahead of `memery`.
 * Font sizing adjustments have been made to attempt to maintain as consistent as possible a text display on jpg vs. png outputs. Better anti-aliasing may be achieved using png, particularly regarding the text, though they will be fairly similar.
 * Added introduction vignette content.
+* Added templates to `inset_background` and `inset_position` helpers.
+* Added `size` and `margin` arguments for additional user control of `inset_background` thumbnail inset templates.
 * Added resource image file for examples and testing.
 * Added unit tests.
 * Minor bug fixes.
