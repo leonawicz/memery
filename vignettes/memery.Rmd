@@ -98,7 +98,7 @@ An opaque background for the inset is more suitable for a thumbnail image that d
 library(cowplot)
 p2 <- ggplot(data_frame(x = rnorm(10000)), aes(x)) +
   geom_density(adjust = 2, size = 1) + theme_nothing()
-pos <- list(w = 0.2, h = 0.2, x = 0.875, y = 0.125)
+pos <- list(w = 0.2, h = 0.2, x = 0.125, y = 0.125)
 meme(loc, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue", col = "black"), inset_pos = pos)
 ```
 
