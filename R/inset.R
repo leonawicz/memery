@@ -56,13 +56,14 @@ inset_templates <- function(type){
 memetheme <- function(base_col = "white"){
   ggplot2::theme(
     panel.grid.major = ggplot2::element_line(size = 0.5, colour = "grey"),
-    title = ggplot2::element_text(colour = base_col),
+    title = ggplot2::element_text(colour = base_col, hjust = 0),
     axis.text = ggplot2::element_text(colour = base_col),
     axis.ticks = ggplot2::element_line(colour = base_col),
     axis.line = ggplot2::element_line(size = 0.7, colour = base_col),
     axis.ticks.length = ggplot2::unit(0.35, "cm"), legend.position = "bottom",
     legend.justification = "right", legend.title = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(size = 14), text = ggplot2::element_text(size = 18),
+    plot.title = element_text(size = 20),
     panel.spacing.x = ggplot2::unit(0.25, "cm"),
     plot.margin = ggplot2::unit(c(0.25, 0.5, 0.25, 0.25), "cm"),
     strip.text = ggplot2::element_text(size = 14),
