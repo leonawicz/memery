@@ -197,17 +197,29 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="k
 <span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme4a.jpg"</span>, <span class="dt">inset =</span> p)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4a.jpg"></p>
-<p>Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the <code>grid</code> package. It is a rectangle layer in the same viewport as <code>p</code>; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to <code>ggtheme</code> or setting this to NULL, which falls back on whatever theme is set for your plot <code>p</code>. The default theme for meme plots comes from <code>memetheme</code>.</p>
-<p>An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cowplot)
-p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(<span class="dv">10000</span>)), <span class="kw">aes</span>(x)) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>, 
-    <span class="dt">size =</span> <span class="dv">1</span>) +<span class="st"> </span><span class="kw">theme_nothing</span>()
+<p>Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the <code>grid</code> package. It is a rectangle layer in the same viewport as <code>p</code>; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to <code>ggtheme</code> or setting this to <code>NULL</code>, which falls back on whatever theme is set for your plot <code>p</code>. The default theme for meme plots comes from <code>memetheme</code>. Naturally, the theme will need to be customized for many meme plots because underlying meme images are arbitrary.</p>
+<div id="inset-templates-thumbnails" class="section level3">
+<h3 class="hasAnchor">
+<a href="#inset-templates-thumbnails" class="anchor"></a>Inset templates: thumbnails</h3>
+<p>The graph overlay does not fit well, namely the annotations. This will be adjusted in a moment. First, a quick look at other position templates. An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(<span class="dv">10000</span>)), <span class="kw">aes</span>(x)) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>, 
+    <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">1</span>)
 pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">w =</span> <span class="fl">0.2</span>, <span class="dt">h =</span> <span class="fl">0.2</span>, <span class="dt">x =</span> <span class="fl">0.125</span>, <span class="dt">y =</span> <span class="fl">0.125</span>)
 <span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"dodgerblue"</span>, 
-    <span class="dt">col =</span> <span class="st">"black"</span>), <span class="dt">inset_pos =</span> pos)</code></pre></div>
+    <span class="dt">col =</span> <span class="st">"black"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4b.jpg"></p>
-<p>Since the philosoraptor image is a bit small for the detailed plot above, it is enlarged below when including the inset plot again. For now, drop the second text label. It will be relocated later.</p>
+<p>Above, the size and position was specified explicitly with <code>pos</code>. However, the same could be done using <code><a href="../reference/inset.html">inset_position(type = "bl")</a></code>. The available position templates include the four corners via <code>tl</code>, <code>tr</code>, <code>br</code> and <code>bl</code> for top right, top left, bottom left and bottom right, respectively. There is also a <code>center</code> option. <code>inset_position</code> also takes <code>size</code> and <code>margin</code> arguments to further specify the thumbnail placement.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pos &lt;-<span class="st"> </span><span class="kw"><a href="../reference/inset.html">inset_position</a></span>(<span class="st">"bl"</span>, <span class="dt">size =</span> <span class="kw">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>), <span class="dt">margin =</span> <span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.05</span>))
+<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b2.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"firebrick1"</span>, 
+    <span class="dt">col =</span> <span class="st">"white"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</code></pre></div>
+<p style="text-align:center;">
+<img src="meme4b2.jpg"></p>
+</div>
+<div id="improved-fit" class="section level3">
+<h3 class="hasAnchor">
+<a href="#improved-fit" class="anchor"></a>Improved fit</h3>
+<p>The philosoraptor image is a bit small for the first detailed plot shown above where the annotations go off the image. For convenience, it is enlarged below by simply using <code>mult = 2</code> when including the full graph again. For now, drop the second text label. It will be relocated later.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4c.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4c.jpg"></p>
@@ -219,6 +231,7 @@ pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">
 <p>You can also increase the radius of the rounded corners, with, e.g.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">r =</span> <span class="kw">unit</span>(<span class="fl">0.1</span>, <span class="st">"snpc"</span>))</code></pre></div>
 <p>Setting to zero will remove the rounding.</p>
+</div>
 </div>
 <div id="multiple-labels-and-vector-arguments" class="section level2">
 <h2 class="hasAnchor">
