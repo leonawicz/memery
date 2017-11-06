@@ -23,8 +23,8 @@ This consists of the background image and overlying text label(s). The image can
 
 ### Note on fonts
 
-Note that Impact is a Windows font. If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme`, e.g. `family = "Consolas"`, is not installed on an operating system,
-`meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which \code{memery} leverages.
+Note that Impact is a Windows font. If using `memery` on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme`, e.g. `family = "Consolas"`, is not installed on an operating system,
+`meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which `memery` leverages.
 
 ```{r sources_and_outputs}
 library(memery)
@@ -96,6 +96,10 @@ Note the default semi-transparent background that allows the meme image to show 
 
 The graph overlay does not fit well, namely the annotations. This will be adjusted in a moment. First, a quick look at other position templates.
 An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.
+
+```{r seed}
+set.seed(1)
+```
 
 ```{r inset1b}
 p2 <- ggplot(data_frame(x = rnorm(10000)), aes(x)) +

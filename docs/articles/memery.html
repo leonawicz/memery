@@ -139,7 +139,7 @@
 <div id="note-on-fonts" class="section level3">
 <h3 class="hasAnchor">
 <a href="#note-on-fonts" class="anchor"></a>Note on fonts</h3>
-<p>Note that Impact is a Windows font. If using  on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is not installed on an operating system, <code>meme</code> will ignore it and fall back on <code>family = "serif"</code> internally. If unfamiliar, explore the documentation and examples available for the <code>showtext</code> and <code>sysfonts</code> packages, which  leverages.</p>
+<p>Note that Impact is a Windows font. If using <code>memery</code> on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is not installed on an operating system, <code>meme</code> will ignore it and fall back on <code>family = "serif"</code> internally. If unfamiliar, explore the documentation and examples available for the <code>showtext</code> and <code>sysfonts</code> packages, which <code>memery</code> leverages.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(memery)
 loc &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">"philosoraptor.jpg"</span>, <span class="dt">package =</span> <span class="st">"memery"</span>)
 web &lt;-<span class="st"> "https://imgflip.com/s/meme/Philosoraptor.jpg"</span>
@@ -202,6 +202,7 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="k
 <h3 class="hasAnchor">
 <a href="#inset-templates-thumbnails" class="anchor"></a>Inset templates: thumbnails</h3>
 <p>The graph overlay does not fit well, namely the annotations. This will be adjusted in a moment. First, a quick look at other position templates. An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(<span class="dv">10000</span>)), <span class="kw">aes</span>(x)) +<span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>, 
     <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">1</span>)
 pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">w =</span> <span class="fl">0.2</span>, <span class="dt">h =</span> <span class="fl">0.2</span>, <span class="dt">x =</span> <span class="fl">0.125</span>, <span class="dt">y =</span> <span class="fl">0.125</span>)
