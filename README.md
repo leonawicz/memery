@@ -17,9 +17,8 @@ The `memery` package is used for generating internet memes suited specifically t
     -   Alternatively, if you want an opaque background for the plot inset, size and placement can be adjusted to your needs.
 -   Output file can be jpg or png.
 
-<p style="text-align:center;">
-<img src="articles/meme4d.jpg" width="600px">
-</p>
+![](articles/meme4d.jpg)
+
 Installation
 ------------
 
