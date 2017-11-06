@@ -63,7 +63,7 @@ memetheme <- function(base_col = "white"){
     axis.ticks.length = ggplot2::unit(0.35, "cm"), legend.position = "bottom",
     legend.justification = "right", legend.title = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(size = 14), text = ggplot2::element_text(size = 18),
-    plot.title = element_text(size = 20),
+    plot.title = ggplot2::element_text(size = 20),
     panel.spacing.x = ggplot2::unit(0.25, "cm"),
     plot.margin = ggplot2::unit(c(0.25, 0.5, 0.25, 0.25), "cm"),
     strip.text = ggplot2::element_text(size = 14),
