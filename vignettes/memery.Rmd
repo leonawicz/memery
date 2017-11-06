@@ -104,7 +104,7 @@ meme(loc, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue",
 
 <p style="text-align:center;"><img src="meme4b.jpg"></p>
 
-Since the philosoraptor image is a bit small, it is enlarged below when including the inset plot again. The default `size = 1` is used here. For now, drop the second text label. It will be relocated later.
+Since the philosoraptor image is a bit small for the detailed plot above, it is enlarged below when including the inset plot again. For now, drop the second text label. It will be relocated later.
 
 ```{r inset2}
 meme(loc, lab[1], "meme4c.jpg", size = 2, inset = p, mult = 2)
