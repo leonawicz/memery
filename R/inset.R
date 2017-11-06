@@ -6,7 +6,7 @@
 #' \code{inset_position} and \code{inset_background} assist with some basic options for position and background of the optional ggplot inset graphic.
 #' \code{inset_templates} can be used to view the available templates. See examples.
 #' If a template is not available to suit your needs, provide your own argument list to \code{meme}
-#' in the form of, e.g., \code{inset_pos = list(w = 0.975, h = 0.6, x = 0.5, y = 0.325)}.
+#' in the form of, e.g., \code{inset_pos = list(w = 0.95, h = 0.6, x = 0.5, y = 0.325)}.
 #'
 #' \subsection{Size and position}{
 #' The coordinate system for the meme plot ranges from zero to one in x and y.
@@ -69,7 +69,7 @@ inset_position <- function(type = "default", size = 0.2, margin = 0.025){
   lwr <- size / 2 + margin
   upr <- 1 - lwr
   switch(type,
-         default = list(w = 0.975, h = 0.6, x = 0.5, y = 0.325),
+         default = list(w = 0.95, h = 0.6, x = 0.5, y = 0.325),
          tl = list(w = size[1], h = size[2], x = lwr[1], y = upr[2]),
          tr = list(w = size[1], h = size[2], x = upr[1], y = upr[2]),
          br = list(w = size[1], h = size[2], x = upr[1], y = lwr[2]),
@@ -104,24 +104,28 @@ inset_templates <- function(type){
 #'
 #' The default ggplot2 theme for meme plots.
 #'
-#' @param base_col the base color for all title text and axis lines and ticks.
+#' @param base_size numric, the base size.
+#' @param base_family character, the base font family.
+#' @param base_col character, the base color for all title text and axis lines and ticks.
 #'
 #' @return a ggplot2 theme.
 #' @export
-memetheme <- function(base_col = "white"){
+memetheme <- function(base_size = 14, base_family = "", base_col = "white"){
+  ggplot2::theme_gray(base_size = base_size, base_family = base_family) +
   ggplot2::theme(
-    panel.grid.major = ggplot2::element_line(size = 0.5, colour = "grey"),
+    panel.grid.major = ggplot2::element_line(size = 0.5, colour = "gray"),
     title = ggplot2::element_text(colour = base_col, hjust = 0),
     axis.text = ggplot2::element_text(colour = base_col),
     axis.ticks = ggplot2::element_line(colour = base_col),
-    axis.line = ggplot2::element_line(size = 0.7, colour = base_col),
+    axis.line = ggplot2::element_line(size = 1, colour = base_col),
     axis.ticks.length = ggplot2::unit(0.35, "cm"), legend.position = "bottom",
     legend.justification = "right", legend.title = ggplot2::element_blank(),
-    legend.text = ggplot2::element_text(size = 14), text = ggplot2::element_text(size = 18),
+    legend.text = ggplot2::element_text(size = base_size), text = ggplot2::element_text(size = 18),
     plot.title = ggplot2::element_text(size = 20),
     panel.spacing.x = ggplot2::unit(0.25, "cm"),
     plot.margin = ggplot2::unit(c(0.25, 0.5, 0.25, 0.25), "cm"),
-    strip.text = ggplot2::element_text(size = 14),
+    strip.background = ggplot2::element_rect(fill = "#33333350", colour = base_col),
+    strip.text = ggplot2::element_text(size = base_size, colour = base_col),
     panel.background = ggplot2::element_rect(fill = NA),
-    plot.background = ggplot2::element_rect(fill = NA, colour = NA))
+    plot.background = ggplot2::element_rect(fill = NA, colour = NA), complete = TRUE)
 }

@@ -4,10 +4,14 @@
 \alias{memetheme}
 \title{Default meme theme}
 \usage{
-memetheme(base_col = "white")
+memetheme(base_size = 14, base_family = "", base_col = "white")
 }
 \arguments{
-\item{base_col}{the base color for all title text and axis lines and ticks.}
+\item{base_size}{numric, the base size.}
+
+\item{base_family}{character, the base font family.}
+
+\item{base_col}{character, the base color for all title text and axis lines and ticks.}
 }
 \value{
 a ggplot2 theme.

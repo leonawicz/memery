@@ -30,7 +30,7 @@ Templates for the position and background of a ggplot inset.
 \code{inset_position} and \code{inset_background} assist with some basic options for position and background of the optional ggplot inset graphic.
 \code{inset_templates} can be used to view the available templates. See examples.
 If a template is not available to suit your needs, provide your own argument list to \code{meme}
-in the form of, e.g., \code{inset_pos = list(w = 0.975, h = 0.6, x = 0.5, y = 0.325)}.
+in the form of, e.g., \code{inset_pos = list(w = 0.95, h = 0.6, x = 0.5, y = 0.325)}.
 
 \subsection{Size and position}{
 The coordinate system for the meme plot ranges from zero to one in x and y.
