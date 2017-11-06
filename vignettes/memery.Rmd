@@ -90,17 +90,18 @@ meme(loc, lab, "meme4a.jpg", inset = p)
 
 <p style="text-align:center;"><img src="meme4a.jpg"></p>
 
-Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the `grid` package. It is a rectangle layer in the same viewport as `p`; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to `ggtheme` or setting this to `NULL`, which falls back on whatever theme is set for your plot `p`. The default theme for meme plots comes from `memetheme`.
+Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the `grid` package. It is a rectangle layer in the same viewport as `p`; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to `ggtheme` or setting this to `NULL`, which falls back on whatever theme is set for your plot `p`. The default theme for meme plots comes from `memetheme`. Naturally, the theme will need to be customized for many meme plots because underlying meme images are arbitrary.
+
+### Inset templates: thumbnails
 
 The graph overlay does not fit well, namely the annotations. This will be adjusted in a moment. First, a quick look at other position templates.
 An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.
 
 ```{r inset1b}
-library(cowplot)
 p2 <- ggplot(data_frame(x = rnorm(10000)), aes(x)) +
-  geom_density(adjust = 2, size = 1) + theme_nothing()
+  geom_density(adjust = 2, colour = "white", size = 1)
 pos <- list(w = 0.2, h = 0.2, x = 0.125, y = 0.125)
-meme(loc, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue", col = "black"), inset_pos = pos)
+meme(loc, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue", col = "black"), inset_pos = pos, ggtheme = theme_void())
 ```
 
 <p style="text-align:center;"><img src="meme4b.jpg"></p>
@@ -110,10 +111,12 @@ There is also a `center` option. `inset_position` also takes `size` and `margin`
 
 ```{r inset1c}
 pos <- inset_position("bl", size = c(0.4, 0.2), margin = c(0.025, 0.05))
-meme(loc, lab[1], "meme4b2.jpg", inset = p2, inset_bg = list(fill = "#FF4500", col = "white"), inset_pos = pos)
+meme(loc, lab[1], "meme4b2.jpg", inset = p2, inset_bg = list(fill = "firebrick1", col = "white"), inset_pos = pos, ggtheme = theme_void())
 ```
 
 <p style="text-align:center;"><img src="meme4b2.jpg"></p>
+
+### Improved fit
 
 The philosoraptor image is a bit small for the first detailed plot shown above where the annotations go off the image. For convenience, it is enlarged below by simply using `mult = 2` when including the full graph again. For now, drop the second text label. It will be relocated later.
 
