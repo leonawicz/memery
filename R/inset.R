@@ -24,7 +24,12 @@
 #' These arguments can be scalar, in which case the inset remains square and the margins are equal.
 #' If a length-2 vector, \code{size} can provide unique width and height for a rectangular inset.
 #' Similarly, \code{margin} can provide different margins for the distance to a side vs. the top or bottom edge of the meme plot.
-#' For \code{type = "center"}, \code{size} is used but \code{margin} is ignored.
+#'
+#' For \code{type = "center"}, \code{size} is used but \code{margin} is ignored, giving you control over the thumbnail size.
+#' Appending the letter \code{q} to a corner thumbnail template ID, e.g. \code{type = "blq"}, yields a quadrant plot.
+#' In contrast to \code{type = "center"}, these types allow for user control over margins for plots of fixed coverage area.
+#' Specifying the right combination of \code{size} and \code{margin} with a corner thumbnail template can be used to create a
+#' quadrant plot, but using a quadrant template simplifies this.
 #'
 #' \code{size} and \code{margin} are provided for convenience, adding more control over the position templates.
 #' If you require more specific size and position control, simply pass your own 4-argument list as described above.
@@ -48,16 +53,15 @@
 #' @return a list of arguments passed to either \code{inset_pos} or \code{inset_bg} in \code{meme}.
 #'
 #' @examples
-#' \dontrun{
 #' inset_templates("position")
 #' inset_templates("background")
 #' inset_position()
 #' inset_position("br")
+#' inset_position("brq", margin = 0.05)
 #' inset_position("br", size = 0.4, margin = 0)
 #' inset_background()
 #' inset_background("opsq")
 #' inset_background("blank")
-#' }
 NULL
 
 #' @export
@@ -68,12 +72,19 @@ inset_position <- function(type = "default", size = 0.2, margin = 0.025){
   margin <- rep(margin, length.out = 2)
   lwr <- size / 2 + margin
   upr <- 1 - lwr
+  qsize <- c(0.5, 0.5) - 2 * margin
+  qlwr <- qsize / 2 + margin
+  qupr <- 1 - qlwr
   switch(type,
          default = list(w = 0.95, h = 0.6, x = 0.5, y = 0.325),
          tl = list(w = size[1], h = size[2], x = lwr[1], y = upr[2]),
          tr = list(w = size[1], h = size[2], x = upr[1], y = upr[2]),
          br = list(w = size[1], h = size[2], x = upr[1], y = lwr[2]),
          bl = list(w = size[1], h = size[2], x = lwr[1], y = lwr[2]),
+         tlq = list(w = qsize[1], h = qsize[2], x = qlwr[1], y = qupr[2]),
+         trq = list(w = qsize[1], h = qsize[2], x = qupr[1], y = qupr[2]),
+         brq = list(w = qsize[1], h = qsize[2], x = qupr[1], y = qlwr[2]),
+         blq = list(w = qsize[1], h = qsize[2], x = qlwr[1], y = qlwr[2]),
          center = list(w = size[1], h = size[2], x = 0.5, y = 0.5)
   )
 }
@@ -95,7 +106,7 @@ inset_background <- function(type = "default"){
 #' @rdname inset
 inset_templates <- function(type){
   switch(type,
-         position = c("default", "tl", "tr", "br", "bl", "center"),
+         position = c("default", "tl", "tr", "br", "bl", "tlq", "trq", "brq", "blq", "center"),
          background = c("default", "op", "sq", "opsq", "blank")
   )
 }
@@ -104,7 +115,7 @@ inset_templates <- function(type){
 #'
 #' The default ggplot2 theme for meme plots.
 #'
-#' @param base_size numric, the base size.
+#' @param base_size numeric, the base size.
 #' @param base_family character, the base font family.
 #' @param base_col character, the base color for all title text and axis lines and ticks.
 #'

@@ -48,7 +48,12 @@ You can further adjust the size and distance from the edges using \code{size} an
 These arguments can be scalar, in which case the inset remains square and the margins are equal.
 If a length-2 vector, \code{size} can provide unique width and height for a rectangular inset.
 Similarly, \code{margin} can provide different margins for the distance to a side vs. the top or bottom edge of the meme plot.
-For \code{type = "center"}, \code{size} is used but \code{margin} is ignored.
+
+For \code{type = "center"}, \code{size} is used but \code{margin} is ignored, giving you control over the thumbnail size.
+Appending the letter \code{q} to a corner thumbnail template ID, e.g. \code{type = "blq"}, yields a quadrant plot.
+In contrast to \code{type = "center"}, these types allow for user control over margins for plots of fixed coverage area.
+Specifying the right combination of \code{size} and \code{margin} with a corner thumbnail template can be used to create a
+quadrant plot, but using a quadrant template simplifies this.
 
 \code{size} and \code{margin} are provided for convenience, adding more control over the position templates.
 If you require more specific size and position control, simply pass your own 4-argument list as described above.
@@ -65,14 +70,13 @@ without the use of \code{inset_background}.
 }
 }
 \examples{
-\dontrun{
 inset_templates("position")
 inset_templates("background")
 inset_position()
 inset_position("br")
+inset_position("brq", margin = 0.05)
 inset_position("br", size = 0.4, margin = 0)
 inset_background()
 inset_background("opsq")
 inset_background("blank")
-}
 }

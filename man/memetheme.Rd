@@ -7,7 +7,7 @@
 memetheme(base_size = 14, base_family = "", base_col = "white")
 }
 \arguments{
-\item{base_size}{numric, the base size.}
+\item{base_size}{numeric, the base size.}
 
 \item{base_family}{character, the base font family.}
 
