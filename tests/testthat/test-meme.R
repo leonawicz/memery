@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
 })
 
 d <- data_frame(x = seq(0, 2*pi, length.out = 100), y = sin(x))
-d <- bind_rows(d, d) %>% mutate(group = rep(c("Cat A", "Cat B"), each = 100))
+d <- bind_rows(d, d) %>% mutate(group = rep(c("Plot A", "Plot B"), each = 100))
 p <- ggplot(d, aes(x, y)) + geom_line(colour = "dodgerblue", size = 2) +
   geom_point(colour = "orange", size = 2) + facet_wrap(~group) +
   labs(title = "A plot", subtitle = "Plot subtitle", caption = "Figure 1. A caption.")
@@ -41,6 +41,7 @@ test_that("meme runs as expected", {
   expect_is(meme(loc, lab[1], out[2], family = fam), x)
 
   expect_is(meme(loc, lab[1], out[1], family = "mono", inset = p, inset_bg = list()), x)
+  expect_is(meme(loc, lab[1], out[1], inset = p, inset_pos = inset_position("blq")), x)
   p2 <- ggplot(data_frame(x = rnorm(10000)), aes(x)) +
     geom_density(adjust = 2, size = 1) + cowplot::theme_nothing()
   pos <- list(w = 0.2, h = 0.2, x = 0.125, y = 0.125)
