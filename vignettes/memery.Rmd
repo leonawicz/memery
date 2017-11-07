@@ -92,7 +92,7 @@ meme(loc, lab, "meme4a.jpg", inset = p)
 
 Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the `grid` package. It is a rectangle layer in the same viewport as `p`; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to `ggtheme` or setting this to `NULL`, which falls back on whatever theme is set for your plot `p`. The default theme for meme plots comes from `memetheme`. Naturally, the theme will need to be customized for many meme plots because underlying meme images are arbitrary.
 
-### Inset templates: thumbnails
+### Alternate inset templates
 
 The graph overlay does not fit well, namely the annotations. This will be adjusted in a moment. First, a quick look at other position templates.
 An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.
@@ -111,7 +111,7 @@ meme(loc, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue",
 <p style="text-align:center;"><img src="meme4b.jpg"></p>
 
 Above, the size and position was specified explicitly with `pos`. However, the same could be done using `inset_position(type = "bl")`. The available position templates include the four corners via `tl`, `tr`, `br` and `bl` for top right, top left, bottom left and bottom right, respectively.
-There is also a `center` option. `inset_position` also takes `size` and `margin` arguments to further specify the thumbnail placement.
+There is also a `center` thumbnail option. `inset_position` also takes `size` and `margin` arguments to further specify the thumbnail placement.
 
 ```{r inset1c}
 pos <- inset_position("bl", size = c(0.4, 0.2), margin = c(0.025, 0.05))
@@ -120,9 +120,11 @@ meme(loc, lab[1], "meme4b2.jpg", inset = p2, inset_bg = list(fill = "firebrick1"
 
 <p style="text-align:center;"><img src="meme4b2.jpg"></p>
 
+There are also four full quadrant templates. These are special cases of the corner thumbnails. They are specified by appending the letter `q` to the end of a corner template ID: `tlq`, `trq`, `brq`, and `blq`. The `size` argument is not applicable since these are fixed, full quadrant plots, but these templates still allow for `margin` control.
+
 ### Improved fit
 
-The philosoraptor image is a bit small for the first detailed plot shown above where the annotations go off the image. For convenience, it is enlarged below by simply using `mult = 2` when including the full graph again. For now, drop the second text label. It will be relocated later.
+Returning to the more complex graph, the philosoraptor image is a bit small for the first detailed plot shown above where the annotations go off the image. For convenience, it is enlarged below by simply using `mult = 2` when including the full graph again. For now, drop the second text label. It will be relocated later.
 
 ```{r inset2}
 meme(loc, lab[1], "meme4c.jpg", size = 2, inset = p, mult = 2)
