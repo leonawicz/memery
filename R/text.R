@@ -12,6 +12,9 @@
 #' @return a list of meme text label position arguments: \code{w} (width), \code{h} (height), and \code{x} and \code{y} coordinates.
 #' @export
 #'
+#' @examples
+#' text_position(1)
+#' text_position(2)
 text_position <- function(n){
   if(!n %in% c(1, 2)) stop("`n` must be 1 or 2.")
   x <- list(w = 0.9, h = 0.3, x = 0.5, y = 0.9)

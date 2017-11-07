@@ -21,3 +21,7 @@ This function is used as the default for the \code{label_pos} argument in \code{
 It is provided if you do not want to bother with specifying coordinates and exact placement does not matter.
 It is not intended for placement of more than two meme text labels and any value other than 1 or 2 returns an error.
 }
+\examples{
+text_position(1)
+text_position(2)
+}
