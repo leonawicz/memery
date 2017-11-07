@@ -2,8 +2,8 @@
 This is a resubmission. In this version I have:
 
 * Updated the DESCRIPTION to the requested formatting and style and clarified how this package differs from related packages.
-* Removed `dontrun` wrappers from examples that do not take too long to execute.
-   * Also added more thorough examples with comments for the main package function, `meme`.
+* Removed `dontrun` wrappers from examples that do not individually take too long to execute.
+   * `donttest` is still used for some examples of `meme` calls that represent simpler versions whose internal processing is effectively encapsulated by the most complex call example, which is tested. This is done in an attempt to keep example execution time to a minimum.
 
 ## Test environments
 * local Windows 10 install, R 3.4.2
