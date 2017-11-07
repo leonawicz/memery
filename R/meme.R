@@ -91,13 +91,12 @@
 #' # meme image background and text labels
 #' img <- system.file("philosoraptor.jpg", package = "memery")
 #' lab <- c("Title meme text", "Subtitle text")
-#'
+#' \donttest{
 #' # basic meme
 #' meme(img, lab[1:2], "meme_basic.jpg")
-#'
 #' # data analyst's meme
 #' meme(img, lab[1:2], "meme_data.jpg", size = 2, inset = p, mult = 2)
-#'
+#' }
 #' # data meme with additional content control
 #' vp_bg <- list(fill = "#FF00FF50", col = "#FFFFFF75") # graph background
 #' # arbitrary number of labels, placement, and other vectorized attributes
