@@ -76,15 +76,44 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' # Prepare data and make a graph
+#' library(ggplot2)
+#' x = seq(0, 2*pi , length.out = 50)
+#' panels <- rep(c("Plot A", "Plot B"), each = 50)
+#' d <- data.frame(x = x, y = sin(x), grp = panels)
+#' txt <- c("Philosoraptor's plots", "I like to make plots",
+#'   "Figure 1. (A) shows a plot and (B) shows another plot.")
+#'
+#' p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", size = 2) +
+#'   geom_point(colour = "orange", size = 4) + facet_wrap(~grp) +
+#'   labs(title = txt[1], subtitle = txt[2], caption = txt[3])
+#'
+#' # meme image background and text labels
 #' img <- system.file("philosoraptor.jpg", package = "memery")
-#' meme(img, "My first memery meme!", "meme.png")
-#' }
+#' lab <- c("Title meme text", "Subtitle text")
+#'
+#' # basic meme
+#' meme(img, lab[1:2], "meme_basic.jpg")
+#'
+#' # data analyst's meme
+#' meme(img, lab[1:2], "meme_data.jpg", size = 2, inset = p, mult = 2)
+#'
+#' # data meme with additional content control
+#' vp_bg <- list(fill = "#FF00FF50", col = "#FFFFFF75") # graph background
+#' # arbitrary number of labels, placement, and other vectorized attributes
+#' lab <- c(lab, "Middle plot text")
+#' pos <- list(w = rep(0.9, 3), h = rep(0.3, 3), x = c(0.35, 0.65, 0.5),
+#'   y = c(0.95, 0.85, 0.3))
+#' fam <- c("Impact", "serif", "Impact")
+#' clrs1 <- c("black", "orange", "white")
+#' clrs2 <- clrs1[c(2, 1, 1)]
+#' meme(img, lab, "meme_data2.jpg", size = c(2, 1.5, 1), family = fam, col = clrs1,
+#'   shadow = clrs2, label_pos = pos, inset = p, inset_bg = vp_bg, mult = 2)
 meme <- function(img, label, file, size = 1, family = "Impact", col = "white", shadow = "black",
                  label_pos = text_position(length(label)),
                  inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
                  inset_pos = inset_position(), width, height, mult = 1){
-  if(!family %in% sysfonts::font_families()) family <- "serif"
+  family[!family %in% sysfonts::font_families()] <- "serif"
   n <- length(label)
   if(!all(sapply(label_pos, length) == n))
     stop("`label_pos` list elements must be same length as `label`.")
