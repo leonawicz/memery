@@ -1,15 +1,22 @@
 context("inset")
 
-pos <- c("default", "tl", "tr", "br", "bl", "center")
+pos <- c("default", "tl", "tr", "br", "bl", "tlq", "trq", "brq", "blq", "center")
 bg <- c("default", "op", "sq", "opsq", "blank")
 
 test_that("inset_position returns as expected", {
   expect_identical(inset_position(pos[1]), list(w = 0.95, h = 0.6, x = 0.5, y = 0.325))
+
   expect_identical(inset_position(pos[2]), list(w = 0.2, h = 0.2, x = 0.125, y = 0.875))
   expect_identical(inset_position(pos[3]), list(w = 0.2, h = 0.2, x = 0.875, y = 0.875))
   expect_identical(inset_position(pos[4]), list(w = 0.2, h = 0.2, x = 0.875, y = 0.125))
   expect_identical(inset_position(pos[5]), list(w = 0.2, h = 0.2, x = 0.125, y = 0.125))
-  expect_identical(inset_position(pos[6]), list(w = 0.2, h = 0.2, x = 0.5, y = 0.5))
+
+  expect_identical(inset_position(pos[6]), list(w = 0.45, h = 0.45, x = 0.25, y = 0.75))
+  expect_identical(inset_position(pos[7]), list(w = 0.45, h = 0.45, x = 0.75, y = 0.75))
+  expect_identical(inset_position(pos[8]), list(w = 0.45, h = 0.45, x = 0.75, y = 0.25))
+  expect_identical(inset_position(pos[9]), list(w = 0.45, h = 0.45, x = 0.25, y = 0.25))
+
+  expect_identical(inset_position(pos[10]), list(w = 0.2, h = 0.2, x = 0.5, y = 0.5))
   expect_error(inset_position("a"), "Invalid inset position template.")
 })
 
