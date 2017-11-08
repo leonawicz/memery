@@ -7,7 +7,7 @@ Description: Generates internet memes that optionally include a superimposed ins
     Some packages do this by interfacing with online meme generators whereas others achieve this natively.
     This package takes the latter approach. It does not interface with online meme generators or require any authentication with external websites.
     It reads images directly from local files or via URL and meme generation is done by the package.
-    While this is similar to the meme package available on CRAN, it differs in that the focus is on 
+    While this is similar to the 'meme' package available on CRAN, it differs in that the focus is on 
     allowing for non-standard meme layouts and hybrids of memes mixed with graphs.
     While this package can be used to make basic memes like an online meme generator would produce, 
     it caters primarily to hybrid graph-meme plots where the meme presentation can be seen as a backdrop highlighting 
