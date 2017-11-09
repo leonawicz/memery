@@ -132,27 +132,22 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#memery" class="anchor"></a>memery</h1></div>
 
-<p>The <code>memery</code> package is used for generating internet memes suited specifically to data analysts. <code>merery</code> offers the following:</p>
-<ul>
-<li>Memes can use jpg or png inputs for the background image.</li>
-<li>You can control the font family.</li>
-<li>The classic meme font family, Impact, with shadow/outline effect for the meme text label is available as the default.</li>
-<li>Shadow effect is available for other fonts as well.</li>
-<li>Arbitrary number of text labels and placement using vectorized arguments; ideal for top/bottom or title/subtitle meme text pairs.</li>
-<li>Memes may optionally include a superimposed inset plot (ggplot object).
-<ul>
-<li>The default is to draw the optional plot directly on top of the background image, so it is recommended to use a transparent or semi-transparent background color for the ggplot panel and plot regions.</li>
-<li>Alternatively, if you want an opaque background for the plot inset, size and placement can be adjusted to your needs.</li>
-</ul>
-</li>
-<li>Output file can be jpg or png.</li>
-</ul>
+<div id="make-memorable-plots-with-memery-" class="section level2">
+<h2 class="hasAnchor">
+<a href="#make-memorable-plots-with-memery-" class="anchor"></a>Make memorable plots with <code>memery</code>.</h2>
+<p>The <code>memery</code> package generates internet memes that optionally include a superimposed inset plot and other atypical features, combining the visual impact of an attention-grabbing meme with graphic results of data analysis.</p>
+<p>The package differs from related packages that focus on imitating and reproducing standard memes. Some packages do this by interfacing with online meme generators whereas others achieve this natively. This package takes the latter approach. It does not interface with online meme generators or require any authentication with external websites. It reads images directly from local files or via URL and meme generation is done by the package.</p>
+<p>While this is similar to the ‘meme’ package available on CRAN, it differs in that the focus is on allowing for non-standard meme layouts and hybrids of memes mixed with graphs. While this package can be used to make basic memes like an online meme generator would produce, it caters primarily to hybrid graph-meme plots where the meme presentation can be seen as a backdrop highlighting foreground graphs of data analysis results.</p>
+<p>The package also provides support for an arbitrary number of meme text labels with arbitrary size, position and other attributes rather than restricting to the standard top and/or bottom text placement. This is useful for proper aesthetic interleaving of plots of data between meme image backgrounds and overlain text labels. The package offers a selection of templates for graph placement and appearance with respect to the underlying meme. Graph templates also permit additional template-specific customization.</p>
 <p style="text-align:center;">
 <img src="articles/meme4d.jpg" width="600px"></p>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install memery from github with:</p>
+<p>You can install memery from CRAN with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"memery"</span>)</code></pre></div>
+<p>You can install the latest development version from github with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages('devtools')</span>
 devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"leonawicz/memery"</span>)</code></pre></div>
 <p>See the <a href="https://leonawicz.github.io/memery/articles/memery.html">vignette</a> for an overview with usage examples.</p>
@@ -165,6 +160,8 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
     <h2 class="hasAnchor">
 <a href="#sidebar" class="anchor"></a>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cran.r-project.org/package=memery">https://​cran.r-project.org/​package=memery</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/leonawicz/memery">https://​github.com/​leonawicz/​memery</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/leonawicz/memery/issues">https://​github.com/​leonawicz/​memery/​issues</a>
@@ -179,6 +176,9 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=memery"><img src="http://www.r-pkg.org/badges/version/memery" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/package=memery"><img src="http://cranlogs.r-pkg.org/badges/grand-total/memery" alt="CRAN downloads"></a></li>
+<li><a href="http://www.rdocumentation.org/packages/memery"><img src="http://www.rdocumentation.org/badges/version/memery" alt="Rdoc"></a></li>
 <li><a href="https://travis-ci.org/leonawicz/memery"><img src="https://travis-ci.org/leonawicz/memery.svg?branch=master" alt="Travis-CI Build Status"></a></li>
 <li><a href="https://ci.appveyor.com/project/leonawicz/memery"><img src="https://ci.appveyor.com/api/projects/status/github/leonawicz/memery?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
 <li><a href="https://codecov.io/github/leonawicz/memery?branch=master"><img src="https://img.shields.io/codecov/c/github/leonawicz/memery/master.svg" alt="Coverage Status"></a></li>
