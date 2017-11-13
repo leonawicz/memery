@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The `memery` package is used for generating internet memes suited specifically to data analysts. This vignette covers the basic usage of `memery` with several examples.
+The `memery` package is used for generating internet memes suited specifically to data analysts, combining the visual impact of an attention-grabbing meme with graphic results of data analysis. This vignette covers the basic usage of `memery` with several examples.
 
 ## The meme
 
