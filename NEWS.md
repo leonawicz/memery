@@ -2,6 +2,7 @@
 
 * Copied DESCRIPTION file Description field content to `memery` help documentation details.
 * Updated readme.
+* Updated vignette.
 
 # memery 0.3.0 (Release date: 2017-11-09)
 
