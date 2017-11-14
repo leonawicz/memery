@@ -6,20 +6,20 @@
 #' @details
 #' This function generates and saves a meme as a jpg or png file.
 #'
-#' \subsection{Fonts}{}
+#' @section Fonts:
 #' Memes use the Impact font by default. This is a Windows font.
 #' If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system.
 #' If Impact or any other font family passed to \code{meme}, e.g. \code{family = "Consolas"}, is not installed on an operating system,
 #' \code{meme} will ignore it and fall back on \code{family = "serif"} internally.
 #' If unfamiliar, explore the documentation and examples available for the \code{showtext} and \code{sysfonts} packages, which \code{merery} leverages.
 #'
-#' \subsection{Text labels}{}
+#' @section Text labels:
 #' List elements in \code{label_pos} must all be the same length and must match the length of \code{label}.
 #' This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
 #' Similarly, \code{size}, \code{family}, \code{col} and \code{shadow} may be vectorized.
 #' For example, top and bottom text can have different font size and family and the font text and shadow can be different colors.
 #'
-#' \subsection{Inset graphic}{}
+#' @section Inset graphic:
 #' The meme plot may optionally include an inset plot by passing a ggplot object to \code{inset}.
 #' This makes the memes more fun for data analysts. See examples.
 #'
@@ -43,7 +43,7 @@
 #' a tiny thumbnail in the corner of the meme plot, in which case full opacity is not necessarily an issue.
 #' If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by \code{ggtheme}, you can set \code{ggtheme = NULL}
 #'
-#' \subsection{Dimensions and image processing}{}
+#' @section Dimensions and image processing:
 #' Specifying \code{width} and \code{height} is not required. By default, output file dimensions are taken from the input file, \code{img}.
 #' However, these arguments can be used to override the default dimension matching. The aspect ratio is fixed so if you change the two
 #' disproportionately, you will increasing the canvas, adding bars on two sides; it will not stretch the image.
@@ -56,12 +56,16 @@
 #' If adjustments to source images are desired, you should use a dedicated package for image processing.
 #' \code{magick} is recommended.
 #'
-#' \subsection{Reading and writing gifs}{}
+#' @section Reading and writing gifs:
 #' Reading and writing gifs requires the \code{magick} package, which in turn requires that you have ImageMagick installed on your system.
 #' Since this is not required for any other part of \code{memery} and it represents a minor use case, the package does not have these dependencies.
 #' \code{magick} is listed as a suggested package for memery; it is not imported as a dependency.
 #' \code{meme_gif} is an optional extra function. In order to use it, install ImageMagick on your system and install the \code{magick} package.
+#'
 #' See the example below if your system meets these requirements.
+#' As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
+#' use the \code{magick} package for image pre-processing.
+#' \code{meme} only provides basic control over output size and \code{meme_gif} only adds control over gif frame rates.
 #'
 #' @param img path to image file, png or jpg.
 #' @param label character, meme text. May be a vector, matched to \code{label_pos}.
