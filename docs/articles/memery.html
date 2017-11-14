@@ -144,12 +144,12 @@
 loc &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">"philosoraptor.jpg"</span>, <span class="dt">package =</span> <span class="st">"memery"</span>)
 web &lt;-<span class="st"> "https://imgflip.com/s/meme/Philosoraptor.jpg"</span>
 lab &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"What to call my R package?"</span>, <span class="st">"Perhaps..."</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme1.jpg"</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(web, lab[<span class="dv">1</span>], <span class="st">"meme1.png"</span>)</code></pre></div>
+<span class="kw">meme</span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme1.jpg"</span>)
+<span class="kw">meme</span>(web, lab[<span class="dv">1</span>], <span class="st">"meme1.png"</span>)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme1.jpg"></p>
 <p>There is sensible default label placement. If <code>label</code> is a vector of length two, <code>meme</code> will make a symmetrical top and bottom title/subtitle pair of text labels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme2.jpg"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">meme</span>(loc, lab, <span class="st">"meme2.jpg"</span>)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme2.jpg"></p>
 <p>This is done using the default <code>lab_pos</code> argument, which calls <code>text_position</code>. This convenience function is only useful for one or two text labels. <code>meme</code> allows you to place an arbitrary number of labels on the plot with arbitrary positioning by passing your own list to <code>lab_pos</code> where each list element is the same length as <code>label</code>. You can see what to do by looking at the output of <code>text_position</code>.</p>
@@ -167,7 +167,7 @@ lab &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"Wh
 <span class="co">#&gt; [1] 0.9 0.1</span></code></pre></div>
 <p>The label and shadow color can be controlled by <code>col</code> and <code>shadow</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clrs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"orange"</span>, <span class="st">"white"</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme3.jpg"</span>, <span class="dt">col =</span> clrs[<span class="dv">1</span>], <span class="dt">shadow =</span> clrs[<span class="dv">2</span>])</code></pre></div>
+<span class="kw">meme</span>(loc, lab, <span class="st">"meme3.jpg"</span>, <span class="dt">col =</span> clrs[<span class="dv">1</span>], <span class="dt">shadow =</span> clrs[<span class="dv">2</span>])</code></pre></div>
 <p style="text-align:center;">
 <img src="meme3.jpg"></p>
 <p>The arguments <code>width</code> and <code>height</code> do not need to be provided. If missing, they are inferred from the dimensions of <code>img</code>. However, providing <code>width</code> and <code>height</code> overrides the source file dimension. This is useful for large source images. Whether or not <code>width</code> or <code>height</code> are provided, <code>mult</code> can also be used as an image dimensions multiplier. See below for details.</p>
@@ -193,7 +193,7 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="k
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">"orange"</span>, <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>grp) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> txt[<span class="dv">1</span>], 
     <span class="dt">subtitle =</span> txt[<span class="dv">2</span>], <span class="dt">caption =</span> txt[<span class="dv">3</span>])
 
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme4a.jpg"</span>, <span class="dt">inset =</span> p)</code></pre></div>
+<span class="kw">meme</span>(loc, lab, <span class="st">"meme4a.jpg"</span>, <span class="dt">inset =</span> p)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4a.jpg"></p>
 <p>Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the <code>grid</code> package. It is a rectangle layer in the same viewport as <code>p</code>; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to <code>ggtheme</code> or setting this to <code>NULL</code>, which falls back on whatever theme is set for your plot <code>p</code>. The default theme for meme plots comes from <code>memetheme</code>. Naturally, the theme will need to be customized for many meme plots because underlying meme images are arbitrary.</p>
@@ -205,13 +205,13 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="k
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">rnorm</span>(<span class="dv">10000</span>)), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>, 
     <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">1</span>)
 pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">w =</span> <span class="fl">0.2</span>, <span class="dt">h =</span> <span class="fl">0.2</span>, <span class="dt">x =</span> <span class="fl">0.125</span>, <span class="dt">y =</span> <span class="fl">0.125</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"dodgerblue"</span>, 
+<span class="kw">meme</span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"dodgerblue"</span>, 
     <span class="dt">col =</span> <span class="st">"black"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4b.jpg"></p>
 <p>Above, the size and position was specified explicitly with <code>pos</code>. However, the same could be done using <code><a href="../reference/inset.html">inset_position(type = "bl")</a></code>. The available position templates include the four corners via <code>tl</code>, <code>tr</code>, <code>br</code> and <code>bl</code> for top right, top left, bottom left and bottom right, respectively. There is also a <code>center</code> thumbnail option. <code>inset_position</code> also takes <code>size</code> and <code>margin</code> arguments to further specify the thumbnail placement.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pos &lt;-<span class="st"> </span><span class="kw"><a href="../reference/inset.html">inset_position</a></span>(<span class="st">"bl"</span>, <span class="dt">size =</span> <span class="kw">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>), <span class="dt">margin =</span> <span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.05</span>))
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b2.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"firebrick1"</span>, 
+<span class="kw">meme</span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b2.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"firebrick1"</span>, 
     <span class="dt">col =</span> <span class="st">"white"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4b2.jpg"></p>
@@ -221,12 +221,12 @@ pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">
 <h3 class="hasAnchor">
 <a href="#improved-fit" class="anchor"></a>Improved fit</h3>
 <p>Returning to the more complex graph, the philosoraptor image is a bit small for the first detailed plot shown above where the annotations go off the image. For convenience, it is enlarged below by simply using <code>mult = 2</code> when including the full graph again. For now, drop the second text label. It will be relocated later.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4c.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">meme</span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4c.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4c.jpg"></p>
 <p>Below is an example where the background panel is set to another semi-transparent color and the border color is no longer transparent.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vp_bg &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"#FF00FF50"</span>, <span class="dt">col =</span> <span class="st">"#FFFFFF75"</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4d.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">inset_bg =</span> vp_bg, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
+<span class="kw">meme</span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4d.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">inset_bg =</span> vp_bg, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4d.jpg"></p>
 <p>You can also increase the radius of the rounded corners, with, e.g.</p>
@@ -241,7 +241,7 @@ pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lab[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"Perhaps raptr... NO!!!"</span>, <span class="st">"Pfft. Figures."</span>)
 lab_pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">w =</span> <span class="kw">rep</span>(<span class="fl">0.9</span>, <span class="dv">3</span>), <span class="dt">h =</span> <span class="kw">rep</span>(<span class="fl">0.3</span>, <span class="dv">3</span>), <span class="dt">x =</span> <span class="kw">rep</span>(<span class="fl">0.5</span>, <span class="dv">3</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="fl">0.95</span>, 
     <span class="fl">0.85</span>, <span class="fl">0.3</span>))
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme5.jpg"</span>, <span class="dt">size =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.5</span>, <span class="dv">1</span>), <span class="dt">family =</span> <span class="kw">c</span>(<span class="st">"serif"</span>, <span class="st">"Impact"</span>, 
+<span class="kw">meme</span>(loc, lab, <span class="st">"meme5.jpg"</span>, <span class="dt">size =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.5</span>, <span class="dv">1</span>), <span class="dt">family =</span> <span class="kw">c</span>(<span class="st">"serif"</span>, <span class="st">"Impact"</span>, 
     <span class="st">"Impact"</span>), <span class="dt">col =</span> clrs, <span class="dt">shadow =</span> <span class="kw">rev</span>(clrs), <span class="dt">label_pos =</span> lab_pos, <span class="dt">inset =</span> p, 
     <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
 <p style="text-align:center;">
