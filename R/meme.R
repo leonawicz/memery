@@ -78,7 +78,7 @@
 #' @examples
 #' # Prepare data and make a graph
 #' library(ggplot2)
-#' x = seq(0, 2*pi , length.out = 50)
+#' x <- seq(0, 2*pi, length.out = 50)
 #' panels <- rep(c("Plot A", "Plot B"), each = 50)
 #' d <- data.frame(x = x, y = sin(x), grp = panels)
 #' txt <- c("Philosoraptor's plots", "I like to make plots",

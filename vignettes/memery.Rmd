@@ -26,7 +26,14 @@ This consists of the background image and overlying text label(s). The image can
 Note that Impact is a Windows font. If using `memery` on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme`, e.g. `family = "Consolas"`, is not installed on an operating system,
 `meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which `memery` leverages.
 
-```{r sources_and_outputs}
+```{r sources_and_outputs0, echo=FALSE}
+library(memery) # run this block in case next block would error on URL timeout
+loc <- system.file("philosoraptor.jpg", package = "memery")
+lab <- c("What to call my R package?", "Perhaps...")
+meme(loc, lab[1], "meme1.jpg")
+```
+
+```{r sources_and_outputs1, eval=FALSE}
 library(memery)
 loc <- system.file("philosoraptor.jpg", package = "memery")
 web <- "https://imgflip.com/s/meme/Philosoraptor.jpg"
@@ -75,11 +82,10 @@ In addition to drawing text labels on top of the background image, `meme` offers
 By default, a ggplot object passed to `meme` via `inset` will take up approximately the lower two thirds of the plot and the full with, accounting for some margin space. It has a semi-transparent background so that it does not completely obscure the meme background image. These settings, background color, transparency, size and position, can all be specified in the call to `meme` as the following examples demonstrate.
 
 ```{r inset1}
-library(dplyr)
 library(ggplot2)
-d <- data_frame(x = seq(0, 2*pi , length.out = 50), y = sin(x))
-panels <- paste("Philosoraptor's plot", c("A", "B"))
-d <- bind_rows(d, d) %>% mutate(grp = rep(panels, each = 50))
+x <- seq(0, 2*pi , length.out = 50)
+panels <- rep(paste("Philosoraptor's plot", c("A", "B")), each = 50)
+d <- data.frame(x = x, y = sin(x), grp = panels)
 txt <- c("Philosoraptor's plots", "I like to make plots", "Figure 1. (A) shows a plot and (B) shows another plot.")
 p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", size = 2) +
   geom_point(colour = "orange", size = 4) + facet_wrap(~grp) +
@@ -102,7 +108,7 @@ set.seed(1)
 ```
 
 ```{r inset1b}
-p2 <- ggplot(data_frame(x = rnorm(10000)), aes(x)) +
+p2 <- ggplot(data.frame(x = rnorm(10000)), aes(x)) +
   geom_density(adjust = 2, colour = "white", size = 1)
 pos <- list(w = 0.2, h = 0.2, x = 0.125, y = 0.125)
 meme(loc, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue", col = "black"), inset_pos = pos, ggtheme = theme_void())
