@@ -60,8 +60,16 @@ test_that("meme_gif runs as expected", {
   img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
 
   if("magick" %in% installed.packages()){
-    meme_gif(img, lab, "out.gif", size = c(1.5, 0.75), label_pos = pos,
-             inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 0.5, fps = 20)
+    s <- c(1.5, 0.75)
+    f <- 1:2
+    meme_gif(img, lab, "out.gif", size = s, label_pos = pos,
+             inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 0.5, fps = 20, frame = f)
+    meme_gif(img, lab, "out.gif", size = s, label_pos = pos, width = 200,
+             inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f)
+    meme_gif(img, lab, "out.gif", size = s, label_pos = pos, height = 200,
+             inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f)
+    meme_gif(img, lab, "out.gif", size = s, label_pos = pos, width = 200, height = 200,
+             inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f)
     file.remove("out.gif")
   } else {
     msg <- "The `magick` package and the ImageMagick software must be installed to use `meme_gif`."

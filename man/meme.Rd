@@ -14,7 +14,8 @@ meme(img, label, file, size = 1, family = "Impact", col = "white",
 meme_gif(img, label, file, size = 1, family = "Impact", col = "white",
   shadow = "black", label_pos = text_position(length(label)),
   inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
-  inset_pos = inset_position(), width, height, mult = 1, fps = 10)
+  inset_pos = inset_position(), width, height, mult = 1, fps = 10,
+  frame = 0)
 }
 \arguments{
 \item{img}{path to image file, png or jpg.}
@@ -48,6 +49,8 @@ meme_gif(img, label, file, size = 1, family = "Impact", col = "white",
 \item{mult}{numeric, a multiplier. Used to adjust width and height. See details.}
 
 \item{fps}{frames per second, only applicable to \code{meme_gif}. See details.}
+
+\item{frame}{integer, frame numbers to include. The default \code{frame = 0} retains all frames. Only applicable to \code{meme_gif}. See details.}
 }
 \description{
 Generate a meme with a background image, text label and optional inset graphic.
@@ -123,7 +126,7 @@ Since this is not required for any other part of \code{memery} and it represents
 See the example below if your system meets these requirements.
 As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
 use the \code{magick} package for image pre-processing.
-\code{meme} only provides basic control over output size and \code{meme_gif} only adds control over gif frame rates.
+\code{meme} only provides basic control over output size and \code{meme_gif} only adds control over gif frame selection and rate.
 }
 
 \examples{

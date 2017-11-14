@@ -65,7 +65,7 @@
 #' See the example below if your system meets these requirements.
 #' As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
 #' use the \code{magick} package for image pre-processing.
-#' \code{meme} only provides basic control over output size and \code{meme_gif} only adds control over gif frame rates.
+#' \code{meme} only provides basic control over output size and \code{meme_gif} only adds control over gif frame selection and rate.
 #'
 #' @param img path to image file, png or jpg.
 #' @param label character, meme text. May be a vector, matched to \code{label_pos}.
@@ -83,6 +83,7 @@
 #' @param height numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.
 #' @param mult numeric, a multiplier. Used to adjust width and height. See details.
 #' @param fps frames per second, only applicable to \code{meme_gif}. See details.
+#' @param frame integer, frame numbers to include. The default \code{frame = 0} retains all frames. Only applicable to \code{meme_gif}. See details.
 #'
 #' @examples
 #' # Prepare data and make a graph
@@ -221,17 +222,23 @@ meme <- function(img, label, file, size = 1, family = "Impact", col = "white", s
 meme_gif <- function(img, label, file, size = 1, family = "Impact", col = "white", shadow = "black",
                      label_pos = text_position(length(label)),
                      inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
-                     inset_pos = inset_position(), width, height, mult = 1, fps = 10){
+                     inset_pos = inset_position(), width, height, mult = 1, fps = 10, frame = 0){
   if(!"magick" %in% utils::installed.packages()){
     return(message("The `magick` package and the ImageMagick software must be installed to use `meme_gif`."))
   }
   is_gif <- utils::tail(strsplit(img, "\\.")[[1]], 1) == "gif"
   if(!is_gif) stop("`img` is not a gif. Use `meme` instead of `meme_gif`.")
   x <- magick::image_read(img)
-  n <- length(x)
-  tmpfiles <- file.path(tempdir(), paste0("gif_frame_", gsub(" ", "0", format(1:n, width = 3)), ".png"))
-  purrr::walk2(1:n, tmpfiles, ~magick::image_write(magick::image_convert(x[.x], "png"), .y))
-  cat("Merging meme with", n, "gif frames")
+  frames <- seq_along(x)
+  frame <- as.integer(frame)
+  frame <- frame[frame %in% frames]
+  if(length(frame)){
+    x <- x[frame]
+    frames <- seq_along(frame)
+  }
+  tmpfiles <- file.path(tempdir(), paste0("gif_frame_", gsub(" ", "0", format(frames, width = 3)), ".png"))
+  purrr::walk2(frames, tmpfiles, ~magick::image_write(magick::image_convert(x[.x], "png"), .y))
+  cat("Merging meme with", length(frames), "gif frames")
   no_width <- missing(width) # nolint
   no_height <- missing(height) # nolint
   purrr::walk(tmpfiles, ~({
