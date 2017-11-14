@@ -1,13 +1,11 @@
-## Resubmission
-This is a resubmission. In this version I have:
+## Patch release
+This is a patch release submission. In this version I have:
 
-* Added single quotes around referenced package names in DESCRIPTION file description field.
+* Skipped a `sysfonts::font_add` font import call and two subsequent unit tests on Solaris builds and on non-TRAVIS-CI Linux builds where the given font is not available on the system and pre-installation cannot be ensured.
 
-Previous resubmission requirements met:
+This was the only error in the build results. Package functionality was not otherwise affected.
 
-* Updated the DESCRIPTION to the requested formatting and style and clarified how this package differs from related packages.
-* Removed `dontrun` wrappers from examples that do not individually take too long to execute.
-   * `donttest` is still used for some examples of `meme` calls that represent simpler versions whose internal processing is effectively encapsulated by the most complex call example, which is tested. This is done in an attempt to keep example execution time to a minimum.
+* Also removed `dplyr` package from DESCRIPTION Imports, no longer needed. This fixes a NOTE previously thrown on Mac builds where `dplyr` was used only in unit testing and vignette building. But it is now removed entirely, including from tests and vignette.
 
 ## Test environments
 * local Windows 10 install, R 3.4.2
@@ -18,7 +16,7 @@ Previous resubmission requirements met:
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release.
+* This is a patch release.
 
 ## Downstream dependencies
 I have also run R CMD check on downstream dependencies of memery 

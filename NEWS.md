@@ -1,3 +1,8 @@
+# memery 0.3.1 (Release date: 2017-11-14)
+
+* Updated unit tests. A couple tests requiring installation of other font families are run on Windows and Mac as well as on Linux via Travis-CI where pre-installation of fonts can be ensured. Otherwise these tests are skipped (Other Linux environments as well as Solaris).
+* `dplyr` packaged removed since it is no longer used (at this time) in examples and tests. This was leading to `NOTE`s on some system builds.
+
 # memery 0.3.0.9000
 
 * Copied DESCRIPTION file Description field content to `memery` help documentation details.

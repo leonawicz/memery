@@ -1,5 +1,5 @@
 Package: memery
-Version: 0.3.0.9000
+Version: 0.3.1
 Title: Internet Memes for Data Analysts
 Description: Generates internet memes that optionally include a superimposed inset plot and other atypical features, 
     combining the visual impact of an attention-grabbing meme with graphic results of data analysis.
@@ -41,6 +41,5 @@ Imports:
     ggplot2,
     cowplot,
     magrittr,
-    dplyr,
     purrr
 RoxygenNote: 6.0.1
