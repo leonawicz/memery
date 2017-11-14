@@ -1,3 +1,7 @@
+# memery 0.3.1.9000
+
+* Added `magick` to DESCRIPTION file Suggests field. The package is not required unless you are trying to read a gif image and save a gif meme using `meme_gif`. I consider this a minor use case so I have given memes based around gifs a unique function that wraps around `meme` rather than adding the gif-specific functionality directly to `meme`. If using `meme_gif`, you will need to install `magick` if not already installed. `magick` depends on the ImageMagick software so you will also have to install this dependency on your system. Aside from `meme_gif`, there is no need for ImageMagick.
+
 # memery 0.3.1 (Release date: 2017-11-14)
 
 * Updated unit tests. A couple tests requiring installation of other font families are run on Windows and Mac as well as on Linux via Travis-CI where pre-installation of fonts can be ensured. Otherwise these tests are skipped (Other Linux environments as well as Solaris).

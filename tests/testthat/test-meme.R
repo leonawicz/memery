@@ -54,3 +54,19 @@ test_that("meme runs with added font family", {
   expect_is(meme(loc, lab[1], out[2], family = fam), x)
   file.remove(out)
 })
+
+test_that("meme_gif runs as expected", {
+  pos <- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.75))
+  img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
+
+  if("magick" %in% installed.packages()){
+    meme_gif(img, lab, "out.gif", size = c(1.5, 0.75), label_pos = pos,
+             inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 0.5, fps = 20)
+    file.remove("out.gif")
+  } else {
+    msg <- "The `magick` package and the ImageMagick software must be installed to use `meme_gif`."
+    expect_message(
+      meme_gif(img, lab, "out.gif", size = c(1.5, 0.75), label_pos = pos,
+               inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 0.5, fps = 20), msg)
+  }
+})

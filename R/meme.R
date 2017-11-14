@@ -2,6 +2,7 @@
 #'
 #' Generate a meme with a background image, text label and optional inset graphic.
 #'
+#' @name meme
 #' @details
 #' This function generates and saves a meme as a jpg or png file.
 #'
@@ -57,6 +58,14 @@
 #' \code{magick} is recommended.
 #' }
 #'
+#' #' \subsection{Reading and writing gifs}{
+#' Reading and writing gifs requires the \code{magick} package, which in turn requires that you have ImageMagick installed on your system.
+#' Since this is not required for any other part of \code{memery} and it represents a minor use case, the package does not have these dependencies.
+#' \code{magick} is listed as a suggested package for memery; it is not imported as a dependency.
+#' \code{meme_gif} is an optional extra function. In order to use it, install ImageMagick on your system and install the \code{magick} package.
+#' See the example below if your system meets these requirements.
+#' }
+#'
 #' @param img path to image file, png or jpg.
 #' @param label character, meme text. May be a vector, matched to \code{label_pos}.
 #' @param file output file, png or jpg.
@@ -72,8 +81,7 @@
 #' @param width numeric, width of overall meme plot in pixels. If missing, taken from \code{img} size.
 #' @param height numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.
 #' @param mult numeric, a multiplier. Used to adjust width and height. See details.
-#'
-#' @export
+#' @param fps frames per second, only applicable to \code{meme_gif}. See details.
 #'
 #' @examples
 #' # Prepare data and make a graph
@@ -108,6 +116,22 @@
 #' clrs2 <- clrs1[c(2, 1, 1)]
 #' meme(img, lab, "meme_data2.jpg", size = c(2, 1.5, 1), family = fam, col = clrs1,
 #'   shadow = clrs2, label_pos = pos, inset = p, inset_bg = vp_bg, mult = 2)
+#'
+#' \donttest{
+#' # GIF meme. Requires Imagemagick and magick package. See details.
+#' p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
+#'   geom_point(colour = "orange", size = 1) + facet_wrap(~group) +
+#'   labs(title = "The wiggles", subtitle = "Plots for cats",
+#'        caption = "Figure 1. Gimme sine waves.")
+#' lab <- c("R plots for cats", "Sine wave sine wave sine wave sine wave...")
+#' pos <- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.75))
+#' img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
+#' meme_gif(img, lab, "meme_data3.gif", size = c(1.5, 0.75), label_pos = pos,
+#' inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 1.5, fps = 20)
+#' }
+
+#' @rdname meme
+#' @export
 meme <- function(img, label, file, size = 1, family = "Impact", col = "white", shadow = "black",
                  label_pos = text_position(length(label)),
                  inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
