@@ -20,6 +20,9 @@ reference:
   - memetheme
   - text_position
   - inset
+- title: Example Shiny app
+  contents:
+  - memeApp
 
 navbar:
   type: inverse

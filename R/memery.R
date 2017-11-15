@@ -27,3 +27,23 @@ NULL
 #' @import showtext
 #' @importFrom magrittr %>%
 NULL
+
+#' Run memery example app
+#'
+#' Launch the memery example app in your browser.
+#'
+#' Due to how \code{meme_gif} works, gifs will not display in a hosted app, i.e., on \code{shinyapps.io}.
+#' While jpg and png memes will display, the impact font will also not likely be available on the server.
+#' For these reasons this packaged app is not hosted elsewhere. The best experience is to use the app locally via the \code{memery} package.
+#'
+#' When this app runs, it adds one example ggplot object, \code{sineplot}, to your global R session for use in the app.
+#' However, if you have additional ggplot objects in your global environment when you run the app, they will also propagate the selection
+#' menu in the app as available inset plots.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{memeApp()}
+memeApp <- function(){
+  shiny::runApp(system.file("shiny", "memeApp", package = "memery"))
+}

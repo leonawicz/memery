@@ -1,6 +1,9 @@
 # memery 0.3.1.9000
 
 * Added `magick` to DESCRIPTION file Suggests field. The package is not required unless you are trying to read a gif image and save a gif meme using `meme_gif`. I consider this a minor use case so I have given memes based around gifs a unique function that wraps around `meme` rather than adding the gif-specific functionality directly to `meme`. If using `meme_gif`, you will need to install `magick` if not already installed. `magick` depends on the ImageMagick software so you will also have to install this dependency on your system. Aside from `meme_gif`, there is no need for ImageMagick.
+* `meme_gif` accepts a frames per second argument, `fps`, and a frame number argument, `frame`.
+* Added example Shiny app.
+* Updated unit tests, documentation and vignette.
 
 # memery 0.3.1 (Release date: 2017-11-14)
 
