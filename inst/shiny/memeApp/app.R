@@ -3,6 +3,7 @@ library(shinythemes)
 library(shinycssloaders)
 library(shinyBS)
 library(colourpicker)
+library(magick)
 library(memery)
 library(ggplot2)
 
@@ -135,7 +136,7 @@ server <- function(input, output) {
   output$image_frame = renderUI({
     if(img_ext() == "gif") tagList(
       selectInput("frame", "Frame", c("First" = 1, "All" = 0), width = "100%"),
-      bsTooltip("frame", "Retaining gif frames takes longer to process.")
+      bsTooltip("frame", "Retaining gif frames takes longer to process.", placement = "top")
     )
   })
 
@@ -157,7 +158,7 @@ server <- function(input, output) {
   })
 
   output$meme_plot = renderImage({
-    input$go_btn
+    if(input$go_btn == 0) return(list(src = ""))
     isolate({
       l <- c(input$l1, input$l2)
       s <- c(input$size1, input$size2)
