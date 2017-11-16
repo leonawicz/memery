@@ -84,6 +84,7 @@
 #' @param mult numeric, a multiplier. Used to adjust width and height. See details.
 #' @param fps frames per second, only applicable to \code{meme_gif}. See details.
 #' @param frame integer, frame numbers to include. The default \code{frame = 0} retains all frames. Only applicable to \code{meme_gif}. See details.
+#' @param ... additional arguments passed to \code{meme_gif}.
 #'
 #' @examples
 #' # Prepare data and make a graph
@@ -222,7 +223,8 @@ meme <- function(img, label, file, size = 1, family = "Impact", col = "white", s
 meme_gif <- function(img, label, file, size = 1, family = "Impact", col = "white", shadow = "black",
                      label_pos = text_position(length(label)),
                      inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
-                     inset_pos = inset_position(), width, height, mult = 1, fps = 10, frame = 0){
+                     inset_pos = inset_position(), width, height, mult = 1,
+                     fps = 10, frame = 0, ...){
   if(!"magick" %in% utils::installed.packages()){
     return(message("The `magick` package and the ImageMagick software must be installed to use `meme_gif`."))
   }
@@ -236,7 +238,9 @@ meme_gif <- function(img, label, file, size = 1, family = "Impact", col = "white
     x <- x[frame]
     frames <- seq_along(frame)
   }
-  tmpfiles <- file.path(tempdir(), paste0("gif_frame_", gsub(" ", "0", format(frames, width = 3)), ".png"))
+  tmpdir <- if(is.null(list(...)$tmpdir)) tempdir() else list(...)$tmpdir
+  basefile <- gsub(".gif", "", basename(file))
+  tmpfiles <- file.path(tmpdir, paste0(basefile, "gif_frame_", gsub(" ", "0", format(frames, width = 3)), ".png"))
   purrr::walk2(frames, tmpfiles, ~magick::image_write(magick::image_convert(x[.x], "png"), .y))
   cat("Merging meme with", length(frames), "gif frames")
   no_width <- missing(width) # nolint

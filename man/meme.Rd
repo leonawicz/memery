@@ -15,7 +15,7 @@ meme_gif(img, label, file, size = 1, family = "Impact", col = "white",
   shadow = "black", label_pos = text_position(length(label)),
   inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
   inset_pos = inset_position(), width, height, mult = 1, fps = 10,
-  frame = 0)
+  frame = 0, ...)
 }
 \arguments{
 \item{img}{path to image file, png or jpg.}
@@ -51,6 +51,8 @@ meme_gif(img, label, file, size = 1, family = "Impact", col = "white",
 \item{fps}{frames per second, only applicable to \code{meme_gif}. See details.}
 
 \item{frame}{integer, frame numbers to include. The default \code{frame = 0} retains all frames. Only applicable to \code{meme_gif}. See details.}
+
+\item{...}{additional arguments passed to \code{meme_gif}.}
 }
 \description{
 Generate a meme with a background image, text label and optional inset graphic.
