@@ -1,22 +1,24 @@
-## Patch release
-This is a patch release submission. In this version I have:
+## Update release
+This is an update release submission. In this version I have:
 
-* Skipped a `sysfonts::font_add` font import call and two subsequent unit tests on Solaris builds and on non-TRAVIS-CI Linux builds where the given font is not available on the system and pre-installation cannot be ensured.
+* Added a demo Shiny app for the package. This app has its own package dependencies that are not otherwise required by this package. These packages have been added to the DESCRIPTION Imports field for demo app functionality:
+    * shiny
+    * shinycssloaders
+    * shinyBS
+    * colourpicker
 
-This was the only error in the build results. Package functionality was not otherwise affected.
-
-* Also removed `dplyr` package from DESCRIPTION Imports, no longer needed. This fixes a NOTE previously thrown on Mac builds where `dplyr` was used only in unit testing and vignette building. But it is now removed entirely, including from tests and vignette.
+* Added animated gif support as an OPTIONAL functionality. It is a small, niche functionality used by only one package function. Therefore I do not want to require users to install the `magick` package and the external ImageMagick software on their system just because this optional edge case exists. I have added the `magick` package to the DESCRIPTION Suggests field. If a user attempts to use this animated gif functionality without installing `magick` and ImageMagick, they will be gracefully notified at the console of these additional, optional installation requirements. There are no errors or unexpected behavior.
 
 ## Test environments
-* local Windows 10 install, R 3.4.2
-* ubuntu 14.04 (on travis-ci), R 3.4.2
+* local Windows 10 install, R 3.4.3
+* ubuntu 14.04 (on travis-ci), R 3.4.3
 * win-builder (devel and release)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
 
-* This is a patch release.
+* This is an update release.
 
 ## Downstream dependencies
 I have also run R CMD check on downstream dependencies of memery 
