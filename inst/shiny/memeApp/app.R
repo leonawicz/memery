@@ -1,38 +1,35 @@
-library(shiny)
-library(shinythemes)
-library(shinycssloaders)
-library(shinyBS)
-library(colourpicker)
-library(magick)
-library(memery)
-library(ggplot2)
+suppressPackageStartupMessages({
+  library(shiny)
+  library(shinycssloaders)
+  library(shinyBS)
+  library(colourpicker)
+  library(memery)
+  library(ggplot2)
+})
+has_magick <- "magick" %in% utils::installed.packages()
+if(has_magick) library(magick)
 
-if(!exists("sineplot", envir = .GlobalEnv)){
-  x <- seq(0, 2*pi, length.out = 50)
-  panels <- rep(c("A sine wave...", "MORE SINE WAVE!"), each = 50)
-  d <- data.frame(x = x, y = sin(x), grp = panels)
-  sineplot <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
-    geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
-    labs(title = "The wiggles", subtitle = "Plots for cats", caption = "Figure 1. Gimme sine waves.")
-  assign("sineplot", sineplot, envir = .GlobalEnv)
-}
-
+testplot <- "memery_testplot"
 txt <- c("R plots for cats", "Sine wave sine wave sine wave sine wave")
-def_img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
+if(has_magick){
+  def_img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
+} else {
+  def_img <- "https://img.buzzfeed.com/buzzfeed-static/static/2014-05/30/10/campaign_images/webdr08/the-19-wiggliest-cat-wiggles-ever-wiggled-2-7466-1401460341-0_dblbig.jpg"
+}
 def_fps <- 20
 pos_opts <- inset_templates("position")
 names(pos_opts) <- c("Default", paste(
   c("Top left", "Top right", "Bottom right", "Bottom left"), rep(c("thumbnail", "quadrant"), each = 4)),
   "Center thumbnail")
 
-ui <- fluidPage(theme = shinytheme("slate"), title = "Memery package",
+ui <- fluidPage(title = "Memery package",
   fluidRow(
    column(4, h3("Make memorable plots with memery")),
    column(4, div(
      textInput("image_url", NULL, def_img, placeholder = paste("Example:", def_img), width = "100%"),
      style = "padding-top:20px;")),
    column(4, div(
-     actionButton("go_btn", "Generate meme", class = "btn-info", width = "100%"),
+     actionButton("go_btn", "Generate meme", class = "btn-primary", width = "100%"),
      style = "padding-top:20px;"))
   ),
   fluidRow(
@@ -111,7 +108,8 @@ server <- function(input, output) {
   output$ggobjects = renderUI({
     obs <- ls(envir = .GlobalEnv)
     gg <- c("", obs[purrr::map_lgl(obs, ~any(class(get(.x, envir = .GlobalEnv)) == "ggplot"))])
-    selectInput("ggob", "Inset plot", gg, selected = "sineplot", width = "100%")
+    x <- if(testplot %in% gg) testplot else gg[1]
+    selectInput("ggob", "Inset plot", gg, selected = x, width = "100%")
   })
 
   img_ext <- reactive({
@@ -130,11 +128,12 @@ server <- function(input, output) {
   })
 
   output$image_fps = renderUI({
-    if(img_ext() == "gif") sliderInput("fps", "FPS", 1, 30, def_fps, 1, width = "100%")
+    if(has_magick & img_ext() == "gif") sliderInput("fps", "FPS", 5, 30, def_fps, 5, width = "100%")
+    bsTooltip("fps", "Must be a factor of 100.", placement = "top")
   })
 
   output$image_frame = renderUI({
-    if(img_ext() == "gif") tagList(
+    if(has_magick & img_ext() == "gif") tagList(
       selectInput("frame", "Frame", c("First" = 1, "All" = 0), width = "100%"),
       bsTooltip("frame", "Retaining gif frames takes longer to process.", placement = "top")
     )
@@ -175,7 +174,7 @@ server <- function(input, output) {
       ext <- img_ext()
       if(ext == "jpeg") ext <- "jpg"
       outfile <- tempfile(fileext = paste0(".", ext))
-      if(ext == "gif"){
+      if(has_magick & ext == "gif"){
         fps <- if(is.null(input$fps)) 20 else input$fps
         frame_num <- if(is.null(input$frame)) 1 else input$frame
         meme_gif(img_src(), l, outfile, size = s, col = l_col, shadow = l_shadow, label_pos = lab_pos(),
