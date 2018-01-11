@@ -50,8 +50,6 @@ NULL
 #'
 #' A meme can be saved from an app by right-clicking on the image in your web browser and selecting the save option just like with any other web images.
 #'
-#' @param testplot logical, an example inset plot that can be used to demo the app if there are no ggplot objects in the global environment. See details.
-#'
 #' @export
 #'
 #' @examples

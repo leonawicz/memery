@@ -6,9 +6,6 @@
 \usage{
 memeApp()
 }
-\arguments{
-\item{testplot}{logical, an example inset plot that can be used to demo the app if there are no ggplot objects in the global environment. See details.}
-}
 \description{
 Launch the memery example app in your browser.
 }
