@@ -45,11 +45,8 @@ NULL
 #' While jpg and png memes will display in a hosted app like on \code{shinyapps.io}, the impact font will also not likely be available on a given server.
 #' For all these reasons this packaged app is not hosted elsewhere. The best and intended experience is to use the app locally via the \code{memery} package.
 #'
-#' Setting \code{testplot = TRUE} will add one example ggplot object, \code{memery_testplot}, to the R session global environment for use in the app when the app launches.
-#' This option exists if a user wishes to quickly view the example without first making their own ggplot objects.
-#' This can be left as \code{FALSE} when ggplot objects already exist in the current R session.
-#' In either case, any ggplot objects present in the global environment when you run the app propagate the selection menu in the app as available inset plots.
-#' A message will be returned to the console if \code{memeApp} is called with the default \code{testplot = FALSE} and there are no ggplot objects in the global environment with which to propagate the in-app list.
+#' All ggplot objects that exist in the global environment when the app is launched propagate a selection menu in app for use as inset plots to overlay meme image backgrounds.
+#' If there are no ggplot objects in the global environment, one named \code{memery_testplot} will be created within the app environment and will appear in the selection menu instead.
 #'
 #' A meme can be saved from an app by right-clicking on the image in your web browser and selecting the save option just like with any other web images.
 #'
@@ -58,9 +55,8 @@ NULL
 #' @export
 #'
 #' @examples
-#' \dontrun{memeApp(testplot = FALSE)}
-memeApp <- function(testplot = FALSE){
-  if(testplot) .memeApp_examplePlot()
+#' \dontrun{memeApp()}
+memeApp <- function(){
   shiny::runApp(system.file("shiny", "memeApp", package = "memery"))
 }
 
@@ -68,16 +64,4 @@ memeApp <- function(testplot = FALSE){
 
 .check_for_magick <- function(){
   "magick" %in% utils::installed.packages()
-}
-
-.memeApp_examplePlot <- function(){
-  if(!exists("memery_testplot", envir = .GlobalEnv)){
-    x <- seq(0, 2*pi, length.out = 50)
-    panels <- rep(c("A sine wave...", "MORE SINE WAVE!"), each = 50)
-    d <- data.frame(x = x, y = sin(x), grp = panels)
-    p <- ggplot2::ggplot(d, ggplot2::aes(x, y)) + ggplot2::geom_line(colour = "white", size = 2) +
-      ggplot2::geom_point(colour = "orange", size = 1) + ggplot2::facet_wrap(~grp) +
-      ggplot2::labs(title = "The wiggles", subtitle = "Plots for cats", caption = "Figure 1. Gimme sine waves.")
-    assign("memery_testplot", p, envir = .GlobalEnv)
-  }
 }

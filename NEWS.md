@@ -1,7 +1,7 @@
 # memery 0.4.0
 
 * Update example Shiny app to account for presence/absence of `magick` package and launch an appropriately configued app in the browser (gif/no gif support and related options).
-* Added argument to `memeApp` for suppressing the default creation of a testplot if users wish to exclusively use their own ggplot objects in the example app.
+* Example app test plot now only generates when app is launched in an R session where there are no ggplot objects in the global environment created by the user. If there are, then the test plot is not made. The test plot is also now only generated within the server environment and not added to the global environment.
 * Added app and animated gif content to introduction vignette.
 * Updated functions, examples and documentation.
 

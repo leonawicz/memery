@@ -105,10 +105,21 @@ ui <- fluidPage(title = "Memery package",
 
 server <- function(input, output) {
 
-  output$ggobjects = renderUI({
+  x <- seq(0, 2*pi, length.out = 50)
+  d <- data.frame(x, y = sin(x), grp = rep(c("A sine wave...", "MORE SINE WAVE!"), each = 50))
+  memery_testplot <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
+    geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
+    labs(title = "The wiggles", subtitle = "Plots for cats", caption = "Figure 1. Gimme sine waves.")
+
+  global_ggobjects <- reactive({
     obs <- ls(envir = .GlobalEnv)
     gg <- c("", obs[purrr::map_lgl(obs, ~any(class(get(.x, envir = .GlobalEnv)) == "ggplot"))])
-    x <- if(testplot %in% gg) testplot else gg[1]
+  })
+
+  output$ggobjects = renderUI({
+    gg <- global_ggobjects()
+    gg <- if(length(gg) == 1) c(gg, testplot) else gg
+    x <- if(testplot %in% gg) testplot else gg[gg != ""][1]
     selectInput("ggob", "Inset plot", gg, selected = x, width = "100%")
   })
 
@@ -141,7 +152,13 @@ server <- function(input, output) {
 
   output$inset_plot = renderPlot({
     req(input$ggob)
-    if(input$ggob != "") get(input$ggob, envir = .GlobalEnv)
+    if(input$ggob != ""){
+      if(input$ggob == testplot){
+        memery_testplot
+      } else {
+        get(input$ggob, envir = .GlobalEnv)
+      }
+    }
   })
 
   lab_pos <- reactive({

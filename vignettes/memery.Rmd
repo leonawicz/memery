@@ -28,12 +28,13 @@ The `memery` package is used for generating internet memes suited specifically t
 
 Before getting to the code and other details, you can explore a quick visual example using the Shiny app packaged with `memery`.
 It displays an input meme background image and an inset plot which are combined to form the analyst's meme.
-Make sure to set `testplot = TRUE` below if you have no ggplot objects in your current global environment; `memeApp` will create a testplot.
-This can be left as `FALSE` if you have your own ggplot objects you wish to use.
+The app makes available any ggplot objects in the global environment created by the user to be used as inset plots for memes.
+If none exist, `memeApp` will generate a test plot ggplot object, `memery_testplot`, for the app session.
+Available plots populate the inset plot selection menu.
 
 ```{r app, eval=FALSE}
 library(memery)
-memeApp(testplot = TRUE) # or memeApp()
+memeApp()
 ```
 
 ### ImageMagick suggested but not required

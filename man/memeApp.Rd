@@ -4,7 +4,7 @@
 \alias{memeApp}
 \title{Run memery example app}
 \usage{
-memeApp(testplot = FALSE)
+memeApp()
 }
 \arguments{
 \item{testplot}{logical, an example inset plot that can be used to demo the app if there are no ggplot objects in the global environment. See details.}
@@ -24,14 +24,11 @@ If the user wishes to wait, the input control menu for output frames can be swit
 While jpg and png memes will display in a hosted app like on \code{shinyapps.io}, the impact font will also not likely be available on a given server.
 For all these reasons this packaged app is not hosted elsewhere. The best and intended experience is to use the app locally via the \code{memery} package.
 
-Setting \code{testplot = TRUE} will add one example ggplot object, \code{memery_testplot}, to the R session global environment for use in the app when the app launches.
-This option exists if a user wishes to quickly view the example without first making their own ggplot objects.
-This can be left as \code{FALSE} when ggplot objects already exist in the current R session.
-In either case, any ggplot objects present in the global environment when you run the app propagate the selection menu in the app as available inset plots.
-A message will be returned to the console if \code{memeApp} is called with the default \code{testplot = FALSE} and there are no ggplot objects in the global environment with which to propagate the in-app list.
+All ggplot objects that exist in the global environment when the app is launched propagate a selection menu in app for use as inset plots to overlay meme image backgrounds.
+If there are no ggplot objects in the global environment, one named \code{memery_testplot} will be created within the app environment and will appear in the selection menu instead.
 
 A meme can be saved from an app by right-clicking on the image in your web browser and selecting the save option just like with any other web images.
 }
 \examples{
-\dontrun{memeApp(testplot = FALSE)}
+\dontrun{memeApp()}
 }
