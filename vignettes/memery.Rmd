@@ -15,26 +15,46 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r sources_and_outputs0, echo=FALSE}
+library(memery) # run this block in case later block would error on URL timeout
+loc <- system.file("philosoraptor.jpg", package = "memery")
+lab <- c("What to call my R package?", "Perhaps...")
+meme(loc, lab[1], "meme1.jpg")
+```
+
 The `memery` package is used for generating internet memes suited specifically to data analysts, combining the visual impact of an attention-grabbing meme with graphic results of data analysis. This vignette covers the basic usage of `memery` with several examples.
+
+## Shiny example
+
+Before getting to the code and other details, you can explore a quick visual example using the Shiny app packaged with `memery`.
+It displays an input meme background image and an inset plot which are combined to form the analyst's meme.
+Make sure to set `testplot = TRUE` below if you have no ggplot objects in your current global environment; `memeApp` will create a testplot.
+This can be left as `FALSE` if you have your own ggplot objects you wish to use.
+
+```{r app, eval=FALSE}
+library(memery)
+memeApp(testplot = TRUE) # or memeApp()
+```
+
+### ImageMagick suggested but not required
+
+If the `magick` package and ImageMagick software are installed on the system, `memeApp` will launch in complete mode and the default image will be an animated gif.
+If not installed, a simplified version of the example app will launch, and only jpg and png files can be used.
+Some users have no interest in animated gifs and may not have ImageMagick installed on their operating system.
+This software is not required since working with animated gifs represent only one small aspect of `memery`.
+It is only listed as a suggested package. Any package functionality that uses the `magick` package returns gracefully with a notification about the missing package.
+The only function in `memery` that uses `magick` is `meme_gif`.
 
 ## The meme
 
-This consists of the background image and overlying text label(s). The image can be provided as a path to a local file or a URL. Below are examples of each, mixing up combinations of source file and output file format. `memery` also provides the classic meme font, Impact, as the default as well as the text shadow outline effect, which is available for any font you use.
+Now onto the core of the package. This consists of the background image and overlying text label(s). The image can be provided as a path to a local file or a URL. Below are examples of each, mixing up combinations of source file and output file format. `memery` also provides the classic meme font, Impact, as the default as well as the text shadow outline effect, which is available for any font you use.
 
 ### Note on fonts
 
 Note that Impact is a Windows font. If using `memery` on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme`, e.g. `family = "Consolas"`, is not installed on an operating system,
 `meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which `memery` leverages.
 
-```{r sources_and_outputs0, echo=FALSE}
-library(memery) # run this block in case next block would error on URL timeout
-loc <- system.file("philosoraptor.jpg", package = "memery")
-lab <- c("What to call my R package?", "Perhaps...")
-meme(loc, lab[1], "meme1.jpg")
-```
-
 ```{r sources_and_outputs1, eval=FALSE}
-library(memery)
 loc <- system.file("philosoraptor.jpg", package = "memery")
 web <- "https://imgflip.com/s/meme/Philosoraptor.jpg"
 lab <- c("What to call my R package?", "Perhaps...")
@@ -141,7 +161,7 @@ meme(loc, lab[1], "meme4c.jpg", size = 2, inset = p, mult = 2)
 Below is an example where the background panel is set to another semi-transparent color and the border color is no longer transparent.
 
 ```{r inset3}
-vp_bg <- list(fill = "#FF00FF50", col = "#FFFFFF75")
+vp_bg <- list(fill = "#FF00FF50", col = "#FFFFFF80")
 meme(loc, lab[1], "meme4d.jpg", size = 2, inset = p, inset_bg = vp_bg, mult = 2)
 ```
 
@@ -166,3 +186,23 @@ meme(loc, lab, "meme5.jpg", size = c(1.25, 2.5, 1), family = c("serif", "Impact"
 ```
 
 <p style="text-align:center;"><img src="meme5.jpg"></p>
+
+## Animated gifs
+
+If ImageMagick is installed on your system, animated gifs can be used for data analyst memes.
+
+```{r gifs, eval=FALSE}
+p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
+  geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
+  labs(title = "The wiggles", subtitle = "Plots for cats",
+       caption = "Figure 1. Gimme sine waves.")
+lab <- c("R plots for cats", "Sine wave sine wave...")
+pos <- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.75))
+img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
+meme_gif(img, lab, "sine.gif", size = c(1.5, 0.75), label_pos = pos,
+         inset = p, inset_bg = list(fill = "#00BFFF80"), fps = 20)
+```
+
+The generated file will look like this:
+
+<p style="text-align:center;"><img src="https://github.com/leonawicz/DataVisExamples/blob/master/packages/memery.gif?raw=true"></p><br/>
