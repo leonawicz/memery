@@ -38,7 +38,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -132,16 +132,27 @@
     
 <div class="contents">
 <p>The <code>memery</code> package is used for generating internet memes suited specifically to data analysts, combining the visual impact of an attention-grabbing meme with graphic results of data analysis. This vignette covers the basic usage of <code>memery</code> with several examples.</p>
+<div id="shiny-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#shiny-example" class="anchor"></a>Shiny example</h2>
+<p>Before getting to the code and other details, you can explore a quick visual example using the Shiny app packaged with <code>memery</code>. It displays an input meme background image and an inset plot which are combined to form the analyst’s meme. The app makes available any ggplot objects in the global environment created by the user to be used as inset plots for memes. If none exist, <code>memeApp</code> will generate a test plot ggplot object, <code>memery_testplot</code>, for the app session. Available plots populate the inset plot selection menu.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(memery)
+<span class="kw"><a href="../reference/memeApp.html">memeApp</a></span>()</code></pre></div>
+<div id="imagemagick-suggested-but-not-required" class="section level3">
+<h3 class="hasAnchor">
+<a href="#imagemagick-suggested-but-not-required" class="anchor"></a>ImageMagick suggested but not required</h3>
+<p>If the <code>magick</code> package and ImageMagick software are installed on the system, <code>memeApp</code> will launch in complete mode and the default image will be an animated gif. If not installed, a simplified version of the example app will launch, and only jpg and png files can be used. Some users have no interest in animated gifs and may not have ImageMagick installed on their operating system. This software is not required since working with animated gifs represent only one small aspect of <code>memery</code>. It is only listed as a suggested package. Any package functionality that uses the <code>magick</code> package returns gracefully with a notification about the missing package. The only function in <code>memery</code> that uses <code>magick</code> is <code>meme_gif</code>.</p>
+</div>
+</div>
 <div id="the-meme" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-meme" class="anchor"></a>The meme</h2>
-<p>This consists of the background image and overlying text label(s). The image can be provided as a path to a local file or a URL. Below are examples of each, mixing up combinations of source file and output file format. <code>memery</code> also provides the classic meme font, Impact, as the default as well as the text shadow outline effect, which is available for any font you use.</p>
+<p>Now onto the core of the package. This consists of the background image and overlying text label(s). The image can be provided as a path to a local file or a URL. Below are examples of each, mixing up combinations of source file and output file format. <code>memery</code> also provides the classic meme font, Impact, as the default as well as the text shadow outline effect, which is available for any font you use.</p>
 <div id="note-on-fonts" class="section level3">
 <h3 class="hasAnchor">
 <a href="#note-on-fonts" class="anchor"></a>Note on fonts</h3>
 <p>Note that Impact is a Windows font. If using <code>memery</code> on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is not installed on an operating system, <code>meme</code> will ignore it and fall back on <code>family = "serif"</code> internally. If unfamiliar, explore the documentation and examples available for the <code>showtext</code> and <code>sysfonts</code> packages, which <code>memery</code> leverages.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(memery)
-loc &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">"philosoraptor.jpg"</span>, <span class="dt">package =</span> <span class="st">"memery"</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">loc &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">"philosoraptor.jpg"</span>, <span class="dt">package =</span> <span class="st">"memery"</span>)
 web &lt;-<span class="st"> "https://imgflip.com/s/meme/Philosoraptor.jpg"</span>
 lab &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"What to call my R package?"</span>, <span class="st">"Perhaps..."</span>)
 <span class="kw">meme</span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme1.jpg"</span>)
@@ -225,7 +236,7 @@ pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">
 <p style="text-align:center;">
 <img src="meme4c.jpg"></p>
 <p>Below is an example where the background panel is set to another semi-transparent color and the border color is no longer transparent.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vp_bg &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"#FF00FF50"</span>, <span class="dt">col =</span> <span class="st">"#FFFFFF75"</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vp_bg &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"#FF00FF50"</span>, <span class="dt">col =</span> <span class="st">"#FFFFFF80"</span>)
 <span class="kw">meme</span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4d.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">inset_bg =</span> vp_bg, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
 <p style="text-align:center;">
 <img src="meme4d.jpg"></p>
@@ -247,6 +258,23 @@ lab_pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="
 <p style="text-align:center;">
 <img src="meme5.jpg"></p>
 </div>
+<div id="animated-gifs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#animated-gifs" class="anchor"></a>Animated gifs</h2>
+<p>If ImageMagick is installed on your system, animated gifs can be used for data analyst memes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">"orange"</span>, 
+    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>grp) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"The wiggles"</span>, <span class="dt">subtitle =</span> <span class="st">"Plots for cats"</span>, 
+    <span class="dt">caption =</span> <span class="st">"Figure 1. Gimme sine waves."</span>)
+lab &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"R plots for cats"</span>, <span class="st">"Sine wave sine wave..."</span>)
+pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">w =</span> <span class="kw">rep</span>(<span class="fl">0.9</span>, <span class="dv">2</span>), <span class="dt">h =</span> <span class="kw">rep</span>(<span class="fl">0.3</span>, <span class="dv">2</span>), <span class="dt">x =</span> <span class="kw">rep</span>(<span class="fl">0.5</span>, <span class="dv">2</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.75</span>))
+img &lt;-<span class="st"> "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"</span>
+<span class="kw"><a href="../reference/meme.html">meme_gif</a></span>(img, lab, <span class="st">"sine.gif"</span>, <span class="dt">size =</span> <span class="kw">c</span>(<span class="fl">1.5</span>, <span class="fl">0.75</span>), <span class="dt">label_pos =</span> pos, <span class="dt">inset =</span> p, 
+    <span class="dt">inset_bg =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">"#00BFFF80"</span>), <span class="dt">fps =</span> <span class="dv">20</span>)</code></pre></div>
+<p>The generated file will look like this:</p>
+<p style="text-align:center;">
+<img src="https://github.com/leonawicz/DataVisExamples/blob/master/packages/memery.gif?raw=true"></p>
+<p><br></p>
+</div>
 </div>
   </div>
 
@@ -255,9 +283,11 @@ lab_pos &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#the-meme">The meme</a></li>
+<li><a href="#shiny-example">Shiny example</a></li>
+      <li><a href="#the-meme">The meme</a></li>
       <li><a href="#optional-plot-overlay">Optional plot overlay</a></li>
       <li><a href="#multiple-labels-and-vector-arguments">Multiple labels and vector arguments</a></li>
+      <li><a href="#animated-gifs">Animated gifs</a></li>
       </ul>
 </div>
       </div>

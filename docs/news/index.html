@@ -64,7 +64,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -154,11 +154,25 @@
     </div>
 
     <div class="contents">
+    <div id="memery-0-4-0-release-date-2018-01-11" class="section level1">
+<h1 class="hasAnchor">
+<a href="#memery-0-4-0-release-date-2018-01-11" class="anchor"></a>memery 0.4.0 (Release date: 2018-01-11)</h1>
+<ul>
+<li>Update example Shiny app to account for presence/absence of <code>magick</code> package and launch an appropriately configued app in the browser (gif/no gif support and related options).</li>
+<li>Example app test plot now only generates when app is launched in an R session where there are no ggplot objects in the global environment created by the user. If there are, then the test plot is not made. The test plot is also now only generated within the server environment and not added to the global environment.</li>
+<li>Added app and animated gif content to introduction vignette.</li>
+<li>Updated functions, examples and documentation.</li>
+</ul>
+</div>
     <div id="memery-0-3-1-9000" class="section level1">
 <h1 class="hasAnchor">
 <a href="#memery-0-3-1-9000" class="anchor"></a>memery 0.3.1.9000</h1>
 <ul>
 <li>Added <code>magick</code> to DESCRIPTION file Suggests field. The package is not required unless you are trying to read a gif image and save a gif meme using <code>meme_gif</code>. I consider this a minor use case so I have given memes based around gifs a unique function that wraps around <code>meme</code> rather than adding the gif-specific functionality directly to <code>meme</code>. If using <code>meme_gif</code>, you will need to install <code>magick</code> if not already installed. <code>magick</code> depends on the ImageMagick software so you will also have to install this dependency on your system. Aside from <code>meme_gif</code>, there is no need for ImageMagick.</li>
+<li>
+<code>meme_gif</code> accepts a frames per second argument, <code>fps</code>, and a frame number argument, <code>frame</code>.</li>
+<li>Added example Shiny app, launched via <code>memeApp</code>.</li>
+<li>Updated unit tests, documentation and vignette.</li>
 </ul>
 </div>
     <div id="memery-0-3-1-release-date-2017-11-14" class="section level1">
@@ -254,6 +268,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#memery-0-4-0-release-date-2018-01-11">0.4.0</a></li>
         <li><a href="#memery-0-3-1-9000">0.3.1.9000</a></li>
         <li><a href="#memery-0-3-1-release-date-2017-11-14">0.3.1</a></li>
         <li><a href="#memery-0-3-0-9000">0.3.0.9000</a></li>
