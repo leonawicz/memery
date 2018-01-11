@@ -157,7 +157,7 @@ meme(img, lab[1:2], "meme_data.jpg", size = 2, inset = p, mult = 2)
 }
 
 # data meme with additional content control
-vp_bg <- list(fill = "#FF00FF50", col = "#FFFFFF75") # graph background
+vp_bg <- list(fill = "#FF00FF50", col = "#FFFFFF80") # graph background
 # arbitrary number of labels, placement, and other vectorized attributes
 lab <- c(lab, "Middle plot text")
 pos <- list(w = rep(0.9, 3), h = rep(0.3, 3), x = c(0.35, 0.65, 0.5),
@@ -179,6 +179,6 @@ lab <- c("R plots for cats", "Sine wave sine wave sine wave sine wave...")
 pos <- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.75))
 img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
 meme_gif(img, lab, "meme_data3.gif", size = c(1.5, 0.75), label_pos = pos,
-         inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 1.5, fps = 20)
+         inset = p, inset_bg = list(fill = "#00BFFF80"), mult = 1.5, fps = 20)
 }
 }

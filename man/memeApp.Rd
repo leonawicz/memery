@@ -4,20 +4,34 @@
 \alias{memeApp}
 \title{Run memery example app}
 \usage{
-memeApp()
+memeApp(testplot = FALSE)
+}
+\arguments{
+\item{testplot}{logical, an example inset plot that can be used to demo the app if there are no ggplot objects in the global environment. See details.}
 }
 \description{
 Launch the memery example app in your browser.
 }
 \details{
-Due to how \code{meme_gif} works, gifs will not display in a hosted app, i.e., on \code{shinyapps.io}.
-While jpg and png memes will display, the impact font will also not likely be available on the server.
-For these reasons this packaged app is not hosted elsewhere. The best experience is to use the app locally via the \code{memery} package.
+This example app launches with animated gif support and relevant initial example gif if the magick package and ImageMagick software are installed on the user's system.
+Otherwise, a simplified version of the app that does not provide gif support launches and starting images must be jpg or png.
 
-When this app runs, it adds one example ggplot object, \code{sineplot}, to your global R session for use in the app.
-However, if you have additional ggplot objects in your global environment when you run the app, they will also propagate the selection
-menu in the app as available inset plots.
+Due to how \code{meme_gif} works, gifs will not display in a hosted app, i.e., on \code{shinyapps.io}.
+Memes based on gifs with many frames also take longer to render. By default, the app is set to render any animated gif input into a static meme using only the first frame in the animated gif.
+If it takes one second to render a single frame, expect it to take about 43 seconds to render the 43-frame example animated gif that comes preloaded in the app.
+If the user wishes to wait, the input control menu for output frames can be switched from first frame to all frames.
+
+While jpg and png memes will display in a hosted app like on \code{shinyapps.io}, the impact font will also not likely be available on a given server.
+For all these reasons this packaged app is not hosted elsewhere. The best and intended experience is to use the app locally via the \code{memery} package.
+
+Setting \code{testplot = TRUE} will add one example ggplot object, \code{memery_testplot}, to the R session global environment for use in the app when the app launches.
+This option exists if a user wishes to quickly view the example without first making their own ggplot objects.
+This can be left as \code{FALSE} when ggplot objects already exist in the current R session.
+In either case, any ggplot objects present in the global environment when you run the app propagate the selection menu in the app as available inset plots.
+A message will be returned to the console if \code{memeApp} is called with the default \code{testplot = FALSE} and there are no ggplot objects in the global environment with which to propagate the in-app list.
+
+A meme can be saved from an app by right-clicking on the image in your web browser and selecting the save option just like with any other web images.
 }
 \examples{
-\dontrun{memeApp()}
+\dontrun{memeApp(testplot = FALSE)}
 }

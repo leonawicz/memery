@@ -26,4 +26,6 @@ rather than restricting to the standard top and/or bottom text placement.
 This is useful for proper aesthetic interleaving of plots of data between meme image backgrounds and overlain text labels.
 The package offers a selection of templates for graph placement and appearance with respect to the underlying meme.
 Graph templates also permit additional template-specific customization.
+
+Animated gif support is provided but this is optional and functional only if the \code{magick} package is installed.
 }
