@@ -1,3 +1,7 @@
+# memery 0.4.0.9999
+
+* Minor updates to documentation.
+
 # memery 0.4.0 (Release date: 2018-01-11)
 
 * Update example Shiny app to account for presence/absence of `magick` package and launch an appropriately configued app in the browser (gif/no gif support and related options).

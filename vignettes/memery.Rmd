@@ -193,6 +193,7 @@ meme(loc, lab, "meme5.jpg", size = c(1.25, 2.5, 1), family = c("serif", "Impact"
 If ImageMagick is installed on your system, animated gifs can be used for data analyst memes.
 
 ```{r gifs, eval=FALSE}
+d$grp <- gsub("Philosoraptor's", "Cat's", d$grp)
 p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
   geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
   labs(title = "The wiggles", subtitle = "Plots for cats",
