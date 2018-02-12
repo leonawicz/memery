@@ -44,9 +44,9 @@ test_that("meme runs as expected", {
 })
 
 test_that("meme runs with added font family", {
-  os_skip <- c("linux", "sunos") # Skip on Solaris. Skip on Linux if not TRAVIS.
-  sysname <- tolower(Sys.info()[["sysname"]])
-  if(sysname %in% os_skip & !identical(Sys.getenv("TRAVIS"), "true")) skip_on_os(os_skip)
+  sysname <- tolower(Sys.info()[["sysname"]]) # Skip on Solaris. Skip on Linux if not TRAVIS.
+  if(!sysname %in% c("windows", "mac", "linux") || (sysname == "linux" && !identical(Sys.getenv("TRAVIS"), "true")))
+    skip_on_os(os_skip)
 
   fam <- "Arial"
   sysfonts::font_add(fam, "arial.ttf")
