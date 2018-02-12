@@ -139,8 +139,10 @@ server <- function(input, output) {
   })
 
   output$image_fps = renderUI({
-    if(has_magick & img_ext() == "gif") sliderInput("fps", "FPS", 5, 30, def_fps, 5, width = "100%")
-    bsTooltip("fps", "Must be a factor of 100.", placement = "top")
+    if(has_magick & img_ext() == "gif") tagList(
+      selectInput("fps", "FPS", c(5, 10, 20, 25), 20, width = "100%"),
+      bsTooltip("fps", "Must be a factor of 100.", placement = "top")
+    )
   })
 
   output$image_frame = renderUI({
@@ -192,8 +194,8 @@ server <- function(input, output) {
       if(ext == "jpeg") ext <- "jpg"
       outfile <- tempfile(fileext = paste0(".", ext))
       if(has_magick & ext == "gif"){
-        fps <- if(is.null(input$fps)) 20 else input$fps
-        frame_num <- if(is.null(input$frame)) 1 else input$frame
+        fps <- if(is.null(input$fps)) 20 else as.numeric(input$fps)
+        frame_num <- if(is.null(input$frame)) 1 else as.numeric(input$frame)
         meme_gif(img_src(), l, outfile, size = s, col = l_col, shadow = l_shadow, label_pos = lab_pos(),
                  inset = p, inset_bg = bg, inset_pos = ipos, mult = input$mult, fps = fps, frame = frame_num)
       } else {

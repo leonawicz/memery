@@ -1,5 +1,6 @@
-# memery 0.4.0.9999
+# memery 0.4.1 (Release date: 2018-01-12)
 
+* Minor fix to framerate frame selection options for animated gifs in packaged Shiny demo app.
 * Minor updates to documentation.
 
 # memery 0.4.0 (Release date: 2018-01-11)
