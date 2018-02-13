@@ -44,8 +44,8 @@ test_that("meme runs as expected", {
 })
 
 test_that("meme runs with added font family", {
-  a <- c("windows", "mac", "linux")
-  sysname <- tolower(Sys.info()[["sysname"]]) # Skip on Solaris. Skip on Linux if not TRAVIS.
+  a <- c("windows", "linux")
+  sysname <- tolower(Sys.info()[["sysname"]]) # Skip on Solaris, Mac. Skip on Linux if not TRAVIS.
   skip_if(!sysname %in% a || (sysname == "linux" && !identical(Sys.getenv("TRAVIS"), "true")),
           "Skipping test on current system.")
 
