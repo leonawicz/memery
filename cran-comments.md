@@ -1,8 +1,10 @@
 ## Update release
 This is an update release submission. In this version I have:
 
-* Fixed a minor bug related to animated gif framerate options not being selectable in the demo Shiny app included in the package.
-* Skipped an unnecessary unit test on Solaris systems that cannot pass the Solaris CRAN check without additional system font libraries available.
+* Fixed incorrectly specified testthat unit test conditional skip that was causing build failure on multiple systems.
+
+I do not have access to all operating systems for testing, but I was able to simulate the conditional test skip on TRAVIS-CI Linux and on Windows (systems where the unit test normally is not skipped).
+Given this, the fix appears successful; errors should no longer occur on the affected operating systems during CRAN checks.
 
 ## Test environments
 * local Windows 10 install, R 3.4.3
