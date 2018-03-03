@@ -267,7 +267,39 @@ meme_gif <- function(img, label, file, size = 1, family = "Impact", col = "white
   frames <- magick::image_read(tmpfiles)
   file.remove(tmpfiles)
   x <- magick::image_animate(frames, fps = fps)
+  #x <- .override_image_animate(frames, fps = fps) # nolint
   magick::image_write(x, file)
   cat("\nDone.\n")
   invisible()
 }
+
+# nolint start
+
+# .override_image_animate <- function(image, fps = 10, loop = 0, dispose = c("background", "previous", "none")){
+#   .override_assert_image(image)
+#   stopifnot(is.numeric(fps))
+#   stopifnot(is.numeric(loop))
+#   delay <- as.integer(100/fps)
+#   dispose <- match.arg(dispose)
+#   .override_magick_image_animate(image, delay, as.integer(loop), dispose)
+# }
+#
+# .override_assert_image <- function(image){
+#   if (!inherits(image, "magick-image"))
+#     stop("The 'image' argument is not a magick image object.",
+#          call. = FALSE)
+#   if (.override_magick_image_dead(image))
+#     stop("Image pointer is dead. You cannot save image objects between R sessions.",
+#          call. = FALSE)
+# }
+#
+# .override_magick_image_dead <- function(image){
+#   .Call("_magick_magick_image_dead", PACKAGE = "magick", image)
+# }
+#
+# .override_magick_image_animate <- function(input, delay, iter, method){
+#   .Call("_magick_magick_image_animate", PACKAGE = "magick",
+#         input, delay, iter, method)
+# }
+
+# nolint end

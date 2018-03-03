@@ -63,15 +63,18 @@ test_that("meme_gif runs as expected", {
   if("magick" %in% installed.packages()){
     s <- c(1.5, 0.75)
     f <- 1:2
-    meme_gif(img, lab, "out.gif", size = s, label_pos = pos,
-             inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 0.5, fps = 20, frame = f)
-    meme_gif(img, lab, "out.gif", size = s, label_pos = pos, width = 200,
-             inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f)
-    meme_gif(img, lab, "out.gif", size = s, label_pos = pos, height = 200,
-             inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f)
-    meme_gif(img, lab, "out.gif", size = s, label_pos = pos, width = 200, height = 200,
-             inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f)
-    file.remove("out.gif")
+    file <- "out.gif"
+    expect_is(meme_gif(img, lab, file, size = s, label_pos = pos,
+      inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 0.5, fps = 20, frame = f), x)
+    expect_is(meme_gif(img, lab, file, size = s, label_pos = pos, width = 200,
+      inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f), x)
+    expect_is(meme_gif(img, lab, file, size = s, label_pos = pos, height = 200,
+      inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f), x)
+    expect_is(meme_gif(img, lab, file, size = s, label_pos = pos, width = 200, height = 200,
+      inset = p, inset_bg = list(fill = "#00BFFF50"), fps = 20, frame = f), x)
+    expect_is(car_shiny(file, test_frame = TRUE, mult = 1), x)
+    expect_is(car_shiny(file, p, p, test_frame = TRUE, mult = 1), x)
+    file.remove(file)
   } else {
     msg <- "The `magick` package and the ImageMagick software must be installed to use `meme_gif`."
     expect_message(
