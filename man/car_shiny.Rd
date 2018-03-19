@@ -59,5 +59,5 @@ p2 <- ggplot(d, aes(x, y)) +
         panel.grid.major = element_line(colour = "#FFFFFF50", linetype = 2),
         panel.grid.minor = element_line(colour = "#FFFFFF50", linetype = 2))
 
-car_shiny(file, p1, p2, test_frame = TRUE)
+\dontrun{car_shiny(file, p1, p2, test_frame = TRUE)}
 }

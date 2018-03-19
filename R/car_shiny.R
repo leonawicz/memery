@@ -44,7 +44,7 @@
 #'         panel.grid.major = element_line(colour = "#FFFFFF50", linetype = 2),
 #'         panel.grid.minor = element_line(colour = "#FFFFFF50", linetype = 2))
 #'
-#' car_shiny(file, p1, p2, test_frame = TRUE)
+#' \dontrun{car_shiny(file, p1, p2, test_frame = TRUE)}
 car_shiny <- function(file, p1 = NULL, p2 = NULL, fps = 10, test_frame = FALSE, mult = 1){
   logo <- "https://camo.githubusercontent.com/5b211a0a8995a521765e786af420066dae36cbce/68747470733a2f2f7777772e7273747564696f2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f7368696e792e706e67" # nolint
   x <- tempfile()
