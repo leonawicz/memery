@@ -103,8 +103,9 @@
 #' img <- system.file("philosoraptor.jpg", package = "memery")
 #' lab <- c("Title meme text", "Subtitle text")
 #'
-#' \donttest{
+#' \dontrun{
 #'
+#' # Not run due to file size
 #' # basic meme
 #' meme(img, lab[1:2], "meme_basic.jpg")
 #' # data analyst's meme
@@ -123,8 +124,9 @@
 #' meme(img, lab, "meme_data2.jpg", size = c(2, 1.5, 1), family = fam, col = clrs1,
 #'   shadow = clrs2, label_pos = pos, inset = p, inset_bg = vp_bg, mult = 2)
 #'
-#' \donttest{
+#' \dontrun{
 #'
+#' # Not run due to file size and software requirements
 #' # GIF meme. Requires Imagemagick and magick package. See details.
 #' p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
 #'   geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
