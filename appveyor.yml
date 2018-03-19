@@ -15,6 +15,13 @@ cache:
 
 # Adapt as necessary starting from here
 
+notifications:
+  - provider: Webhook
+    url: https://webhooks.gitter.im/e/730f79bd747b0ca48ee7
+    on_build_success: false
+    on_build_failure: true
+    on_build_status_changed: true
+
 environment:
   _R_CHECK_FORCE_SUGGESTS_: false
 

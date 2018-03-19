@@ -10,5 +10,13 @@ before_install:
   - sudo apt-get install msttcorefonts -qq
   - sudo apt-get install imagemagick
 
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/57f01f1de967cd49d340
+    on_success: change
+    on_failure: always
+    on_start: never
+
 after_success:
     - Rscript -e 'covr::codecov()'
