@@ -2,6 +2,7 @@
 
 * Added the `car_shiny` function for recreating the (ca)R Shiny promotional anaylst meme animated gif. Given that it is a gif, `magick` and ImageMagick are required for this function to work.
 * Fixed formatting issues in some of the documentation.
+* Switched some ehlp doc examples to `dontrun` to avoid generating large images inceasing package size.
 * Updated unit tests.
 
 # memery 0.4.2 (Release date: 2018-01-12)
