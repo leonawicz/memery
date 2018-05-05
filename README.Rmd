@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# memery
+# memery <a hef="https://github.com/leonawicz/memery/blob/master/data-raw/memery.png?raw=true" _target="blank"><img src="https://github.com/leonawicz/memery/blob/master/inst/memery.png?raw=true" style="margin-bottom:5px;" width="120" align="right"></a>
 
 [![CRAN status](http://www.r-pkg.org/badges/version/memery)](https://cran.r-project.org/package=memery)
 [![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/memery)](https://cran.r-project.org/package=memery) 

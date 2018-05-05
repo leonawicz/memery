@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-memery
-======
+memery <a hef="https://github.com/leonawicz/memery/blob/master/data-raw/memery.png?raw=true" _target="blank"><img src="https://github.com/leonawicz/memery/blob/master/inst/memery.png?raw=true" style="margin-bottom:5px;" width="120" align="right"></a>
+==========================================================================================================================================================================================================================================================
 
 [![CRAN status](http://www.r-pkg.org/badges/version/memery)](https://cran.r-project.org/package=memery) [![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/memery)](https://cran.r-project.org/package=memery) [![Rdoc](http://www.rdocumentation.org/badges/version/memery)](http://www.rdocumentation.org/packages/memery) [![Travis-CI Build Status](https://travis-ci.org/leonawicz/memery.svg?branch=master)](https://travis-ci.org/leonawicz/memery) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/leonawicz/memery?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/memery) [![Coverage Status](https://img.shields.io/codecov/c/github/leonawicz/memery/master.svg)](https://codecov.io/github/leonawicz/memery?branch=master) [![gitter](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/leonawicz/memery)
 
