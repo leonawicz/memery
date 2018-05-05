@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All news • memery</title>
+<title>Changelog • memery</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,19 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Changelog" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -34,16 +40,14 @@
 <![endif]-->
 
 
-<!-- Google analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  ga('create', 'UA-46129458-3', 'auto');
-  ga('send', 'pageview');
-
+  gtag('config', 'UA-46129458-3');
 </script>
 
   </head>
@@ -59,8 +63,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">memery</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">memery</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.2.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -70,13 +78,13 @@
   </a>
 </li>
 <li>
-  <a href="../articles/memery.html">Get Started</a>
+  <a href="../articles/memery.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -139,6 +147,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -146,42 +155,45 @@
       
       </header>
 
-      <div class="row">
-
-  <div class="col-md-9">
+<div class="row">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Change log <small>All releases</small></h1>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/leonawicz/memery/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="contents">
     <div id="memery-0-4-2-9000" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-4-2-9000" class="anchor"></a>memery 0.4.2.9000</h1>
+<h1 class="page-header">
+<a href="#memery-0-4-2-9000" class="anchor"></a>memery 0.4.2.9000<small> Unreleased </small>
+</h1>
 <ul>
 <li>Added the <code>car_shiny</code> function for recreating the (ca)R Shiny promotional anaylst meme animated gif. Given that it is a gif, <code>magick</code> and ImageMagick are required for this function to work.</li>
 <li>Fixed formatting issues in some of the documentation.</li>
-<li>Switched some ehlp doc examples to <code>dontrun</code> to avoid generating large images inceasing package size.</li>
+<li>Switched some help doc examples to <code>dontrun</code> to avoid generating large images inceasing package size.</li>
 <li>Updated unit tests.</li>
 </ul>
 </div>
     <div id="memery-0-4-2-release-date-2018-01-12" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-4-2-release-date-2018-01-12" class="anchor"></a>memery 0.4.2 (Release date: 2018-01-12)</h1>
+<h1 class="page-header">
+<a href="#memery-0-4-2-release-date-2018-01-12" class="anchor"></a>memery 0.4.2 (Release date: 2018-01-12)<small> 2018-02-13 </small>
+</h1>
 <ul>
 <li>Fixed incorrectly specified testthat unit test that was causing build failure on some systems.</li>
 </ul>
 </div>
     <div id="memery-0-4-1-release-date-2018-01-12" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-4-1-release-date-2018-01-12" class="anchor"></a>memery 0.4.1 (Release date: 2018-01-12)</h1>
+<h1 class="page-header">
+<a href="#memery-0-4-1-release-date-2018-01-12" class="anchor"></a>memery 0.4.1 (Release date: 2018-01-12)<small> 2018-02-12 </small>
+</h1>
 <ul>
 <li>Minor fix to framerate frame selection options for animated gifs in packaged Shiny demo app.</li>
 <li>Minor updates to documentation.</li>
 </ul>
 </div>
     <div id="memery-0-4-0-release-date-2018-01-11" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-4-0-release-date-2018-01-11" class="anchor"></a>memery 0.4.0 (Release date: 2018-01-11)</h1>
+<h1 class="page-header">
+<a href="#memery-0-4-0-release-date-2018-01-11" class="anchor"></a>memery 0.4.0 (Release date: 2018-01-11)<small> 2018-02-01 </small>
+</h1>
 <ul>
 <li>Update example Shiny app to account for presence/absence of <code>magick</code> package and launch an appropriately configured app in the browser (gif/no gif support and related options).</li>
 <li>Example app test plot now only generates when app is launched in an R session where there are no ggplot objects in the global environment created by the user. If there are, then the test plot is not made. The test plot is also now only generated within the server environment and not added to the global environment.</li>
@@ -190,8 +202,9 @@
 </ul>
 </div>
     <div id="memery-0-3-1-9000" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-3-1-9000" class="anchor"></a>memery 0.3.1.9000</h1>
+<h1 class="page-header">
+<a href="#memery-0-3-1-9000" class="anchor"></a>memery 0.3.1.9000<small> Unreleased </small>
+</h1>
 <ul>
 <li>Added <code>magick</code> to DESCRIPTION file Suggests field. The package is not required unless you are trying to read a gif image and save a gif meme using <code>meme_gif</code>. I consider this a minor use case so I have given memes based around gifs a unique function that wraps around <code>meme</code> rather than adding the gif-specific functionality directly to <code>meme</code>. If using <code>meme_gif</code>, you will need to install <code>magick</code> if not already installed. <code>magick</code> depends on the ImageMagick software so you will also have to install this dependency on your system. Aside from <code>meme_gif</code>, there is no need for ImageMagick.</li>
 <li>
@@ -201,8 +214,9 @@
 </ul>
 </div>
     <div id="memery-0-3-1-release-date-2017-11-14" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-3-1-release-date-2017-11-14" class="anchor"></a>memery 0.3.1 (Release date: 2017-11-14)</h1>
+<h1 class="page-header">
+<a href="#memery-0-3-1-release-date-2017-11-14" class="anchor"></a>memery 0.3.1 (Release date: 2017-11-14)<small> 2017-11-14 </small>
+</h1>
 <ul>
 <li>Updated unit tests. A couple tests requiring installation of other font families are run on Windows and Mac as well as on Linux via Travis-CI where pre-installation of fonts can be ensured. Otherwise these tests are skipped (Other Linux environments as well as Solaris).</li>
 <li>
@@ -210,8 +224,9 @@
 </ul>
 </div>
     <div id="memery-0-3-0-9000" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-3-0-9000" class="anchor"></a>memery 0.3.0.9000</h1>
+<h1 class="page-header">
+<a href="#memery-0-3-0-9000" class="anchor"></a>memery 0.3.0.9000<small> Unreleased </small>
+</h1>
 <ul>
 <li>Copied DESCRIPTION file Description field content to <code>memery</code> help documentation details.</li>
 <li>Updated readme.</li>
@@ -219,8 +234,9 @@
 </ul>
 </div>
     <div id="memery-0-3-0-release-date-2017-11-09" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-3-0-release-date-2017-11-09" class="anchor"></a>memery 0.3.0 (Release date: 2017-11-09)</h1>
+<h1 class="page-header">
+<a href="#memery-0-3-0-release-date-2017-11-09" class="anchor"></a>memery 0.3.0 (Release date: 2017-11-09)<small> 2017-11-09 </small>
+</h1>
 <ul>
 <li>Breaking changes: updated some arguments for <code>meme</code> and <code>text_position</code>.</li>
 <li>Attempts to load Impact font on package load or to use any fonts with <code>meme</code> when not installed on the system now fail gracefully, falling back on <code>serif</code>.</li>
@@ -237,8 +253,9 @@
 </ul>
 </div>
     <div id="memery-0-2-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-2-0" class="anchor"></a>memery 0.2.0</h1>
+<h1 class="page-header">
+<a href="#memery-0-2-0" class="anchor"></a>memery 0.2.0<small> Unreleased </small>
+</h1>
 <ul>
 <li>Breaking changes: updated several <code>meme</code> arguments.</li>
 <li>Text size, font family, color and shadow color may now be vectors like <code>label</code>.</li>
@@ -254,8 +271,9 @@
 </ul>
 </div>
     <div id="memery-0-1-6" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-1-6" class="anchor"></a>memery 0.1.6</h1>
+<h1 class="page-header">
+<a href="#memery-0-1-6" class="anchor"></a>memery 0.1.6<small> Unreleased </small>
+</h1>
 <ul>
 <li>Vectorized <code>label</code> and <code>label_pos</code> arguments for <code>meme</code> text.</li>
 <li>Improved viewport behavior.</li>
@@ -263,16 +281,18 @@
 </ul>
 </div>
     <div id="memery-0-1-5" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-1-5" class="anchor"></a>memery 0.1.5</h1>
+<h1 class="page-header">
+<a href="#memery-0-1-5" class="anchor"></a>memery 0.1.5<small> Unreleased </small>
+</h1>
 <ul>
 <li>Refactored <code>meme</code> code, add/remove arguments, add error checking.</li>
 <li>Updated documentation.</li>
 </ul>
 </div>
     <div id="memery-0-1-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-1-0" class="anchor"></a>memery 0.1.0</h1>
+<h1 class="page-header">
+<a href="#memery-0-1-0" class="anchor"></a>memery 0.1.0<small> Unreleased </small>
+</h1>
 <ul>
 <li>Added <code>meme</code> function.</li>
 <li>Added documentation.</li>
@@ -280,13 +300,13 @@
 </ul>
 </div>
     <div id="memery-0-0-0-9000" class="section level1">
-<h1 class="hasAnchor">
-<a href="#memery-0-0-0-9000" class="anchor"></a>memery 0.0.0.9000</h1>
+<h1 class="page-header">
+<a href="#memery-0-0-0-9000" class="anchor"></a>memery 0.0.0.9000<small> Unreleased </small>
+</h1>
 <ul>
 <li>Initialized package scaffolding.</li>
 </ul>
 </div>
-    </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -318,11 +338,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

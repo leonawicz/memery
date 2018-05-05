@@ -18,13 +18,19 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Function reference" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -34,16 +40,14 @@
 <![endif]-->
 
 
-<!-- Google analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  ga('create', 'UA-46129458-3', 'auto');
-  ga('send', 'pageview');
-
+  gtag('config', 'UA-46129458-3');
 </script>
 
   </head>
@@ -59,8 +63,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">memery</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">memery</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.2.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -70,13 +78,13 @@
   </a>
 </li>
 <li>
-  <a href="../articles/memery.html">Get Started</a>
+  <a href="../articles/memery.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -139,6 +147,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -146,108 +155,103 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.4.2.9000</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-package" class="hasAnchor"><a href="#section-package" class="anchor"></a>Package</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="memery.html">memery</a></code> </p>
-          </td>
-          <td><p>memery: Internet memes for data analysts.</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-meme-generator" class="hasAnchor"><a href="#section-meme-generator" class="anchor"></a>Meme generator</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="meme.html">meme</a></code> <code><a href="meme.html">meme_gif</a></code> </p>
-          </td>
-          <td><p>Generate a meme</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-supporting-functions" class="hasAnchor"><a href="#section-supporting-functions" class="anchor"></a>Supporting functions</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="memetheme.html">memetheme</a></code> </p>
-          </td>
-          <td><p>Default meme theme</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="text_position.html">text_position</a></code> </p>
-          </td>
-          <td><p>Default meme text position</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="inset.html">inset_position</a></code> <code><a href="inset.html">inset_background</a></code> <code><a href="inset.html">inset_templates</a></code> </p>
-          </td>
-          <td><p>Meme plot inset templates</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-example-shiny-app" class="hasAnchor"><a href="#section-example-shiny-app" class="anchor"></a>Example Shiny app</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="memeApp.html">memeApp</a></code> </p>
-          </td>
-          <td><p>Run memery example app</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-other-examples" class="hasAnchor"><a href="#section-other-examples" class="anchor"></a>Other examples</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="car_shiny.html">car_shiny</a></code> </p>
-          </td>
-          <td><p>The ca(R) Shiny promotional meme</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-package" class="hasAnchor"><a href="#section-package" class="anchor"></a>Package</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="memery.html">memery</a></code> </p>
+        </td>
+        <td><p>memery: Internet memes for data analysts.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-meme-generator" class="hasAnchor"><a href="#section-meme-generator" class="anchor"></a>Meme generator</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="meme.html">meme()</a></code> <code><a href="meme.html">meme_gif()</a></code> </p>
+        </td>
+        <td><p>Generate a meme</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-supporting-functions" class="hasAnchor"><a href="#section-supporting-functions" class="anchor"></a>Supporting functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="memetheme.html">memetheme()</a></code> </p>
+        </td>
+        <td><p>Default meme theme</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="text_position.html">text_position()</a></code> </p>
+        </td>
+        <td><p>Default meme text position</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="inset.html">inset_position()</a></code> <code><a href="inset.html">inset_background()</a></code> <code><a href="inset.html">inset_templates()</a></code> </p>
+        </td>
+        <td><p>Meme plot inset templates</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-example-shiny-app" class="hasAnchor"><a href="#section-example-shiny-app" class="anchor"></a>Example Shiny app</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="memeApp.html">memeApp()</a></code> </p>
+        </td>
+        <td><p>Run memery example app</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-other-examples" class="hasAnchor"><a href="#section-other-examples" class="anchor"></a>Other examples</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="car_shiny.html">car_shiny()</a></code> </p>
+        </td>
+        <td><p>The ca(R) Shiny promotional meme</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -268,11 +272,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

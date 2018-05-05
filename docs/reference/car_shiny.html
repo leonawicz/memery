@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The ca(R) Shiny promotional meme � car_shiny • memery</title>
+<title>The ca(R) Shiny promotional meme — car_shiny • memery</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="The ca(R) Shiny promotional meme — car_shiny" />
+
+<meta property="og:description" content="Recreate the ca(R) Shiny promotional meme using different plots, frame rate or output size." />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -34,16 +43,14 @@
 <![endif]-->
 
 
-<!-- Google analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46129458-3"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  ga('create', 'UA-46129458-3', 'auto');
-  ga('send', 'pageview');
-
+  gtag('config', 'UA-46129458-3');
 </script>
 
   </head>
@@ -59,8 +66,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">memery</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">memery</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.4.2.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -70,13 +81,13 @@
   </a>
 </li>
 <li>
-  <a href="../articles/memery.html">Get Started</a>
+  <a href="../articles/memery.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -139,6 +150,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -146,20 +158,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The ca(R) Shiny promotional meme</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/memery/blob/master/R/car_shiny.R'><code>R/car_shiny.R</code></a></small>
+    <div class="hidden name"><code>car_shiny.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Recreate the ca(R) Shiny promotional meme using different plots, frame rate or output size.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>car_shiny</span>(<span class='no'>file</span>, <span class='kw'>p1</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>p2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fps</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>test_frame</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -202,8 +218,8 @@ two more times in order to add all layers to the animated gif, since the underly
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>ggplot2</span>)
-<span class='no'>file</span> <span class='kw'>&lt;-</span> <span class='st'>"memery-car-shiny.gif"</span> <span class='co'># outfile</span>
+    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>ggplot2</span>)</div><div class='output co'>#&gt; <span class='message'>Want to understand how all the pieces fit together? Buy the ggplot2</span>
+#&gt; <span class='message'>book: http://ggplot2.org/book/</span></div><div class='input'><span class='no'>file</span> <span class='kw'>&lt;-</span> <span class='st'>"memery-car-shiny.gif"</span> <span class='co'># outfile</span>
 <span class='fu'>set.seed</span>(<span class='fl'>1</span>)
 <span class='no'>p1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='fu'>data.frame</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>rbeta</span>(<span class='fl'>100000</span>, <span class='fl'>10</span>, <span class='fl'>3</span>)), <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='no'>x</span>)) +
   <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_histogram'>geom_histogram</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"#88888880"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>bins</span> <span class='kw'>=</span> <span class='fl'>30</span>)
@@ -248,11 +264,14 @@ two more times in order to add all layers to the animated gif, since the underly
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
