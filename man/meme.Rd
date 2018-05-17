@@ -9,13 +9,14 @@
 meme(img, label, file, size = 1, family = "Impact", col = "white",
   shadow = "black", label_pos = text_position(length(label)),
   inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
-  inset_pos = inset_position(), width, height, mult = 1)
+  inset_pos = inset_position(), width, height, bg = "transparent",
+  mult = 1)
 
 meme_gif(img, label, file, size = 1, family = "Impact", col = "white",
   shadow = "black", label_pos = text_position(length(label)),
   inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
-  inset_pos = inset_position(), width, height, mult = 1, fps = 10,
-  frame = 0, ...)
+  inset_pos = inset_position(), width, height, bg = "transparent",
+  mult = 1, fps = 10, frame = 0, ...)
 }
 \arguments{
 \item{img}{path to image file, png or jpg.}
@@ -45,6 +46,8 @@ meme_gif(img, label, file, size = 1, family = "Impact", col = "white",
 \item{width}{numeric, width of overall meme plot in pixels. If missing, taken from \code{img} size.}
 
 \item{height}{numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.}
+
+\item{bg}{character, background color for graphics device.}
 
 \item{mult}{numeric, a multiplier. Used to adjust width and height. See details.}
 

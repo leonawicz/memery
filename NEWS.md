@@ -1,3 +1,7 @@
+# memery 0.5.0.9000
+
+* Added `bg` pass through to graphics devices for edge case where meme background image has transparency.
+
 # memery 0.5.0
 
 * Added package hex logo.
