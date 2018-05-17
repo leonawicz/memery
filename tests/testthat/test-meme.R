@@ -60,6 +60,8 @@ test_that("meme_gif runs as expected", {
   pos <- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.75))
   img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
 
+  skip_on_cran()
+  skip_on_travis()
   if("magick" %in% installed.packages()){
     s <- c(1.5, 0.75)
     f <- 1:2
