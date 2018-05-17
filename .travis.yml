@@ -8,7 +8,8 @@ before_install:
   - sudo apt-get update -yq
   - sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
   - sudo apt-get install msttcorefonts -qq
-  - sudo apt-get install imagemagick
+  - sudo add-apt-repository -y ppa:opencpu/imagemagick
+  - sudo apt-get update
 
 notifications:
   webhooks:
