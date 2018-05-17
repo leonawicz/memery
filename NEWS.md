@@ -2,7 +2,7 @@
 
 * Added `bg` pass through to graphics devices for edge case where meme background image has transparency.
 
-# memery 0.5.0
+# memery 0.5.0 (Release date: 2018-05-17)
 
 * Added package hex logo.
 * Added the `car_shiny` function for recreating the (ca)R Shiny promotional anaylst meme animated gif. Given that it is a gif, `magick` and ImageMagick are required for this function to work.
