@@ -1,13 +1,15 @@
-# memery 0.4.2.9000
+# memery 0.5.0
 
+* Added package hex logo.
 * Added the `car_shiny` function for recreating the (ca)R Shiny promotional anaylst meme animated gif. Given that it is a gif, `magick` and ImageMagick are required for this function to work.
 * Fixed formatting issues in some of the documentation.
 * Switched some help doc examples to `dontrun` to avoid generating large images inceasing package size.
 * Updated unit tests.
+* Added `lintr` to Suggests field in DESCRIPTION per CRAN maintainer request regarding `testthat` unit tests.
 
 # memery 0.4.2 (Release date: 2018-01-12)
 
-* Fixed incorrectly specified testthat unit test that was causing build failure on some systems.
+* Fixed incorrectly specified `testthat` unit test that was causing build failure on some systems.
 
 # memery 0.4.1 (Release date: 2018-01-12)
 

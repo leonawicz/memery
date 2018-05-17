@@ -1,14 +1,13 @@
 ## Update release
 This is an update release submission. In this version I have:
 
-* Fixed incorrectly specified testthat unit test conditional skip that was causing build failure on multiple systems.
+* Added `lintr` package to DESCRIPTION Suggests field per CRAN maintainer request regarding undeclared packages used in `testhat` unit tests.
 
-I do not have access to all operating systems for testing, but I was able to simulate the conditional test skip on TRAVIS-CI Linux and on Windows (systems where the unit test normally is not skipped).
-Given this, the fix appears successful; errors should no longer occur on the affected operating systems during CRAN checks.
+* Added other minor functionality and documentation updates since last submission.
 
 ## Test environments
-* local Windows 10 install, R 3.4.3
-* ubuntu 14.04 (on travis-ci), R 3.4.3
+* local Windows 10 install, R 3.5.0
+* ubuntu 14.04 (on travis-ci), R 3.5.0
 * win-builder (devel and release)
 
 ## R CMD check results
