@@ -2,7 +2,6 @@
 % Please edit documentation in R/meme.R
 \name{meme}
 \alias{meme}
-\alias{meme}
 \alias{meme_gif}
 \title{Generate a meme}
 \usage{
@@ -12,9 +11,10 @@ meme(img, label, file, size = 1, family = "Impact", col = "white",
   inset_pos = inset_position(), width, height, bg = "transparent",
   mult = 1)
 
-meme_gif(img, label, file, size = 1, family = "Impact", col = "white",
-  shadow = "black", label_pos = text_position(length(label)),
-  inset = NULL, ggtheme = memetheme(), inset_bg = inset_background(),
+meme_gif(img, label, file, size = 1, family = "Impact",
+  col = "white", shadow = "black",
+  label_pos = text_position(length(label)), inset = NULL,
+  ggtheme = memetheme(), inset_bg = inset_background(),
   inset_pos = inset_position(), width, height, bg = "transparent",
   mult = 1, fps = 10, frame = 0, ...)
 }

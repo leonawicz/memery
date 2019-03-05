@@ -1,8 +1,12 @@
-# memery 0.5.0.9000
+# memery 0.5.2
+
+* Made `meme_gif` faster.
+
+# memery 0.5.1
 
 * Added `bg` pass through to graphics devices for edge case where meme background image has transparency.
 
-# memery 0.5.0 (Release date: 2018-05-17)
+# memery 0.5.0
 
 * Added package hex logo.
 * Added the `car_shiny` function for recreating the (ca)R Shiny promotional anaylst meme animated gif. Given that it is a gif, `magick` and ImageMagick are required for this function to work.
@@ -11,16 +15,16 @@
 * Updated unit tests.
 * Added `lintr` to Suggests field in DESCRIPTION per CRAN maintainer request regarding `testthat` unit tests.
 
-# memery 0.4.2 (Release date: 2018-01-12)
+# memery 0.4.2
 
 * Fixed incorrectly specified `testthat` unit test that was causing build failure on some systems.
 
-# memery 0.4.1 (Release date: 2018-01-12)
+# memery 0.4.1
 
 * Minor fix to framerate frame selection options for animated gifs in packaged Shiny demo app.
 * Minor updates to documentation.
 
-# memery 0.4.0 (Release date: 2018-01-11)
+# memery 0.4.0
 
 * Update example Shiny app to account for presence/absence of `magick` package and launch an appropriately configured app in the browser (gif/no gif support and related options).
 * Example app test plot now only generates when app is launched in an R session where there are no ggplot objects in the global environment created by the user. If there are, then the test plot is not made. The test plot is also now only generated within the server environment and not added to the global environment.
@@ -34,7 +38,7 @@
 * Added example Shiny app, launched via `memeApp`.
 * Updated unit tests, documentation and vignette.
 
-# memery 0.3.1 (Release date: 2017-11-14)
+# memery 0.3.1
 
 * Updated unit tests. A couple tests requiring installation of other font families are run on Windows and Mac as well as on Linux via Travis-CI where pre-installation of fonts can be ensured. Otherwise these tests are skipped (Other Linux environments as well as Solaris).
 * `dplyr` packaged removed since it is no longer used (at this time) in examples and tests. This was leading to a `NOTE` on Mac builds.
@@ -45,7 +49,7 @@
 * Updated readme.
 * Updated vignette.
 
-# memery 0.3.0 (Release date: 2017-11-09)
+# memery 0.3.0
 
 * Breaking changes: updated some arguments for `meme` and `text_position`.
 * Attempts to load Impact font on package load or to use any fonts with `meme` when not installed on the system now fail gracefully, falling back on `serif`.
