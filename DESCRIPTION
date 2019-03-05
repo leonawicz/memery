@@ -32,6 +32,7 @@ Suggests:
     rmarkdown,
     covr,
     magick,
+    gifski,
     lintr
 VignetteBuilder: knitr
 Depends:
