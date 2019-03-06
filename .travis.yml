@@ -5,7 +5,6 @@ sudo: required
 cache: packages
 
 before_install:
-  - (while true; do echo 'Ping? Pong!'; sleep 500; done) &
   - sudo apt-get update -yq
   - sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
   - sudo apt-get install msttcorefonts -qq
@@ -17,6 +16,7 @@ addons:
     sources:
       - sourceline: 'ppa:opencpu/imagemagick'
     packages:
+      - libmagick++-dev
       - cargo
 
 notifications:
