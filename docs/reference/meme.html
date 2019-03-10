@@ -341,10 +341,10 @@ If adjustments to source images are desired, you should use a dedicated package 
     <h2 class="hasAnchor" id="reading-and-writing-gifs"><a class="anchor" href="#reading-and-writing-gifs"></a>Reading and writing gifs</h2>
 
     
-    <p>Reading and writing gifs requires the <code>magick</code> package, which in turn requires that you have ImageMagick installed on your system.
+    <p>Reading and writing gifs requires the <code>magick</code> package.
 Since this is not required for any other part of <code>memery</code> and it represents a minor use case, the package does not have these dependencies.
 <code>magick</code> is listed as a suggested package for memery; it is not imported as a dependency.
-<code>meme_gif</code> is an optional extra function. In order to use it, install ImageMagick on your system and install the <code>magick</code> package.</p>
+<code>meme_gif</code> is an optional extra function. In order to use it, install the <code>magick</code> package.</p>
 <p>See the example below if your system meets these requirements.
 As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
 use the <code>magick</code> package for image pre-processing.
@@ -385,7 +385,7 @@ use the <code>magick</code> package for image pre-processing.
 <span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>lab</span>, <span class='st'>"meme_data2.jpg"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1.5</span>, <span class='fl'>1</span>), <span class='kw'>family</span> <span class='kw'>=</span> <span class='no'>fam</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>clrs1</span>,
   <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='no'>clrs2</span>, <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='no'>pos</span>, <span class='kw'>inset</span> <span class='kw'>=</span> <span class='no'>p</span>, <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='no'>vp_bg</span>, <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><span class='co'># NOT RUN {</span>
 <span class='co'># Not run due to file size and software requirements</span>
-<span class='co'># GIF meme. Requires Imagemagick and magick package. See details.</span>
+<span class='co'># GIF meme. Requires magick package.</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>d</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>) +
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"orange"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>grp</span>) +
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"The wiggles"</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Plots for cats"</span>,
