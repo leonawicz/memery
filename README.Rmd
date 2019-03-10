@@ -41,7 +41,7 @@ cat('![](docs/articles/meme4d.jpg)')
 ```
 
 ```{r ex_image2, echo = FALSE, results = "asis", eval = !is_md}
-cat('<p style="text-align:center;"><img src="articles/meme4d.jpg" width="600px"></p>')
+cat('<p style="text-align:center;"><img src="articles/meme4d.jpg" width="600px"></p><br/>')
 ```
 
 ## Installation

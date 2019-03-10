@@ -19,6 +19,8 @@ The package also provides support for an arbitrary number of meme text labels wi
 <p style="text-align:center;">
 <img src="articles/meme4d.jpg" width="600px">
 </p>
+<br/>
+
 Installation
 ------------
 
