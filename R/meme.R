@@ -57,10 +57,10 @@
 #' \code{magick} is recommended.
 #'
 #' @section Reading and writing gifs:
-#' Reading and writing gifs requires the \code{magick} package, which in turn requires that you have ImageMagick installed on your system.
+#' Reading and writing gifs requires the \code{magick} package.
 #' Since this is not required for any other part of \code{memery} and it represents a minor use case, the package does not have these dependencies.
 #' \code{magick} is listed as a suggested package for memery; it is not imported as a dependency.
-#' \code{meme_gif} is an optional extra function. In order to use it, install ImageMagick on your system and install the \code{magick} package.
+#' \code{meme_gif} is an optional extra function. In order to use it, install the \code{magick} package.
 #'
 #' See the example below if your system meets these requirements.
 #' As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
@@ -128,7 +128,7 @@
 #' \dontrun{
 #'
 #' # Not run due to file size and software requirements
-#' # GIF meme. Requires Imagemagick and magick package. See details.
+#' # GIF meme. Requires magick package.
 #' p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
 #'   geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
 #'   labs(title = "The wiggles", subtitle = "Plots for cats",

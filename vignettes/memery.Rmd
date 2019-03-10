@@ -37,12 +37,10 @@ library(memery)
 memeApp()
 ```
 
-### ImageMagick suggested but not required
+### magick suggested but not required
 
-If the `magick` package and ImageMagick software are installed on the system, `memeApp` will launch in complete mode and the default image will be an animated gif.
+If the `magick` package is installed, `memeApp` will launch in complete mode and the default image will be an animated gif.
 If not installed, a simplified version of the example app will launch, and only jpg and png files can be used.
-Some users have no interest in animated gifs and may not have ImageMagick installed on their operating system.
-This software is not required since working with animated gifs represent only one small aspect of `memery`.
 It is only listed as a suggested package. Any package functionality that uses the `magick` package returns gracefully with a notification about the missing package.
 The only function in `memery` that uses `magick` is `meme_gif`.
 

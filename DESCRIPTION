@@ -19,7 +19,7 @@ Description: Generates internet memes that optionally include a superimposed ins
     Graph templates also permit additional template-specific customization.
     Animated gif support is provided but this is optional and functional only if the 'magick' package is installed. 
     'magick' is not required unless gif functionality is desired.
-Authors@R: person("Matthew", "Leonawicz", email = "mfleonawicz@alaska.edu", role = c("aut", "cre"))
+Authors@R: person("Matthew", "Leonawicz", email = "matt_leonawicz@esource.com", role = c("aut", "cre"))
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

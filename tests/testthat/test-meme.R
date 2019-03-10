@@ -78,7 +78,7 @@ test_that("meme_gif runs as expected", {
     expect_is(car_shiny(file, p, p, test_frame = TRUE, mult = 1), x)
     file.remove(file)
   } else {
-    msg <- "The `magick` package and the ImageMagick software must be installed to use `meme_gif`."
+    msg <- "The `magick` package must be installed to use `meme_gif`."
     expect_message(
       meme_gif(img, lab, "out.gif", size = c(1.5, 0.75), label_pos = pos,
                inset = p, inset_bg = list(fill = "#00BFFF50"), mult = 0.5, fps = 20), msg)

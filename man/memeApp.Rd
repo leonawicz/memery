@@ -10,7 +10,7 @@ memeApp()
 Launch the memery example app in your browser.
 }
 \details{
-This example app launches with animated gif support and relevant initial example gif if the magick package and ImageMagick software are installed on the user's system.
+This example app launches with animated gif support and relevant initial example gif if the magick package is installed.
 Otherwise, a simplified version of the app that does not provide gif support launches and starting images must be jpg or png.
 
 Due to how \code{meme_gif} works, gifs will not display in a hosted app, i.e., on \code{shinyapps.io}.
