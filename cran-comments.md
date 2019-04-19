@@ -3,6 +3,7 @@
 This is an update release. In this version I have:
 
 * Minor update to functionality dependent on `magick` Suggested package.
+* Package maintainer email address update.
 
 ## Test environments
 * local Windows 10 install, R 3.5.3
