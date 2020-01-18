@@ -13,8 +13,9 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Internet Memes for Data Analysts">
 <meta property="og:description" content="Generates internet memes that optionally include a superimposed inset plot and other atypical features, 
@@ -23,7 +24,7 @@
     Some packages do this by interfacing with online meme generators whereas others achieve this natively.
     This package takes the latter approach. It does not interface with online meme generators or require any authentication with external websites.
     It reads images directly from local files or via URL and meme generation is done by the package.
-    While this is similar to the 'meme' package available on CRAN, it differs in that the focus is on 
+    While this is similar to the meme package available on CRAN, it differs in that the focus is on 
     allowing for non-standard meme layouts and hybrids of memes mixed with graphs.
     While this package can be used to make basic memes like an online meme generator would produce, 
     it caters primarily to hybrid graph-meme plots where the meme presentation can be seen as a backdrop highlighting 
@@ -33,8 +34,8 @@
     This is useful for proper aesthetic interleaving of plots of data between meme image backgrounds and overlain text labels.
     The package offers a selection of templates for graph placement and appearance with respect to the underlying meme.
     Graph templates also permit additional template-specific customization.
-    Animated gif support is provided but this is optional and functional only if the 'magick' package is installed. 
-    'magick' is not required unless gif functionality is desired.">
+    Animated gif support is provided but this is optional and functional only if the magick package is installed. 
+    magick is not required unless gif functionality is desired.">
 <meta property="og:image" content="http://leonawicz.github.io/memery/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -49,7 +50,7 @@
 </script>
 </head>
 <body>
-    <div class="container template-article">
+    <div class="container template-home">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -69,7 +70,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -150,36 +151,31 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    
 
-    
-    
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-<div id="memery" class="section level1">
+      </header><div class="row">
+  <div class="contents col-md-9">
+<div id="memery-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#memery" class="anchor"></a>memery <img src="reference/figures/logo.png" style="margin-bottom:5px;" width="120" align="right">
+<a href="#memery-" class="anchor"></a>memery <img src="reference/figures/logo.png" style="margin-bottom:5px;" width="120" align="right">
 </h1></div>
 
-<div id="make-memorable-plots-with-memery-" class="section level2">
+<div id="make-memorable-plots-with-memery" class="section level2">
 <h2 class="hasAnchor">
-<a href="#make-memorable-plots-with-memery-" class="anchor"></a>Make memorable plots with <code>memery</code>.</h2>
+<a href="#make-memorable-plots-with-memery" class="anchor"></a>Make memorable plots with <code>memery</code>.</h2>
 <p>The <code>memery</code> package generates internet memes that optionally include a superimposed inset plot and other atypical features, combining the visual impact of an attention-grabbing meme with graphic results of data analysis.</p>
 <p>The package differs from related packages that focus on imitating and reproducing standard memes. Some packages do this by interfacing with online meme generators whereas others achieve this natively. This package takes the latter approach. It does not interface with online meme generators or require any authentication with external websites. It reads images directly from local files or via URL and meme generation is done by the package.</p>
 <p>While this is similar to the ‘meme’ package available on CRAN, it differs in that the focus is on allowing for non-standard meme layouts and hybrids of memes mixed with graphs. While this package can be used to make basic memes like an online meme generator would produce, it caters primarily to hybrid graph-meme plots where the meme presentation can be seen as a backdrop highlighting foreground graphs of data analysis results.</p>
 <p>The package also provides support for an arbitrary number of meme text labels with arbitrary size, position and other attributes rather than restricting to the standard top and/or bottom text placement. This is useful for proper aesthetic interleaving of plots of data between meme image backgrounds and overlain text labels. The package offers a selection of templates for graph placement and appearance with respect to the underlying meme. Graph templates also permit additional template-specific customization. Animated gif support is provided but this is optional and functional only if the ‘magick’ package is installed.</p>
-<p style="text-align:center;">
-<img src="articles/meme4d.jpg" width="600px"></p>
+<p><img src="docs/articles/meme4d.jpg"></p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install memery from CRAN with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"memery"</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"memery"</span>)</a></code></pre></div>
 <p>You can install the latest development version from github with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages('remotes')</span>
-remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"leonawicz/memery"</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># install.packages('remotes')</span></a>
+<a class="sourceLine" id="cb2-2" title="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"leonawicz/memery"</span>)</a></code></pre></div>
 <p>See the <a href="https://leonawicz.github.io/memery/articles/memery.html">vignette</a> for an overview with usage examples.</p>
 </div>
 </div>
@@ -212,7 +208,7 @@ remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocument
 </ul>
 </div>
 
-      <div class="dev-status">
+  <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://cran.r-project.org/package=memery"><img src="http://www.r-pkg.org/badges/version/memery" alt="CRAN status"></a></li>
@@ -225,7 +221,6 @@ remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocument
 </ul>
 </div>
 </div>
-
 </div>
 
 
@@ -234,12 +229,14 @@ remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocument
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

@@ -4,8 +4,7 @@
 \alias{car_shiny}
 \title{The ca(R) Shiny promotional meme}
 \usage{
-car_shiny(file, p1 = NULL, p2 = NULL, fps = 10, test_frame = FALSE,
-  mult = 1)
+car_shiny(file, p1 = NULL, p2 = NULL, fps = 10, test_frame = FALSE, mult = 1)
 }
 \arguments{
 \item{file}{character, output filename.}

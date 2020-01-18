@@ -3,7 +3,6 @@
 \docType{package}
 \name{memery}
 \alias{memery}
-\alias{memery-package}
 \title{memery: Internet memes for data analysts.}
 \description{
 The memery package generates internet memes that optionally include a superimposed inset plot and other atypical features,

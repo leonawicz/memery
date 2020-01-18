@@ -15,21 +15,25 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -39,12 +43,12 @@
 
   <link href="../extra.css" rel="stylesheet">
   
+
 <meta property="og:title" content="Generate a meme — meme" />
-
 <meta property="og:description" content="Generate a meme with a background image, text label and optional inset graphic." />
-
 <meta property="og:image" content="http://leonawicz.github.io/memery/logo.png" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -67,6 +71,7 @@
 
   gtag('config', 'UA-46129458-3');
 </script>
+
 
   </head>
 
@@ -92,7 +97,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -106,7 +111,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -172,6 +176,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -183,24 +188,50 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Generate a meme with a background image, text label and optional inset graphic.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>label</span>, <span class='no'>file</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"Impact"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
-  <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='fu'><a href='text_position.html'>text_position</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>label</span>)),
-  <span class='kw'>inset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ggtheme</span> <span class='kw'>=</span> <span class='fu'><a href='memetheme.html'>memetheme</a></span>(), <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_background</a></span>(),
-  <span class='kw'>inset_pos</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_position</a></span>(), <span class='no'>width</span>, <span class='no'>height</span>, <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"transparent"</span>,
-  <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+    <pre class="usage"><span class='fu'>meme</span>(
+  <span class='no'>img</span>,
+  <span class='no'>label</span>,
+  <span class='no'>file</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"Impact"</span>,
+  <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
+  <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+  <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='fu'><a href='text_position.html'>text_position</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>label</span>)),
+  <span class='kw'>inset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>ggtheme</span> <span class='kw'>=</span> <span class='fu'><a href='memetheme.html'>memetheme</a></span>(),
+  <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_background</a></span>(),
+  <span class='kw'>inset_pos</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_position</a></span>(),
+  <span class='no'>width</span>,
+  <span class='no'>height</span>,
+  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"transparent"</span>,
+  <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>
+)
 
-<span class='fu'>meme_gif</span>(<span class='no'>img</span>, <span class='no'>label</span>, <span class='no'>file</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"Impact"</span>,
-  <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
-  <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='fu'><a href='text_position.html'>text_position</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>label</span>)), <span class='kw'>inset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ggtheme</span> <span class='kw'>=</span> <span class='fu'><a href='memetheme.html'>memetheme</a></span>(), <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_background</a></span>(),
-  <span class='kw'>inset_pos</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_position</a></span>(), <span class='no'>width</span>, <span class='no'>height</span>, <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"transparent"</span>,
-  <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>fps</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>frame</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>...</span>)</pre>
-    
+<span class='fu'>meme_gif</span>(
+  <span class='no'>img</span>,
+  <span class='no'>label</span>,
+  <span class='no'>file</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"Impact"</span>,
+  <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
+  <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+  <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='fu'><a href='text_position.html'>text_position</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>label</span>)),
+  <span class='kw'>inset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>ggtheme</span> <span class='kw'>=</span> <span class='fu'><a href='memetheme.html'>memetheme</a></span>(),
+  <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_background</a></span>(),
+  <span class='kw'>inset_pos</span> <span class='kw'>=</span> <span class='fu'><a href='inset.html'>inset_position</a></span>(),
+  <span class='no'>width</span>,
+  <span class='no'>height</span>,
+  <span class='kw'>bg</span> <span class='kw'>=</span> <span class='st'>"transparent"</span>,
+  <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>fps</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+  <span class='kw'>frame</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='no'>...</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -281,32 +312,32 @@
       <td><p>additional arguments passed to <code>meme_gif</code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function generates and saves a meme as a jpg or png file.</p>
-    
     <h2 class="hasAnchor" id="fonts"><a class="anchor" href="#fonts"></a>Fonts</h2>
 
     
-    <p>Memes use the Impact font by default. This is a Windows font.
+
+<p>Memes use the Impact font by default. This is a Windows font.
 If using <code>memery</code> on Linux for example, you would have to first install the font if not already installed on the system.
 If Impact or any other font family passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is not installed on an operating system,
 <code>meme</code> will ignore it and fall back on <code>family = "serif"</code> internally.
 If unfamiliar, explore the documentation and examples available for the <code>showtext</code> and <code>sysfonts</code> packages, which <code>merery</code> leverages.</p>
-    
     <h2 class="hasAnchor" id="text-labels"><a class="anchor" href="#text-labels"></a>Text labels</h2>
 
     
-    <p>List elements in <code>label_pos</code> must all be the same length and must match the length of <code>label</code>.
+
+<p>List elements in <code>label_pos</code> must all be the same length and must match the length of <code>label</code>.
 This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
 Similarly, <code>size</code>, <code>family</code>, <code>col</code> and <code>shadow</code> may be vectorized.
 For example, top and bottom text can have different font size and family and the font text and shadow can be different colors.</p>
-    
     <h2 class="hasAnchor" id="inset-graphic"><a class="anchor" href="#inset-graphic"></a>Inset graphic</h2>
 
     
-    <p>The meme plot may optionally include an inset plot by passing a ggplot object to <code>inset</code>.
+
+<p>The meme plot may optionally include an inset plot by passing a ggplot object to <code>inset</code>.
 This makes the memes more fun for data analysts. See examples.</p>
 <p>The plotting region containing <code>inset</code> is a specific viewport in the <code>grid</code> layout.
 <code>inset_bg</code> is a list of arguments that affect the background of this part of the meme plot.
@@ -324,11 +355,11 @@ For opaque plot background fill this will not matter.</p>
 or it will obscure the meme image itself. An alternative is to use <code>inset</code> as, for example,
 a tiny thumbnail in the corner of the meme plot, in which case full opacity is not necessarily an issue.
 If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by <code>ggtheme</code>, you can set <code>ggtheme = NULL</code></p>
-    
     <h2 class="hasAnchor" id="dimensions-and-image-processing"><a class="anchor" href="#dimensions-and-image-processing"></a>Dimensions and image processing</h2>
 
     
-    <p>Specifying <code>width</code> and <code>height</code> is not required. By default, output file dimensions are taken from the input file, <code>img</code>.
+
+<p>Specifying <code>width</code> and <code>height</code> is not required. By default, output file dimensions are taken from the input file, <code>img</code>.
 However, these arguments can be used to override the default dimension matching. The aspect ratio is fixed so if you change the two
 disproportionately, you will increasing the canvas, adding bars on two sides; it will not stretch the image.</p>
 <p><code>mult</code> can be set less than one if relying on <code>img</code> dimension for meme plot width and height and <code>img</code> is large.
@@ -337,11 +368,11 @@ Whether or not <code>width</code> and/or <code>height</code> are provided, <code
 <p>Beyond this basic resizing to help control output file size, it is not the intent of <code>memery</code> to offer general image processing capabilities.
 If adjustments to source images are desired, you should use a dedicated package for image processing.
 <code>magick</code> is recommended.</p>
-    
     <h2 class="hasAnchor" id="reading-and-writing-gifs"><a class="anchor" href="#reading-and-writing-gifs"></a>Reading and writing gifs</h2>
 
     
-    <p>Reading and writing gifs requires the <code>magick</code> package.
+
+<p>Reading and writing gifs requires the <code>magick</code> package.
 Since this is not required for any other part of <code>memery</code> and it represents a minor use case, the package does not have these dependencies.
 <code>magick</code> is listed as a suggested package for memery; it is not imported as a dependency.
 <code>meme_gif</code> is an optional extra function. In order to use it, install the <code>magick</code> package.</p>
@@ -349,15 +380,14 @@ Since this is not required for any other part of <code>memery</code> and it repr
 As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
 use the <code>magick</code> package for image pre-processing.
 <code>meme</code> only provides basic control over output size and <code>meme_gif</code> only adds control over gif frame selection and rate.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Prepare data and make a graph</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>2</span>*<span class='no'>pi</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-<span class='no'>panels</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Plot A"</span>, <span class='st'>"Plot B"</span>), <span class='kw'>each</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Trig'>sin</a></span>(<span class='no'>x</span>), <span class='kw'>grp</span> <span class='kw'>=</span> <span class='no'>panels</span>)
-<span class='no'>txt</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Philosoraptor's plots"</span>, <span class='st'>"I like to make plots"</span>,
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>2</span>*<span class='no'>pi</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+<span class='no'>panels</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Plot A"</span>, <span class='st'>"Plot B"</span>), <span class='kw'>each</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>sin</a></span>(<span class='no'>x</span>), <span class='kw'>grp</span> <span class='kw'>=</span> <span class='no'>panels</span>)
+<span class='no'>txt</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Philosoraptor's plots"</span>, <span class='st'>"I like to make plots"</span>,
   <span class='st'>"Figure 1. (A) shows a plot and (B) shows another plot."</span>)
 
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>d</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"cornflowerblue"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>) +
@@ -365,60 +395,61 @@ use the <code>magick</code> package for image pre-processing.
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='no'>txt</span>[<span class='fl'>1</span>], <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='no'>txt</span>[<span class='fl'>2</span>], <span class='kw'>caption</span> <span class='kw'>=</span> <span class='no'>txt</span>[<span class='fl'>3</span>])
 
 <span class='co'># meme image background and text labels</span>
-<span class='no'>img</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"philosoraptor.jpg"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"memery"</span>)
-<span class='no'>lab</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Title meme text"</span>, <span class='st'>"Subtitle text"</span>)</div><span class='co'># NOT RUN {</span>
+<span class='no'>img</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"philosoraptor.jpg"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"memery"</span>)
+<span class='no'>lab</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Title meme text"</span>, <span class='st'>"Subtitle text"</span>)
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+
 <span class='co'># Not run due to file size</span>
 <span class='co'># basic meme</span>
 <span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>lab</span>[<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='st'>"meme_basic.jpg"</span>)
 <span class='co'># data analyst's meme</span>
 <span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>lab</span>[<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='st'>"meme_data.jpg"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>inset</span> <span class='kw'>=</span> <span class='no'>p</span>, <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>2</span>)
-<span class='co'># }</span><div class='input'>
+}
+
 <span class='co'># data meme with additional content control</span>
-<span class='no'>vp_bg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"#FF00FF50"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF80"</span>) <span class='co'># graph background</span>
+<span class='no'>vp_bg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"#FF00FF50"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"#FFFFFF80"</span>) <span class='co'># graph background</span>
 <span class='co'># arbitrary number of labels, placement, and other vectorized attributes</span>
-<span class='no'>lab</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>lab</span>, <span class='st'>"Middle plot text"</span>)
-<span class='no'>pos</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>w</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0.9</span>, <span class='fl'>3</span>), <span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0.3</span>, <span class='fl'>3</span>), <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.35</span>, <span class='fl'>0.65</span>, <span class='fl'>0.5</span>),
-  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.95</span>, <span class='fl'>0.85</span>, <span class='fl'>0.3</span>))
-<span class='no'>fam</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Impact"</span>, <span class='st'>"serif"</span>, <span class='st'>"Impact"</span>)
-<span class='no'>clrs1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"orange"</span>, <span class='st'>"white"</span>)
-<span class='no'>clrs2</span> <span class='kw'>&lt;-</span> <span class='no'>clrs1</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>)]
-<span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>lab</span>, <span class='st'>"meme_data2.jpg"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1.5</span>, <span class='fl'>1</span>), <span class='kw'>family</span> <span class='kw'>=</span> <span class='no'>fam</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>clrs1</span>,
-  <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='no'>clrs2</span>, <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='no'>pos</span>, <span class='kw'>inset</span> <span class='kw'>=</span> <span class='no'>p</span>, <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='no'>vp_bg</span>, <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><span class='co'># NOT RUN {</span>
+<span class='no'>lab</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>lab</span>, <span class='st'>"Middle plot text"</span>)
+<span class='no'>pos</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>w</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.9</span>, <span class='fl'>3</span>), <span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.3</span>, <span class='fl'>3</span>), <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.35</span>, <span class='fl'>0.65</span>, <span class='fl'>0.5</span>),
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.95</span>, <span class='fl'>0.85</span>, <span class='fl'>0.3</span>))
+<span class='no'>fam</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Impact"</span>, <span class='st'>"serif"</span>, <span class='st'>"Impact"</span>)
+<span class='no'>clrs1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"black"</span>, <span class='st'>"orange"</span>, <span class='st'>"white"</span>)
+<span class='no'>clrs2</span> <span class='kw'>&lt;-</span> <span class='no'>clrs1</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>)]
+<span class='fu'>meme</span>(<span class='no'>img</span>, <span class='no'>lab</span>, <span class='st'>"meme_data2.jpg"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>1.5</span>, <span class='fl'>1</span>), <span class='kw'>family</span> <span class='kw'>=</span> <span class='no'>fam</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>clrs1</span>,
+  <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='no'>clrs2</span>, <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='no'>pos</span>, <span class='kw'>inset</span> <span class='kw'>=</span> <span class='no'>p</span>, <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='no'>vp_bg</span>, <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>2</span>)
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+
 <span class='co'># Not run due to file size and software requirements</span>
 <span class='co'># GIF meme. Requires magick package.</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>d</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='no'>x</span>, <span class='no'>y</span>)) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>) +
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"orange"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>grp</span>) +
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"The wiggles"</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Plots for cats"</span>,
        <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"Figure 1. Gimme sine waves."</span>)
-<span class='no'>lab</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"R plots for cats"</span>, <span class='st'>"Sine wave sine wave sine wave sine wave..."</span>)
-<span class='no'>pos</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>w</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0.9</span>, <span class='fl'>2</span>), <span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0.3</span>, <span class='fl'>2</span>), <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0.5</span>, <span class='fl'>2</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.9</span>, <span class='fl'>0.75</span>))
+<span class='no'>lab</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"R plots for cats"</span>, <span class='st'>"Sine wave sine wave sine wave sine wave..."</span>)
+<span class='no'>pos</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>w</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.9</span>, <span class='fl'>2</span>), <span class='kw'>h</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.3</span>, <span class='fl'>2</span>), <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>0.5</span>, <span class='fl'>2</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.9</span>, <span class='fl'>0.75</span>))
 <span class='no'>img</span> <span class='kw'>&lt;-</span> <span class='st'>"http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"</span>
-<span class='fu'>meme_gif</span>(<span class='no'>img</span>, <span class='no'>lab</span>, <span class='st'>"meme_data3.gif"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.75</span>), <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='no'>pos</span>,
-         <span class='kw'>inset</span> <span class='kw'>=</span> <span class='no'>p</span>, <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"#00BFFF80"</span>), <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>fps</span> <span class='kw'>=</span> <span class='fl'>20</span>)
-<span class='co'># }</span></pre>
+<span class='fu'>meme_gif</span>(<span class='no'>img</span>, <span class='no'>lab</span>, <span class='st'>"meme_data3.gif"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.75</span>), <span class='kw'>label_pos</span> <span class='kw'>=</span> <span class='no'>pos</span>,
+         <span class='kw'>inset</span> <span class='kw'>=</span> <span class='no'>p</span>, <span class='kw'>inset_bg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='st'>"#00BFFF80"</span>), <span class='kw'>mult</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>fps</span> <span class='kw'>=</span> <span class='fl'>20</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#details">Details</a></li>
-
       <li><a href="#fonts">Fonts</a></li>
-
       <li><a href="#text-labels">Text labels</a></li>
-
       <li><a href="#inset-graphic">Inset graphic</a></li>
-
       <li><a href="#dimensions-and-image-processing">Dimensions and image processing</a></li>
-
       <li><a href="#reading-and-writing-gifs">Reading and writing gifs</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -426,13 +457,16 @@ use the <code>magick</code> package for image pre-processing.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -13,8 +13,9 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Introduction to memery">
 <meta property="og:description" content="">
@@ -52,7 +53,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -133,6 +134,7 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
@@ -152,8 +154,8 @@
 <h2 class="hasAnchor">
 <a href="#shiny-example" class="anchor"></a>Shiny example</h2>
 <p>Before getting to the code and other details, you can explore a quick visual example using the Shiny app packaged with <code>memery</code>. It displays an input meme background image and an inset plot which are combined to form the analyst’s meme. The app makes available any ggplot objects in the global environment created by the user to be used as inset plots for memes. If none exist, <code>memeApp</code> will generate a test plot ggplot object, <code>memery_testplot</code>, for the app session. Available plots populate the inset plot selection menu.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(memery)
-<span class="kw"><a href="../reference/memeApp.html">memeApp</a></span>()</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(memery)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="../reference/memeApp.html">memeApp</a></span>()</a></code></pre></div>
 <div id="magick-suggested-but-not-required" class="section level3">
 <h3 class="hasAnchor">
 <a href="#magick-suggested-but-not-required" class="anchor"></a>magick suggested but not required</h3>
@@ -167,34 +169,34 @@
 <div id="note-on-fonts" class="section level3">
 <h3 class="hasAnchor">
 <a href="#note-on-fonts" class="anchor"></a>Note on fonts</h3>
-<p>Note that Impact is a Windows font. If using <code>memery</code> on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is not installed on an operating system, <code>meme</code> will ignore it and fall back on <code>family = "serif"</code> internally. If unfamiliar, explore the documentation and examples available for the <code>showtext</code> and <code>sysfonts</code> packages, which <code>memery</code> leverages.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">loc &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"philosoraptor.jpg"</span>, <span class="dt">package =</span> <span class="st">"memery"</span>)
-web &lt;-<span class="st"> "https://imgflip.com/s/meme/Philosoraptor.jpg"</span>
-lab &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"What to call my R package?"</span>, <span class="st">"Perhaps..."</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme1.jpg"</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(web, lab[<span class="dv">1</span>], <span class="st">"meme1.png"</span>)</code></pre></div>
+<p>Note that Impact is a Windows font. If using <code>memery</code> on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is not installed on an operating system, <code>meme</code> will ignore it and fall back on <code>family = "serif"</code> internally. If unfamiliar, explore the documentation and examples available for the <code>showtext</code> and <code>sysfonts</code> packages, which <code>memery</code> leverages.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">loc &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"philosoraptor.jpg"</span>, <span class="dt">package =</span> <span class="st">"memery"</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2">web &lt;-<span class="st"> "https://imgflip.com/s/meme/Philosoraptor.jpg"</span></a>
+<a class="sourceLine" id="cb2-3" title="3">lab &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"What to call my R package?"</span>, <span class="st">"Perhaps..."</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme1.jpg"</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw"><a href="../reference/meme.html">meme</a></span>(web, lab[<span class="dv">1</span>], <span class="st">"meme1.png"</span>)</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme1.jpg"></p>
 <p>There is sensible default label placement. If <code>label</code> is a vector of length two, <code>meme</code> will make a symmetrical top and bottom title/subtitle pair of text labels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme2.jpg"</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme2.jpg"</span>)</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme2.jpg"></p>
 <p>This is done using the default <code>lab_pos</code> argument, which calls <code>text_position</code>. This convenience function is only useful for one or two text labels. <code>meme</code> allows you to place an arbitrary number of labels on the plot with arbitrary positioning by passing your own list to <code>lab_pos</code> where each list element is the same length as <code>label</code>. You can see what to do by looking at the output of <code>text_position</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/text_position.html">text_position</a></span>(<span class="dt">n =</span> <span class="dv">2</span>)
-<span class="co">#&gt; $w</span>
-<span class="co">#&gt; [1] 0.9 0.9</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $h</span>
-<span class="co">#&gt; [1] 0.3 0.3</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $x</span>
-<span class="co">#&gt; [1] 0.5 0.5</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $y</span>
-<span class="co">#&gt; [1] 0.9 0.1</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="../reference/text_position.html">text_position</a></span>(<span class="dt">n =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt; $w</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; [1] 0.9 0.9</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; $h</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; [1] 0.3 0.3</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; $x</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; [1] 0.5 0.5</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; $y</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; [1] 0.9 0.1</span></a></code></pre></div>
 <p>The label and shadow color can be controlled by <code>col</code> and <code>shadow</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clrs &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"orange"</span>, <span class="st">"white"</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme3.jpg"</span>, <span class="dt">col =</span> clrs[<span class="dv">1</span>], <span class="dt">shadow =</span> clrs[<span class="dv">2</span>])</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">clrs &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"orange"</span>, <span class="st">"white"</span>)</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme3.jpg"</span>, <span class="dt">col =</span> clrs[<span class="dv">1</span>], <span class="dt">shadow =</span> clrs[<span class="dv">2</span>])</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme3.jpg"></p>
 <p>The arguments <code>width</code> and <code>height</code> do not need to be provided. If missing, they are inferred from the dimensions of <code>img</code>. However, providing <code>width</code> and <code>height</code> overrides the source file dimension. This is useful for large source images. Whether or not <code>width</code> or <code>height</code> are provided, <code>mult</code> can also be used as an image dimensions multiplier. See below for details.</p>
@@ -211,16 +213,16 @@ lab &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumen
 <a href="#optional-plot-overlay" class="anchor"></a>Optional plot overlay</h2>
 <p>In addition to drawing text labels on top of the background image, <code>meme</code> offers the ability to overlay an inset plot, a plot within the meme plot. This could be a thumbnail inset appearing in a corner of the plot. For example, it could be a logo. But generally speaking, this kind of behavior is directly accessible using the <code>grid</code> framework and <code>memery</code> does not attempt to duplicate this generality. Instead, it expects the <code>inset</code> argument to be any ggplot object; `inset is not for reading in a second image file. It is meant to be a plot.</p>
 <p>By default, a ggplot object passed to <code>meme</code> via <code>inset</code> will take up approximately the lower two thirds of the plot and the full with, accounting for some margin space. It has a semi-transparent background so that it does not completely obscure the meme background image. These settings, background color, transparency, size and position, can all be specified in the call to <code>meme</code> as the following examples demonstrate.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)
-x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">length.out =</span> <span class="dv">50</span>)
-panels &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste</a></span>(<span class="st">"Philosoraptor's plot"</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"A"</span>, <span class="st">"B"</span>)), <span class="dt">each =</span> <span class="dv">50</span>)
-d &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Trig">sin</a></span>(x), <span class="dt">grp =</span> panels)
-txt &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Philosoraptor's plots"</span>, <span class="st">"I like to make plots"</span>, <span class="st">"Figure 1. (A) shows a plot and (B) shows another plot."</span>)
-p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour =</span> <span class="st">"cornflowerblue"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">"orange"</span>, <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>grp) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> txt[<span class="dv">1</span>], 
-    <span class="dt">subtitle =</span> txt[<span class="dv">2</span>], <span class="dt">caption =</span> txt[<span class="dv">3</span>])
-
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme4a.jpg"</span>, <span class="dt">inset =</span> p)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
+<a class="sourceLine" id="cb6-2" title="2">x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>pi , <span class="dt">length.out =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb6-3" title="3">panels &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"Philosoraptor's plot"</span>, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"A"</span>, <span class="st">"B"</span>)), <span class="dt">each =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4">d &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span>(x), <span class="dt">grp =</span> panels)</a>
+<a class="sourceLine" id="cb6-5" title="5">txt &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Philosoraptor's plots"</span>, <span class="st">"I like to make plots"</span>, <span class="st">"Figure 1. (A) shows a plot and (B) shows another plot."</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour =</span> <span class="st">"cornflowerblue"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">"orange"</span>, <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>grp) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> txt[<span class="dv">1</span>], <span class="dt">subtitle =</span> txt[<span class="dv">2</span>], <span class="dt">caption =</span> txt[<span class="dv">3</span>])</a>
+<a class="sourceLine" id="cb6-9" title="9"></a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme4a.jpg"</span>, <span class="dt">inset =</span> p)</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme4a.jpg"></p>
 <p>Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the <code>grid</code> package. It is a rectangle layer in the same viewport as <code>p</code>; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to <code>ggtheme</code> or setting this to <code>NULL</code>, which falls back on whatever theme is set for your plot <code>p</code>. The default theme for meme plots comes from <code>memetheme</code>. Naturally, the theme will need to be customized for many meme plots because underlying meme images are arbitrary.</p>
@@ -228,18 +230,16 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="k
 <h3 class="hasAnchor">
 <a href="#alternate-inset-templates" class="anchor"></a>Alternate inset templates</h3>
 <p>The graph overlay does not fit well, namely the annotations. This will be adjusted in a moment. First, a quick look at other position templates. An opaque background for the inset is more suitable for a thumbnail image that does not get in the way of the meme. The following example shows a bottom left corner inset graphic. An empty theme is used since there is no room in the inset for plot annotations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">1</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">10000</span>)), <span class="kw">aes</span>(x)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>, 
-    <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">1</span>)
-pos &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">w =</span> <span class="fl">0.2</span>, <span class="dt">h =</span> <span class="fl">0.2</span>, <span class="dt">x =</span> <span class="fl">0.125</span>, <span class="dt">y =</span> <span class="fl">0.125</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">fill =</span> <span class="st">"dodgerblue"</span>, 
-    <span class="dt">col =</span> <span class="st">"black"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="dv">10000</span>)), <span class="kw">aes</span>(x)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb8-3" title="3">pos &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">w =</span> <span class="fl">0.2</span>, <span class="dt">h =</span> <span class="fl">0.2</span>, <span class="dt">x =</span> <span class="fl">0.125</span>, <span class="dt">y =</span> <span class="fl">0.125</span>)</a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">fill =</span> <span class="st">"dodgerblue"</span>, <span class="dt">col =</span> <span class="st">"black"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme4b.jpg"></p>
 <p>Above, the size and position was specified explicitly with <code>pos</code>. However, the same could be done using <code><a href="../reference/inset.html">inset_position(type = "bl")</a></code>. The available position templates include the four corners via <code>tl</code>, <code>tr</code>, <code>br</code> and <code>bl</code> for top right, top left, bottom left and bottom right, respectively. There is also a <code>center</code> thumbnail option. <code>inset_position</code> also takes <code>size</code> and <code>margin</code> arguments to further specify the thumbnail placement.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pos &lt;-<span class="st"> </span><span class="kw"><a href="../reference/inset.html">inset_position</a></span>(<span class="st">"bl"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>), <span class="dt">margin =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.025</span>, <span class="fl">0.05</span>))
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b2.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">fill =</span> <span class="st">"firebrick1"</span>, 
-    <span class="dt">col =</span> <span class="st">"white"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">pos &lt;-<span class="st"> </span><span class="kw"><a href="../reference/inset.html">inset_position</a></span>(<span class="st">"bl"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>), <span class="dt">margin =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.025</span>, <span class="fl">0.05</span>))</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4b2.jpg"</span>, <span class="dt">inset =</span> p2, <span class="dt">inset_bg =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">fill =</span> <span class="st">"firebrick1"</span>, <span class="dt">col =</span> <span class="st">"white"</span>), <span class="dt">inset_pos =</span> pos, <span class="dt">ggtheme =</span> <span class="kw">theme_void</span>())</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme4b2.jpg"></p>
 <p>There are also four full quadrant templates. These are special cases of the corner thumbnails. They are specified by appending the letter <code>q</code> to the end of a corner template ID: <code>tlq</code>, <code>trq</code>, <code>brq</code>, and <code>blq</code>. The <code>size</code> argument is not applicable since these are fixed, full quadrant plots, but these templates still allow for <code>margin</code> control.</p>
@@ -248,16 +248,16 @@ pos &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumen
 <h3 class="hasAnchor">
 <a href="#improved-fit" class="anchor"></a>Improved fit</h3>
 <p>Returning to the more complex graph, the philosoraptor image is a bit small for the first detailed plot shown above where the annotations go off the image. For convenience, it is enlarged below by simply using <code>mult = 2</code> when including the full graph again. For now, drop the second text label. It will be relocated later.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4c.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4c.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">mult =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme4c.jpg"></p>
 <p>Below is an example where the background panel is set to another semi-transparent color and the border color is no longer transparent.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vp_bg &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">fill =</span> <span class="st">"#FF00FF50"</span>, <span class="dt">col =</span> <span class="st">"#FFFFFF80"</span>)
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4d.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">inset_bg =</span> vp_bg, <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">vp_bg &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">fill =</span> <span class="st">"#FF00FF50"</span>, <span class="dt">col =</span> <span class="st">"#FFFFFF80"</span>)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab[<span class="dv">1</span>], <span class="st">"meme4d.jpg"</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">inset =</span> p, <span class="dt">inset_bg =</span> vp_bg, <span class="dt">mult =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme4d.jpg"></p>
 <p>You can also increase the radius of the rounded corners, with, e.g.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">r =</span> <span class="kw">unit</span>(<span class="fl">0.1</span>, <span class="st">"snpc"</span>))</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">r =</span> <span class="kw">unit</span>(<span class="fl">0.1</span>, <span class="st">"snpc"</span>))</a></code></pre></div>
 <p>Setting to zero will remove the rounding.</p>
 </div>
 </div>
@@ -265,12 +265,9 @@ pos &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumen
 <h2 class="hasAnchor">
 <a href="#multiple-labels-and-vector-arguments" class="anchor"></a>Multiple labels and vector arguments</h2>
 <p>As shown, more than one text label can be drawn on the meme plot and assigned a different position. Other arguments are correspondingly vectorized. Each label can have unique text size, font family, font color, shadow color, and position arguments. Whereas the length of elements in <code>label_pos</code> must match the length of <code>label</code>, these other arguments are recycled if not as long as <code>label</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lab[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Perhaps raptr... NO!!!"</span>, <span class="st">"Pfft. Figures."</span>)
-lab_pos &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">w =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="fl">0.9</span>, <span class="dv">3</span>), <span class="dt">h =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="fl">0.3</span>, <span class="dv">3</span>), <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="fl">0.5</span>, <span class="dv">3</span>), <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.95</span>, 
-    <span class="fl">0.85</span>, <span class="fl">0.3</span>))
-<span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme5.jpg"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">1.25</span>, <span class="fl">2.5</span>, <span class="dv">1</span>), <span class="dt">family =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"serif"</span>, <span class="st">"Impact"</span>, 
-    <span class="st">"Impact"</span>), <span class="dt">col =</span> clrs, <span class="dt">shadow =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(clrs), <span class="dt">label_pos =</span> lab_pos, <span class="dt">inset =</span> p, 
-    <span class="dt">mult =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">lab[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Perhaps raptr... NO!!!"</span>, <span class="st">"Pfft. Figures."</span>)</a>
+<a class="sourceLine" id="cb13-2" title="2">lab_pos &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">w =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.9</span>, <span class="dv">3</span>), <span class="dt">h =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.3</span>, <span class="dv">3</span>), <span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.5</span>, <span class="dv">3</span>), <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.95</span>, <span class="fl">0.85</span>, <span class="fl">0.3</span>))</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="kw"><a href="../reference/meme.html">meme</a></span>(loc, lab, <span class="st">"meme5.jpg"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1.25</span>, <span class="fl">2.5</span>, <span class="dv">1</span>), <span class="dt">family =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"serif"</span>, <span class="st">"Impact"</span>, <span class="st">"Impact"</span>), <span class="dt">col =</span> clrs, <span class="dt">shadow =</span> <span class="kw"><a href="https://rdrr.io/r/base/rev.html">rev</a></span>(clrs), <span class="dt">label_pos =</span> lab_pos, <span class="dt">inset =</span> p, <span class="dt">mult =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p style="text-align:center;">
 <img src="meme5.jpg"></p>
 </div>
@@ -278,15 +275,16 @@ lab_pos &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdoc
 <h2 class="hasAnchor">
 <a href="#animated-gifs" class="anchor"></a>Animated gifs</h2>
 <p>If ImageMagick is installed on your system, animated gifs can be used for data analyst memes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d<span class="op">$</span>grp &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"Philosoraptor's"</span>, <span class="st">"Cat's"</span>, d<span class="op">$</span>grp)
-p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">"orange"</span>, 
-    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>grp) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"The wiggles"</span>, <span class="dt">subtitle =</span> <span class="st">"Plots for cats"</span>, 
-    <span class="dt">caption =</span> <span class="st">"Figure 1. Gimme sine waves."</span>)
-lab &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"R plots for cats"</span>, <span class="st">"Sine wave sine wave..."</span>)
-pos &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">w =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="fl">0.9</span>, <span class="dv">2</span>), <span class="dt">h =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="fl">0.3</span>, <span class="dv">2</span>), <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="fl">0.5</span>, <span class="dv">2</span>), <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.9</span>, <span class="fl">0.75</span>))
-img &lt;-<span class="st"> "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"</span>
-<span class="kw"><a href="../reference/meme.html">meme_gif</a></span>(img, lab, <span class="st">"sine.gif"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">1.5</span>, <span class="fl">0.75</span>), <span class="dt">label_pos =</span> pos, <span class="dt">inset =</span> p, 
-    <span class="dt">inset_bg =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">fill =</span> <span class="st">"#00BFFF80"</span>), <span class="dt">fps =</span> <span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">d<span class="op">$</span>grp &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"Philosoraptor's"</span>, <span class="st">"Cat's"</span>, d<span class="op">$</span>grp)</a>
+<a class="sourceLine" id="cb14-2" title="2">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">"orange"</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>grp) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"The wiggles"</span>, <span class="dt">subtitle =</span> <span class="st">"Plots for cats"</span>,</a>
+<a class="sourceLine" id="cb14-5" title="5">       <span class="dt">caption =</span> <span class="st">"Figure 1. Gimme sine waves."</span>)</a>
+<a class="sourceLine" id="cb14-6" title="6">lab &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"R plots for cats"</span>, <span class="st">"Sine wave sine wave..."</span>)</a>
+<a class="sourceLine" id="cb14-7" title="7">pos &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">w =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.9</span>, <span class="dv">2</span>), <span class="dt">h =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.3</span>, <span class="dv">2</span>), <span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.5</span>, <span class="dv">2</span>), <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.9</span>, <span class="fl">0.75</span>))</a>
+<a class="sourceLine" id="cb14-8" title="8">img &lt;-<span class="st"> "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"</span></a>
+<a class="sourceLine" id="cb14-9" title="9"><span class="kw"><a href="../reference/meme.html">meme_gif</a></span>(img, lab, <span class="st">"sine.gif"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1.5</span>, <span class="fl">0.75</span>), <span class="dt">label_pos =</span> pos,</a>
+<a class="sourceLine" id="cb14-10" title="10">         <span class="dt">inset =</span> p, <span class="dt">inset_bg =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">fill =</span> <span class="st">"#00BFFF80"</span>), <span class="dt">fps =</span> <span class="dv">20</span>)</a></code></pre></div>
 <p>The generated file will look like this:</p>
 <p style="text-align:center;">
 <img src="https://github.com/leonawicz/DataVisExamples/blob/master/packages/memery.gif?raw=true"></p>
@@ -295,6 +293,7 @@ img &lt;-<span class="st"> "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gi
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -311,17 +310,20 @@ img &lt;-<span class="st"> "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gi
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by <a href="http://leonawicz.github.io/">Matthew Leonawicz</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
