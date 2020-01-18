@@ -7,19 +7,26 @@ output: github_document
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE, comment = "#>", fig.path = "man/figures/README-",
-  message = FALSE, warning = FALSE, error = FALSE, tidy = TRUE
+  message = FALSE, warning = FALSE, error = FALSE
 )
 ```
 
-# memery <img src="man/figures/logo.png" style="margin-bottom:5px;" width="120" align="right">
+# memery <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
+**Author:** [Matthew Leonawicz](https://github.com/leonawicz) <a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
+<image class="orcid" src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" height="16"></a>
+<br/>
+**License:** [MIT](https://opensource.org/licenses/MIT)<br/>
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Travis build status](https://travis-ci.org/leonawicz/memery.svg?branch=master)](https://travis-ci.org/leonawicz/memery)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/leonawicz/memery?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/memery)
+[![Codecov test coverage](https://codecov.io/gh/leonawicz/memery/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/memery?branch=master)
 
 [![CRAN status](http://www.r-pkg.org/badges/version/memery)](https://cran.r-project.org/package=memery)
 [![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/memery)](https://cran.r-project.org/package=memery) 
-[![Rdoc](http://www.rdocumentation.org/badges/version/memery)](http://www.rdocumentation.org/packages/memery)
-[![Travis-CI Build Status](https://travis-ci.org/leonawicz/memery.svg?branch=master)](https://travis-ci.org/leonawicz/memery)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/leonawicz/memery?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/memery)
-[![Coverage Status](https://img.shields.io/codecov/c/github/leonawicz/memery/master.svg)](https://codecov.io/github/leonawicz/memery?branch=master)
-[![gitter](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/leonawicz/memery)
+[![Github Stars](https://img.shields.io/github/stars/leonawicz/memery.svg?style=social&label=Github)](https://github.com/leonawicz/memery)
+
+[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://ko-fi.com/leonawicz)
 
 ## Make memorable plots with `memery`.
 
@@ -32,31 +39,25 @@ While this is similar to the 'meme' package available on CRAN, it differs in tha
 The package also provides support for an arbitrary number of meme text labels with arbitrary size, position and other attributes rather than restricting to the standard top and/or bottom text placement. This is useful for proper aesthetic interleaving of plots of data between meme image backgrounds and overlain text labels. The package offers a selection of templates for graph placement and appearance with respect to the underlying meme. Graph templates also permit additional template-specific customization.
 Animated gif support is provided but this is optional and functional only if the 'magick' package is installed.
 
-```{r is_md, echo = FALSE}
-is_md <- knitr::opts_knit$get("rmarkdown.pandoc.to") %in% c("markdown_github-ascii_identifiers", "gfm-ascii_identifiers")
-```
-
-```{r ex_image1, echo = FALSE, results = "asis", eval = is_md}
-cat('![](docs/articles/meme4d.jpg)')
-```
-
-```{r ex_image2, echo = FALSE, results = "asis", eval = !is_md}
-cat('<p style="text-align:center;"><img src="articles/meme4d.jpg" width="600px"></p>')
-```
+![](https://leonawicz.github.io/memery/articles/meme4d.jpg)
 
 ## Installation
 
-You can install memery from CRAN with:
+Install the CRAN release of `memery` with
 
-```{r cran-installation, eval = FALSE}
+```r
 install.packages("memery")
 ```
 
-You can install the latest development version from github with:
+Install the development version from GitHub with
 
-```{r gh-installation, eval = FALSE}
+```r
 # install.packages("remotes")
 remotes::install_github("leonawicz/memery")
 ```
 
 See the [vignette](https://leonawicz.github.io/memery/articles/memery.html) for an overview with usage examples.
+
+---
+
+Please note that the `memery` project is released with a [Contributor Code of Conduct](https://github.com/leonawicz/memery/blob/master/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

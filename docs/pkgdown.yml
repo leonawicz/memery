@@ -4,6 +4,6 @@ pkgdown_sha: ~
 articles:
   memery: memery.html
 urls:
-  reference: http://leonawicz.github.io/memery/reference
-  article: http://leonawicz.github.io/memery/articles
+  reference: https://leonawicz.github.io/memery/reference
+  article: https://leonawicz.github.io/memery/articles
 
