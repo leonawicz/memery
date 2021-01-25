@@ -1,3 +1,7 @@
+# memery 0.5.3
+
+* Bug fixes and improvements to examples and tests.
+
 # memery 0.5.2
 
 * Made `meme_gif` faster.

@@ -5,12 +5,12 @@
 
 **Author:** [Matthew Leonawicz](https://github.com/leonawicz)
 <a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
-<image class="orcid" src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" height="16"></a>
+<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
 <br/> **License:** [MIT](https://opensource.org/licenses/MIT)<br/>
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
 [![Travis build
 status](https://travis-ci.org/leonawicz/memery.svg?branch=master)](https://travis-ci.org/leonawicz/memery)
 [![AppVeyor build
@@ -24,8 +24,6 @@ status](http://www.r-pkg.org/badges/version/memery)](https://cran.r-project.org/
 downloads](http://cranlogs.r-pkg.org/badges/grand-total/memery)](https://cran.r-project.org/package=memery)
 [![Github
 Stars](https://img.shields.io/github/stars/leonawicz/memery.svg?style=social&label=Github)](https://github.com/leonawicz/memery)
-
-[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://ko-fi.com/leonawicz)
 
 ## Make memorable plots with `memery`.
 
@@ -81,6 +79,18 @@ remotes::install_github("leonawicz/memery")
 See the
 [vignette](https://leonawicz.github.io/memery/articles/memery.html) for
 an overview with usage examples.
+
+## Contribute
+
+Contributions are welcome. Contribute through GitHub via pull request.
+Please create an issue first if it is regarding any substantive feature
+add or change.
+
+If you enjoy my open source R community contributions, please consider a
+donation :).
+
+  - [Buy me a coffee in Ko-fi](https://ko-fi.com/leonawicz)
+  - `leonawicz.crypto`
 
 -----
 

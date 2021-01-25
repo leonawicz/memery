@@ -17,3 +17,4 @@
 ^codecov\.yml$
 ^CODE_OF_CONDUCT\.md$
 ^README\.html$
+^codemeta\.json$

@@ -170,6 +170,7 @@ panels <- rep(c("Plot A", "Plot B"), each = 50)
 d <- data.frame(x = x, y = sin(x), grp = panels)
 txt <- c("Philosoraptor's plots", "I like to make plots",
   "Figure 1. (A) shows a plot and (B) shows another plot.")
+out <- tempfile("meme", fileext = c("1.jpg", "2.jpg", "3.jpg", "4.gif"))
 
 p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", size = 2) +
   geom_point(colour = "orange", size = 4) + facet_wrap(~grp) +
@@ -180,12 +181,11 @@ img <- system.file("philosoraptor.jpg", package = "memery")
 lab <- c("Title meme text", "Subtitle text")
 
 \dontrun{
-
 # Not run due to file size
 # basic meme
-meme(img, lab[1:2], "meme_basic.jpg")
+meme(img, lab[1:2], out[1])
 # data analyst's meme
-meme(img, lab[1:2], "meme_data.jpg", size = 2, inset = p, mult = 2)
+meme(img, lab[1:2], out[2], size = 2, inset = p, mult = 2)
 }
 
 # data meme with additional content control
@@ -197,12 +197,11 @@ pos <- list(w = rep(0.9, 3), h = rep(0.3, 3), x = c(0.35, 0.65, 0.5),
 fam <- c("Impact", "serif", "Impact")
 clrs1 <- c("black", "orange", "white")
 clrs2 <- clrs1[c(2, 1, 1)]
-meme(img, lab, "meme_data2.jpg", size = c(2, 1.5, 1), family = fam, col = clrs1,
+meme(img, lab, out[3], size = c(2, 1.5, 1), family = fam, col = clrs1,
   shadow = clrs2, label_pos = pos, inset = p, inset_bg = vp_bg, mult = 2)
 
 \dontrun{
-
-# Not run due to file size and software requirements
+# Not run due to file size, software requirements, web source
 # GIF meme. Requires magick package.
 p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
   geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
@@ -210,8 +209,8 @@ p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
        caption = "Figure 1. Gimme sine waves.")
 lab <- c("R plots for cats", "Sine wave sine wave sine wave sine wave...")
 pos <- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.75))
-img <- "http://forgifs.com/gallery/d/228621-4/Cat-wiggles.gif"
-meme_gif(img, lab, "meme_data3.gif", size = c(1.5, 0.75), label_pos = pos,
+img <- "https://raw.githubusercontent.com/leonawicz/memery/master/data-raw/cat.gif"
+meme_gif(img, lab, out[4], size = c(1.5, 0.75), label_pos = pos,
          inset = p, inset_bg = list(fill = "#00BFFF80"), mult = 1.5, fps = 20)
 }
 }
