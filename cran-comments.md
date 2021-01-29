@@ -9,5 +9,4 @@
 
 This is an update release.
 
-* Maintainer email address change.
-* Fixes to meet CRAN requirements and policies.
+* CRAN-related fixes: fix exampels and unit tests where graphics device not available.

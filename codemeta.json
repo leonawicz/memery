@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/leonawicz/memery",
   "issueTracker": "https://github.com/leonawicz/memery/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -281,7 +281,7 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/memery/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/memery/blob/master/README.md",
-  "fileSize": "3761.25KB",
+  "fileSize": "4302.144KB",
   "contIntegration": ["https://travis-ci.org/leonawicz/memery", "https://ci.appveyor.com/project/leonawicz/memery", "https://codecov.io/gh/leonawicz/memery?branch=master"],
   "developmentStatus": "https://www.repostatus.org/",
   "relatedLink": "https://CRAN.R-project.org/package=memery"

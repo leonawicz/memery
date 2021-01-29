@@ -15,6 +15,7 @@ out <- tempfile("meme_", fileext = c(".png", ".jpg"))
 lab <- c("What to call my R package?", "Perhaps...")
 
 test_that("meme runs as expected", {
+  skip_on_cran()
   expect_error(meme("in", "lab", "out"), "`img` must be a jpg or png. Check file extension.")
   expect_error(meme("in.jpg", "lab", "out"), "Output must be a jpg or png. Check file extension.")
   expect_error(meme(loc, c("lab1", "lab2"), "out.jpg", label_pos = text_position(1)),

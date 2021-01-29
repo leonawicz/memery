@@ -1,3 +1,7 @@
+# memery 0.5.4
+
+* Set unit tests to not run on CRAN.
+
 # memery 0.5.3
 
 * Bug fixes and improvements to examples and tests.

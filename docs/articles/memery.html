@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">memery</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.4</span>
       </span>
     </div>
 
@@ -159,7 +159,7 @@
 <p>In addition to drawing text labels on top of the background image, <code>meme</code> offers the ability to overlay an inset plot, a plot within the meme plot. This could be a thumbnail inset appearing in a corner of the plot. For example, it could be a logo. But generally speaking, this kind of behavior is directly accessible using the <code>grid</code> framework and <code>memery</code> does not attempt to duplicate this generality. Instead, it expects the <code>inset</code> argument to be any ggplot object; `inset is not for reading in a second image file. It is meant to be a plot.</p>
 <p>By default, a ggplot object passed to <code>meme</code> via <code>inset</code> will take up approximately the lower two thirds of the plot and the full with, accounting for some margin space. It has a semi-transparent background so that it does not completely obscure the meme background image. These settings, background color, transparency, size and position, can all be specified in the call to <code>meme</code> as the following examples demonstrate.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span><span class="op">*</span><span class="va">pi</span> , length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>
 <span class="va">panels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Philosoraptor's plot"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, grp <span class="op">=</span> <span class="va">panels</span><span class="op">)</span>

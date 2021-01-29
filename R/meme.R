@@ -95,7 +95,7 @@
 #' d <- data.frame(x = x, y = sin(x), grp = panels)
 #' txt <- c("Philosoraptor's plots", "I like to make plots",
 #'   "Figure 1. (A) shows a plot and (B) shows another plot.")
-#' out <- tempfile("meme", fileext = c("1.jpg", "2.jpg", "3.jpg", "4.gif"))
+#' out <- tempfile("meme", fileext = c("1.png", "2.png", "3.png", "4.gif"))
 #'
 #' p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", size = 2) +
 #'   geom_point(colour = "orange", size = 4) + facet_wrap(~grp) +
@@ -122,8 +122,11 @@
 #' fam <- c("Impact", "serif", "Impact")
 #' clrs1 <- c("black", "orange", "white")
 #' clrs2 <- clrs1[c(2, 1, 1)]
+#'
+#' \dontrun{
 #' meme(img, lab, out[3], size = c(2, 1.5, 1), family = fam, col = clrs1,
 #'   shadow = clrs2, label_pos = pos, inset = p, inset_bg = vp_bg, mult = 2)
+#' }
 #'
 #' \dontrun{
 #' # Not run due to file size, software requirements, web source
