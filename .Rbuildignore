@@ -18,3 +18,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^README\.html$
 ^codemeta\.json$
+^vignettes/memery\.Rmd$

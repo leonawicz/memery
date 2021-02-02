@@ -9,4 +9,4 @@
 
 This is an update release.
 
-* CRAN-related fixes: fix exampels and unit tests where graphics device not available.
+* CRAN-related fixes: fixes remaining "additional issues" that don't show up on Win Builder.
