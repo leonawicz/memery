@@ -33,7 +33,6 @@ Suggests:
     covr,
     magick,
     gifski
-VignetteBuilder: knitr
 Depends:
     showtext
 Imports: 
