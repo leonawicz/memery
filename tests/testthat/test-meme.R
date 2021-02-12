@@ -70,7 +70,7 @@ test_that("meme_gif runs as expected", {
   pos <- list(w = rep(0.9, 2), h = rep(0.3, 2), x = rep(0.5, 2), y = c(0.9, 0.75))
   img <- "https://raw.githubusercontent.com/leonawicz/memery/master/data-raw/cat.gif"
 
-  if("magick" %in% installed.packages()){
+  if(requireNamespace("magick", quietly = TRUE)){
     s <- c(1.5, 0.75)
     f <- 1:2
     file <- "out.gif"

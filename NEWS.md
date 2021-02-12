@@ -1,3 +1,7 @@
+# memery 0.5.6
+
+* More fixes for CRAN submission after package was archived.
+
 # memery 0.5.5
 
 * More changes to address issues that only show up on CRAN but not on CRAN Win Builder.

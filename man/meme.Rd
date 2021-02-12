@@ -85,6 +85,9 @@ meme_gif(
 
 \item{...}{additional arguments passed to \code{meme_gif}.}
 }
+\value{
+nothing is returned; file written to disk.
+}
 \description{
 Generate a meme with a background image, text label and optional inset graphic.
 }

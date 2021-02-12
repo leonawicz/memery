@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
   library(memery)
   library(ggplot2)
 })
-has_magick <- "magick" %in% utils::installed.packages()
+has_magick <- requireNamespace("magick", quietly = TRUE)
 if(has_magick) library(magick)
 
 testplot <- "memery_testplot"

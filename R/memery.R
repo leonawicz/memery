@@ -52,6 +52,8 @@ NULL
 #'
 #' @export
 #'
+#' @return nothing is returned; packaged Shiny app is launched interactively in browser.
+#'
 #' @examples
 #' \dontrun{memeApp()}
 memeApp <- function(){
@@ -61,5 +63,5 @@ memeApp <- function(){
 .no_magick <- "The `magick` package must be installed to use `meme_gif`."
 
 .check_for_magick <- function(){
-  "magick" %in% utils::installed.packages()
+  requireNamespace("magick", quietly = TRUE)
 }

@@ -6,6 +6,9 @@
 \usage{
 memeApp()
 }
+\value{
+nothing is returned; packaged Shiny app is launched interactively in browser.
+}
 \description{
 Launch the memery example app in your browser.
 }

@@ -40,7 +40,7 @@ meme generators or require any authentication with external websites. It
 reads images directly from local files or via URL and meme generation is
 done by the package.
 
-While this is similar to the ‘meme’ package available on CRAN, it
+While this is similar to the `meme` package available on CRAN, it
 differs in that the focus is on allowing for non-standard meme layouts
 and hybrids of memes mixed with graphs. While this package can be used
 to make basic memes like an online meme generator would produce, it
@@ -56,7 +56,7 @@ image backgrounds and overlain text labels. The package offers a
 selection of templates for graph placement and appearance with respect
 to the underlying meme. Graph templates also permit additional
 template-specific customization. Animated gif support is provided but
-this is optional and functional only if the ‘magick’ package is
+this is optional and functional only if the `magick` package is
 installed.
 
 ![](https://leonawicz.github.io/memery/articles/meme4d.jpg)

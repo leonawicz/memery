@@ -87,6 +87,8 @@
 #' @param frame integer, frame numbers to include. The default \code{frame = 0} retains all frames. Only applicable to \code{meme_gif}. See details.
 #' @param ... additional arguments passed to \code{meme_gif}.
 #'
+#' @return nothing is returned; file written to disk.
+#'
 #' @examples
 #' # Prepare data and make a graph
 #' library(ggplot2)
