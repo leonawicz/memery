@@ -24,9 +24,10 @@
 #'
 #' @docType package
 #' @name memery
+#' @aliases memery-package
 NULL
 
-#' @import showtext
+#' @import showtext colourpicker shinyBS shinycssloaders
 #' @importFrom magrittr %>%
 NULL
 

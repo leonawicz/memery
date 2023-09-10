@@ -1,22 +1,19 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "memery",
-  "description": "Generates internet memes that optionally include a superimposed inset plot and other atypical features, \n    combining the visual impact of an attention-grabbing meme with graphic results of data analysis.\n    The package differs from related packages that focus on imitating and reproducing standard memes.\n    Some packages do this by interfacing with online meme generators whereas others achieve this natively.\n    This package takes the latter approach. It does not interface with online meme generators or require any authentication with external websites.\n    It reads images directly from local files or via URL and meme generation is done by the package.\n    While this is similar to the 'meme' package available on CRAN, it differs in that the focus is on \n    allowing for non-standard meme layouts and hybrids of memes mixed with graphs.\n    While this package can be used to make basic memes like an online meme generator would produce, \n    it caters primarily to hybrid graph-meme plots where the meme presentation can be seen as a backdrop highlighting \n    foreground graphs of data analysis results.\n    The package also provides support for an arbitrary number of meme text labels with arbitrary size, position and other attributes \n    rather than restricting to the standard top and/or bottom text placement. \n    This is useful for proper aesthetic interleaving of plots of data between meme image backgrounds and overlain text labels.\n    The package offers a selection of templates for graph placement and appearance with respect to the underlying meme.\n    Graph templates also permit additional template-specific customization.\n    Animated gif support is provided but this is optional and functional only if the 'magick' package is installed. \n    'magick' is not required unless gif functionality is desired.",
+  "description": "Generates internet memes that optionally include a superimposed inset plot and other atypical features, combining the visual impact of an attention-grabbing meme with graphic results of data analysis. The package differs from related packages that focus on imitating and reproducing standard memes. Some packages do this by interfacing with online meme generators whereas others achieve this natively. This package takes the latter approach. It does not interface with online meme generators or require any authentication with external websites. It reads images directly from local files or via URL and meme generation is done by the package. While this is similar to the 'meme' package available on CRAN, it differs in that the focus is on allowing for non-standard meme layouts and hybrids of memes mixed with graphs. While this package can be used to make basic memes like an online meme generator would produce, it caters primarily to hybrid graph-meme plots where the meme presentation can be seen as a backdrop highlighting foreground graphs of data analysis results. The package also provides support for an arbitrary number of meme text labels with arbitrary size, position and other attributes rather than restricting to the standard top and/or bottom text placement. This is useful for proper aesthetic interleaving of plots of data between meme image backgrounds and overlain text labels. The package offers a selection of templates for graph placement and appearance with respect to the underlying meme. Graph templates also permit additional template-specific customization. Animated gif support is provided but this is optional and functional only if the 'magick' package is installed. 'magick' is not required unless gif functionality is desired.",
   "name": "memery: Internet Memes for Data Analysts",
   "codeRepository": "https://github.com/leonawicz/memery",
   "issueTracker": "https://github.com/leonawicz/memery/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+  "runtimePlatform": "R version 4.3.1 (2023-06-16 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -31,9 +28,6 @@
       "email": "mfleonawicz@gmail.com"
     }
   ],
-  "contributor": {},
-  "copyrightHolder": {},
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -81,18 +75,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "covr",
-      "name": "covr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=covr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "magick",
       "name": "magick",
       "provider": {
@@ -116,8 +98,8 @@
       "sameAs": "https://CRAN.R-project.org/package=gifski"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "showtext",
       "name": "showtext",
@@ -129,7 +111,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=showtext"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "sysfonts",
       "name": "sysfonts",
@@ -141,12 +123,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sysfonts"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "grid",
       "name": "grid"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "png",
       "name": "png",
@@ -158,7 +140,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=png"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "jpeg",
       "name": "jpeg",
@@ -170,7 +152,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jpeg"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "Cairo",
       "name": "Cairo",
@@ -182,7 +164,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=Cairo"
     },
-    {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -194,7 +176,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "cowplot",
       "name": "cowplot",
@@ -206,7 +188,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=cowplot"
     },
-    {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -218,7 +200,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -230,7 +212,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "shiny",
       "name": "shiny",
@@ -242,7 +224,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=shiny"
     },
-    {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "shinycssloaders",
       "name": "shinycssloaders",
@@ -254,7 +236,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=shinycssloaders"
     },
-    {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "shinyBS",
       "name": "shinyBS",
@@ -266,7 +248,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=shinyBS"
     },
-    {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "colourpicker",
       "name": "colourpicker",
@@ -277,12 +259,8 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=colourpicker"
-    }
-  ],
-  "releaseNotes": "https://github.com/leonawicz/memery/blob/master/NEWS.md",
-  "readme": "https://github.com/leonawicz/memery/blob/master/README.md",
-  "fileSize": "4305.168KB",
-  "contIntegration": ["https://travis-ci.org/leonawicz/memery", "https://ci.appveyor.com/project/leonawicz/memery", "https://codecov.io/gh/leonawicz/memery?branch=master"],
-  "developmentStatus": "https://www.repostatus.org/",
-  "relatedLink": "https://CRAN.R-project.org/package=memery"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "127.494KB"
 }

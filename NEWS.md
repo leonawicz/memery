@@ -1,3 +1,7 @@
+# memery 0.5.7
+
+* Added required package alias in documentation.
+
 # memery 0.5.6
 
 * More fixes for CRAN submission after package was archived.
