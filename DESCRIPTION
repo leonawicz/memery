@@ -1,6 +1,7 @@
 Package: memery
-Version: 0.5.7
 Title: Internet Memes for Data Analysts
+Version: 0.6.0
+Authors@R: person("Matthew", "Leonawicz", email = "rpkgs@pm.me", role = c("aut", "cre"))
 Description: Generates internet memes that optionally include a superimposed inset plot and other atypical features, 
     combining the visual impact of an attention-grabbing meme with graphic results of data analysis.
     The package differs from related packages that focus on imitating and reproducing standard memes.
@@ -19,19 +20,9 @@ Description: Generates internet memes that optionally include a superimposed ins
     Graph templates also permit additional template-specific customization.
     Animated gif support is provided but this is optional and functional only if the 'magick' package is installed. 
     'magick' is not required unless gif functionality is desired.
-Authors@R: person("Matthew", "Leonawicz", email = "mfleonawicz@gmail.com", role = c("aut", "cre"))
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-ByteCompile: true
 URL: https://github.com/leonawicz/memery
 BugReports: https://github.com/leonawicz/memery/issues
-Suggests: 
-    testthat,
-    knitr,
-    rmarkdown,
-    magick,
-    gifski
 Depends:
     showtext
 Imports: 
@@ -48,4 +39,14 @@ Imports:
     shinycssloaders,
     shinyBS,
     colourpicker
-RoxygenNote: 7.2.3
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown,
+    magick,
+    gifski
+ByteCompile: true
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

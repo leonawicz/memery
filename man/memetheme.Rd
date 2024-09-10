@@ -11,7 +11,8 @@ memetheme(base_size = 14, base_family = "", base_col = "white")
 
 \item{base_family}{character, the base font family.}
 
-\item{base_col}{character, the base color for all title text and axis lines and ticks.}
+\item{base_col}{character, the base color for all title text and axis lines
+and ticks.}
 }
 \value{
 a ggplot2 theme.

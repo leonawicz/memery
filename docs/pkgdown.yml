@@ -1,10 +1,9 @@
-pandoc: 3.1.1
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   memery: memery.html
-last_built: 2023-09-10T03:10Z
+last_built: 2024-09-10T22:16Z
 urls:
   reference: https://leonawicz.github.io/memery/reference
   article: https://leonawicz.github.io/memery/articles
-

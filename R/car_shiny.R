@@ -1,12 +1,16 @@
 #' The ca(R) Shiny promotional meme
 #'
-#' Recreate the ca(R) Shiny promotional meme using different plots, frame rate or output size.
+#' Recreate the ca(R) Shiny promotional meme using different plots, frame rate
+#' or output size.
 #'
-#' This function offers limited control over customization; it is intended as a canned example.
-#' For additional customization, use this function's source code in an R script where you can easily alter other values.
+#' This function offers limited control over customization; it is intended as a
+#' canned example. For additional customization, use this function's source code
+#' in an R script where you can easily alter other values.
 #'
-#' After writing the first layer of output to \code{file}, \code{file} is recursively read and written again
-#' two more times in order to add all layers to the animated gif, since the underlying \code{meme} function does not accept vectorized inset plots.
+#' After writing the first layer of output to `file`, `file` is recursively read
+#' and written again two more times in order to add all layers to the animated
+#' gif, since the underlying `meme()` function does not accept vectorized inset
+#' plots.
 #'
 #' The Shiny logo is by RStudio.
 #'
@@ -14,8 +18,10 @@
 #' @param p1 ggplot object for top half of (ca)R Shiny meme.
 #' @param p2 ggplot object for bottom half of (ca)R Shiny meme.
 #' @param fps integer, frames per second.
-#' @param test_frame logical, keep only the first frame. Ideal for saving time during testing.
-#' @param mult numeric, factor by which to multiply the output meme dimensions. Use conservatively.
+#' @param test_frame logical, keep only the first frame. Ideal for saving time
+#' during testing.
+#' @param mult numeric, factor by which to multiply the output meme dimensions.
+#' Use conservatively.
 #'
 #' @return nothing is returned, but a file is saved to disk.
 #' @export

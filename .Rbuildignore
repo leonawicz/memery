@@ -13,3 +13,5 @@
 ^README\.html$
 ^codemeta\.json$
 ^vignettes/memery\.Rmd$
+^CRAN-SUBMISSION$
+^\.github$

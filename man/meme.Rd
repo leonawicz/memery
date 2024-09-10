@@ -53,37 +53,45 @@ meme_gif(
 
 \item{file}{output file, png or jpg.}
 
-\item{size}{label size. Actual size affected by image size (i.e., \code{cex}).}
+\item{size}{label size. Actual size affected by image size, i.e., \code{cex}.}
 
-\item{family}{character, defaults to \code{"Impact"}, the classic meme font. See details.}
+\item{family}{character, defaults to \code{"Impact"}, the classic meme font. See
+details.}
 
 \item{col}{label color.}
 
 \item{shadow}{label shadow/outline color.}
 
-\item{label_pos}{named list of position elements for the meme text \code{w}, \code{h}, \code{x} and \code{y}. Each element may be a vector. See details.}
+\item{label_pos}{named list of position elements for the meme text \code{w}, \code{h},
+\code{x} and \code{y}. Each element may be a vector. See details.}
 
 \item{inset}{a ggplot object. This is an optional inset plot and may be excluded.}
 
-\item{ggtheme}{optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.}
+\item{ggtheme}{optional ggplot2 theme. If ignored, the default \code{memery}
+ggplot2 theme is used.}
 
-\item{inset_bg}{a list of background settings for the plotting region containing \code{inset}. See details.}
+\item{inset_bg}{a list of background settings for the plotting region
+containing \code{inset}. See details.}
 
-\item{inset_pos}{named list of position elements for the \code{inset} inset plot: \code{w}, \code{h}, \code{x} and \code{y}.}
+\item{inset_pos}{named list of position elements for the \code{inset} inset plot:
+\code{w}, \code{h}, \code{x} and \code{y}.}
 
-\item{width}{numeric, width of overall meme plot in pixels. If missing, taken from \code{img} size.}
+\item{width}{numeric, width of overall meme plot in pixels. If missing, taken
+from \code{img} size.}
 
-\item{height}{numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.}
+\item{height}{numeric, height of overall meme plot in pixels. If missing,
+taken from \code{img} size.}
 
 \item{bg}{character, background color for graphics device.}
 
 \item{mult}{numeric, a multiplier. Used to adjust width and height. See details.}
 
-\item{fps}{frames per second, only applicable to \code{meme_gif}. See details.}
+\item{fps}{frames per second, only applicable to \code{meme_gif()}. See details.}
 
-\item{frame}{integer, frame numbers to include. The default \code{frame = 0} retains all frames. Only applicable to \code{meme_gif}. See details.}
+\item{frame}{integer, frame numbers to include. The default \code{frame = 0}
+retains all frames. Only applicable to \code{meme_gif()}. See details.}
 
-\item{...}{additional arguments passed to \code{meme_gif}.}
+\item{...}{additional arguments passed to \code{meme_gif()}.}
 }
 \value{
 nothing is returned; file written to disk.
@@ -97,72 +105,91 @@ This function generates and saves a meme as a jpg or png file.
 \section{Fonts}{
 
 Memes use the Impact font by default. This is a Windows font.
-If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system.
-If Impact or any other font family passed to \code{meme}, e.g. \code{family = "Consolas"}, is not installed on an operating system,
-\code{meme} will ignore it and fall back on \code{family = "serif"} internally.
-If unfamiliar, explore the documentation and examples available for the \code{showtext} and \code{sysfonts} packages, which \code{merery} leverages.
+If using \code{memery} on Linux for example, you would have to first install the
+font if not already installed on the system. If Impact or any other font
+family passed to \code{meme()}, e.g. \code{family = "Consolas"}, is not installed on an
+operating system, \code{meme()} will ignore it and fall back on \code{family = "serif"}
+internally. If unfamiliar, explore the documentation and examples available
+for the \code{showtext} and \code{sysfonts} packages, which \code{merery} leverages.
 }
 
 \section{Text labels}{
 
-List elements in \code{label_pos} must all be the same length and must match the length of \code{label}.
-This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
+List elements in \code{label_pos} must all be the same length and must match the
+length of \code{label}. This is provided for generality but is most suited to
+length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
 Similarly, \code{size}, \code{family}, \code{col} and \code{shadow} may be vectorized.
-For example, top and bottom text can have different font size and family and the font text and shadow can be different colors.
+For example, top and bottom text can have different font size and family and
+the font text and shadow can be different colors.
 }
 
 \section{Inset graphic}{
 
-The meme plot may optionally include an inset plot by passing a ggplot object to \code{inset}.
-This makes the memes more fun for data analysts. See examples.
+The meme plot may optionally include an inset plot by passing a ggplot object
+to \code{inset}. This makes the memes more fun for data analysts. See examples.
 
-The plotting region containing \code{inset} is a specific viewport in the \code{grid} layout.
-\code{inset_bg} is a list of arguments that affect the background of this part of the meme plot.
-They define a rectangle that by default is semi-transparent with rounded corners and no border color.
-This can be changed via the list arguments \code{fill}, \code{col} and \code{r}.
+The plotting region containing \code{inset} is a specific viewport in the \code{grid}
+layout. \code{inset_bg} is a list of arguments that affect the background of this
+part of the meme plot. They define a rectangle that by default is
+semi-transparent with rounded corners and no border color. This can be changed
+via the list arguments \code{fill}, \code{col} and \code{r}.
 
 The inset plot \code{inset} is placed above this layer and also fills the region.
-The default ggplot2 theme used my \code{meme}, \code{\link{memetheme}}, uses transparent ggplot plot and panel background fill and plot border color
-that allow the background viewport rectangle and its rounded corners to show through.
+The default ggplot2 theme used my \code{meme()}, \code{\link[=memetheme]{memetheme()}}, uses transparent
+ggplot plot and panel background fill and plot border color that allow the
+background viewport rectangle and its rounded corners to show through.
 The default theme also has no plot margins.
 
-If you supply a different theme via \code{ggtheme}, you can provide different plot and panel background fill and plot border color as part of the theme.
-For similar no-margin themes, if the plot background fill or border color are not fully transparent,
-set the viewport rectangle corner radius to zero so that rounded corners do not show inside the panel background.
-For opaque plot background fill this will not matter.
+If you supply a different theme via \code{ggtheme}, you can provide different plot
+and panel background fill and plot border color as part of the theme.
+For similar no-margin themes, if the plot background fill or border color are
+not fully transparent, set the viewport rectangle corner radius to zero so
+that rounded corners do not show inside the panel background. For opaque plot
+background fill this will not matter.
 
-Of course, the plot and panel background fill should still be transparent or semi-transparent if occupying a large amount of the total meme plot area
-or it will obscure the meme image itself. An alternative is to use \code{inset} as, for example,
-a tiny thumbnail in the corner of the meme plot, in which case full opacity is not necessarily an issue.
-If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by \code{ggtheme}, you can set \code{ggtheme = NULL}
+Of course, the plot and panel background fill should still be transparent or
+semi-transparent if occupying a large amount of the total meme plot area or
+it will obscure the meme image itself. An alternative is to use \code{inset} as,
+for example, a tiny thumbnail in the corner of the meme plot, in which case
+full opacity is not necessarily an issue. If you do not want to override the
+theme of your plot and do not wish to pass a theme explicitly by \code{ggtheme},
+you can set \code{ggtheme = NULL}.
 }
 
 \section{Dimensions and image processing}{
 
-Specifying \code{width} and \code{height} is not required. By default, output file dimensions are taken from the input file, \code{img}.
-However, these arguments can be used to override the default dimension matching. The aspect ratio is fixed so if you change the two
-disproportionately, you will increasing the canvas, adding bars on two sides; it will not stretch the image.
+Specifying \code{width} and \code{height} is not required. By default, output file
+dimensions are taken from the input file, \code{img}. However, these arguments can
+be used to override the default dimension matching. The aspect ratio is fixed
+so if you change the two disproportionately, you will increasing the canvas,
+adding bars on two sides; it will not stretch the image.
 
-\code{mult} can be set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
-It is equivalent to scaling proportionately with \code{width} and \code{height} maintaining the original aspect ratio.
-Whether or not \code{width} and/or \code{height} are provided, \code{mult} is always applied (defaults to \code{mult = 1}).
+\code{mult} can be set less than one if relying on \code{img} dimension for meme plot
+width and height and \code{img} is large. It is equivalent to scaling
+proportionately with \code{width} and \code{height} maintaining the original aspect ratio.
+Whether or not \code{width} and/or \code{height} are provided, \code{mult} is always applied
+(defaults to \code{mult = 1}).
 
-Beyond this basic resizing to help control output file size, it is not the intent of \code{memery} to offer general image processing capabilities.
-If adjustments to source images are desired, you should use a dedicated package for image processing.
-\code{magick} is recommended.
+Beyond this basic resizing to help control output file size, it is not the
+intent of \code{memery} to offer general image processing capabilities. If
+adjustments to source images are desired, you should use a dedicated package
+for image processing. \code{magick} is recommended.
 }
 
 \section{Reading and writing gifs}{
 
-Reading and writing gifs requires the \code{magick} package.
-Since this is not required for any other part of \code{memery} and it represents a minor use case, the package does not have these dependencies.
-\code{magick} is listed as a suggested package for memery; it is not imported as a dependency.
-\code{meme_gif} is an optional extra function. In order to use it, install the \code{magick} package.
+Reading and writing gifs requires the \code{magick} package. Since this is not
+required for any other part of \code{memery} and it represents a minor use case,
+the package does not have these dependencies. \code{magick} is listed as a
+suggested package for \code{memery}; it is not imported as a dependency.
+\code{meme_gif()} is an optional extra function. In order to use it, install the
+\code{magick} package.
 
-See the example below if your system meets these requirements.
-As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
-use the \code{magick} package for image pre-processing.
-\code{meme} only provides basic control over output size and \code{meme_gif} only adds control over gif frame selection and rate.
+See the example below if your system meets these requirements. As with jpg
+or png image inputs, if additional control is required for making custom
+adjustments to gif image frames, use the \code{magick} package for image
+pre-processing. \code{meme()} only provides basic control over output size and
+\code{meme_gif()} only adds control over gif frame selection and rate.
 }
 
 \examples{

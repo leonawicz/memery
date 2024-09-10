@@ -1,3 +1,7 @@
+# memery 0.6.0
+
+* Documentation updates.
+
 # memery 0.5.7
 
 * Added required package alias in documentation.

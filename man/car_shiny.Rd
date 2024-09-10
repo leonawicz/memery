@@ -15,22 +15,28 @@ car_shiny(file, p1 = NULL, p2 = NULL, fps = 10, test_frame = FALSE, mult = 1)
 
 \item{fps}{integer, frames per second.}
 
-\item{test_frame}{logical, keep only the first frame. Ideal for saving time during testing.}
+\item{test_frame}{logical, keep only the first frame. Ideal for saving time
+during testing.}
 
-\item{mult}{numeric, factor by which to multiply the output meme dimensions. Use conservatively.}
+\item{mult}{numeric, factor by which to multiply the output meme dimensions.
+Use conservatively.}
 }
 \value{
 nothing is returned, but a file is saved to disk.
 }
 \description{
-Recreate the ca(R) Shiny promotional meme using different plots, frame rate or output size.
+Recreate the ca(R) Shiny promotional meme using different plots, frame rate
+or output size.
 }
 \details{
-This function offers limited control over customization; it is intended as a canned example.
-For additional customization, use this function's source code in an R script where you can easily alter other values.
+This function offers limited control over customization; it is intended as a
+canned example. For additional customization, use this function's source code
+in an R script where you can easily alter other values.
 
-After writing the first layer of output to \code{file}, \code{file} is recursively read and written again
-two more times in order to add all layers to the animated gif, since the underlying \code{meme} function does not accept vectorized inset plots.
+After writing the first layer of output to \code{file}, \code{file} is recursively read
+and written again two more times in order to add all layers to the animated
+gif, since the underlying \code{meme()} function does not accept vectorized inset
+plots.
 
 The Shiny logo is by RStudio.
 }

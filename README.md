@@ -3,15 +3,21 @@
 
 # memery <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
 
+<!-- badges: start -->
+
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
+[![R-CMD-check](https://github.com/leonawicz/memery/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/leonawicz/memery/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/leonawicz/memery/graph/badge.svg)](https://app.codecov.io/gh/leonawicz/memery)
 [![CRAN
-status](http://www.r-pkg.org/badges/version/memery)](https://cran.r-project.org/package=memery)
+status](https://www.r-pkg.org/badges/version/memery)](https://CRAN.R-project.org/package=memery)
 [![CRAN
-downloads](http://cranlogs.r-pkg.org/badges/grand-total/memery)](https://cran.r-project.org/package=memery)
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/memery)](https://cran.r-project.org/package=memery)
 [![Github
 Stars](https://img.shields.io/github/stars/leonawicz/memery.svg?style=social&label=Github)](https://github.com/leonawicz/memery)
+<!-- badges: end -->
 
 ## Make memorable plots with `memery`.
 
@@ -67,6 +73,11 @@ remotes::install_github("leonawicz/memery")
 See the
 [vignette](https://leonawicz.github.io/memery/articles/memery.html) for
 an overview with usage examples.
+
+## Citation
+
+Matthew Leonawicz (2024). memery: Internet Memes for Data Analysts. R
+package version 0.6.0. <https://CRAN.R-project.org/package=memery>
 
 ## Contribute
 

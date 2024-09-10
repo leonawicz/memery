@@ -16,59 +16,71 @@ inset_templates(type)
 \arguments{
 \item{type}{character, name of template.}
 
-\item{size}{numeric, width (length-1) or width and height (length-2) of inset. See details.}
+\item{size}{numeric, width (length-1) or width and height (length-2) of inset.
+See details.}
 
-\item{margin}{numeric, x-axis margin (length-1) or x- and y-axis margins (length-2) around corner insets. See details.}
+\item{margin}{numeric, x-axis margin (length-1) or x- and y-axis margins
+(length-2) around corner insets. See details.}
 }
 \value{
-a list of arguments passed to either \code{inset_pos} or \code{inset_bg} in \code{meme}.
+a list of arguments passed to either \code{inset_pos} or \code{inset_bg} in \code{meme()}.
 }
 \description{
 Templates for the position and background of a ggplot inset.
 }
 \details{
-\code{inset_position} and \code{inset_background} assist with some basic options for position and background of the optional ggplot inset graphic.
-\code{inset_templates} can be used to view the available templates. See examples.
-If a template is not available to suit your needs, provide your own argument list to \code{meme}
+\code{inset_position()} and \code{inset_background()} assist with some basic options for
+position and background of the optional ggplot inset graphic. \code{inset_templates()}
+can be used to view the available templates. See examples. If a template is
+not available to suit your needs, provide your own argument list to \code{meme()}
 in the form of, e.g., \code{inset_pos = list(w = 0.95, h = 0.6, x = 0.5, y = 0.325)}.
 }
 \section{Size and position}{
 
 The coordinate system for the meme plot ranges from zero to one in x and y.
-The width, height and (x,y) center defined by \code{inset_position} arguments therefore take values between zero and one.
+The width, height and (x,y) center defined by \code{inset_position()} arguments
+therefore take values between zero and one.
 
-The default position is for an inset plot that takes up 95\% of the width and 60\% of the height of the meme plot,
-with 2.5\% margins on the sides and bottom. Other templates include four corner thumbnails.
-To use these, set \code{type} equal to \code{"tl"}, \code{"tr"}, \code{"br"} or \code{"bl"},
-for top right, top left, bottom right and bottom left, respectively.
-There is also a \code{"center"} type.
+The default position is for an inset plot that takes up 95\\% of the width and
+60\\% of the height of the meme plot, with 2.5\\% margins on the sides and bottom.
+Other templates include four corner thumbnails. To use these, set \code{type} equal
+to \code{"tl"}, \code{"tr"}, \code{"br"} or \code{"bl"}, for top right, top left, bottom right and
+bottom left, respectively. There is also a \code{"center"} type.
 
-When specifying the corner or center inset types, the inset is a square thumbnail with width and height of 0.2 units (20\%)
-and 0.025 (2.5\%) margins from the edges of the plot. However, these templates are not absolute.
-You can further adjust the size and distance from the edges using \code{size} and \code{margin}.
-These arguments can be scalar, in which case the inset remains square and the margins are equal.
-If a length-2 vector, \code{size} can provide unique width and height for a rectangular inset.
-Similarly, \code{margin} can provide different margins for the distance to a side vs. the top or bottom edge of the meme plot.
+When specifying the corner or center inset types, the inset is a square
+thumbnail with width and height of 0.2 units (20\\%) and 0.025 (2.5\\%) margins
+from the edges of the plot. However, these templates are not absolute. You
+can further adjust the size and distance from the edges using \code{size} and
+\code{margin}. These arguments can be scalar, in which case the inset remains
+square and the margins are equal. If a length-2 vector, \code{size} can provide
+unique width and height for a rectangular inset. Similarly, \code{margin} can
+provide different margins for the distance to a side vs. the top or bottom
+edge of the meme plot.
 
-For \code{type = "center"}, \code{size} is used but \code{margin} is ignored, giving you control over the thumbnail size.
-Appending the letter \code{q} to a corner thumbnail template ID, e.g. \code{type = "blq"}, yields a quadrant plot.
-In contrast to \code{type = "center"}, these types allow for user control over margins for plots of fixed coverage area.
-Specifying the right combination of \code{size} and \code{margin} with a corner thumbnail template can be used to create a
+For \code{type = "center"}, \code{size} is used but \code{margin} is ignored, giving you
+control over the thumbnail size. Appending the letter \code{q} to a corner
+thumbnail template ID, e.g. \code{type = "blq"}, yields a quadrant plot. In
+contrast to \code{type = "center"}, these types allow for user control over
+margins for plots of fixed coverage area. Specifying the right combination of
+\code{size} and \code{margin} with a corner thumbnail template can be used to create a
 quadrant plot, but using a quadrant template simplifies this.
 
-\code{size} and \code{margin} are provided for convenience, adding more control over the position templates.
-If you require more specific size and position control, simply pass your own 4-argument list as described above.
-This is the structure generated by \code{inset_position} for any \code{type} and expected by \code{meme}.
+\code{size} and \code{margin} are provided for convenience, adding more control over
+the position templates. If you require more specific size and position
+control, simply pass your own 4-argument list as described above. This is the
+structure generated by \code{inset_position()} for any \code{type} and expected by \code{meme()}.
 }
 
 \section{Background}{
 
-For \code{inset_background}, the few templates all revolve around the \code{type = "default"} template.
-\code{type = "sq"} simply removes the rounded corners. \code{"op"} provides a fully opaque white background instead of the default 50\% transparency.
-\code{"opsq"} does both. \code{"blank"} hides the background panel.
-There is no substantial need to provide many templates because, as with \code{inset_position},
-\code{inset_background} generates a simple list of a few arguments that can be easily provided to \code{meme} explicitly
-without the use of \code{inset_background}.
+For \code{inset_background()}, the few templates all revolve around the
+\code{type = "default"} template. \code{type = "sq"} simply removes the rounded corners.
+\code{"op"} provides a fully opaque white background instead of the default 50\\%
+transparency. \code{"opsq"} does both. \code{"blank"} hides the background panel. There
+is no substantial need to provide many templates because, as with
+\code{inset_position()}, \code{inset_background()} generates a simple list of a few
+arguments that can be easily provided to \code{meme()} explicitly without the use of
+\code{inset_background()}.
 }
 
 \examples{

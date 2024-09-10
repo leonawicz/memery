@@ -8,84 +8,111 @@
 #'
 #' @section Fonts:
 #' Memes use the Impact font by default. This is a Windows font.
-#' If using \code{memery} on Linux for example, you would have to first install the font if not already installed on the system.
-#' If Impact or any other font family passed to \code{meme}, e.g. \code{family = "Consolas"}, is not installed on an operating system,
-#' \code{meme} will ignore it and fall back on \code{family = "serif"} internally.
-#' If unfamiliar, explore the documentation and examples available for the \code{showtext} and \code{sysfonts} packages, which \code{merery} leverages.
+#' If using `memery` on Linux for example, you would have to first install the
+#' font if not already installed on the system. If Impact or any other font
+#' family passed to `meme()`, e.g. `family = "Consolas"`, is not installed on an
+#' operating system, `meme()` will ignore it and fall back on `family = "serif"`
+#' internally. If unfamiliar, explore the documentation and examples available
+#' for the `showtext` and `sysfonts` packages, which `merery` leverages.
 #'
 #' @section Text labels:
-#' List elements in \code{label_pos} must all be the same length and must match the length of \code{label}.
-#' This is provided for generality but is most suited to length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
-#' Similarly, \code{size}, \code{family}, \code{col} and \code{shadow} may be vectorized.
-#' For example, top and bottom text can have different font size and family and the font text and shadow can be different colors.
+#' List elements in `label_pos` must all be the same length and must match the
+#' length of `label`. This is provided for generality but is most suited to
+#' length-2 cases; the use of meme title/subtitle or top/bottom text pairs.
+#' Similarly, `size`, `family`, `col` and `shadow` may be vectorized.
+#' For example, top and bottom text can have different font size and family and
+#' the font text and shadow can be different colors.
 #'
 #' @section Inset graphic:
-#' The meme plot may optionally include an inset plot by passing a ggplot object to \code{inset}.
-#' This makes the memes more fun for data analysts. See examples.
+#' The meme plot may optionally include an inset plot by passing a ggplot object
+#' to `inset`. This makes the memes more fun for data analysts. See examples.
 #'
-#' The plotting region containing \code{inset} is a specific viewport in the \code{grid} layout.
-#' \code{inset_bg} is a list of arguments that affect the background of this part of the meme plot.
-#' They define a rectangle that by default is semi-transparent with rounded corners and no border color.
-#' This can be changed via the list arguments \code{fill}, \code{col} and \code{r}.
+#' The plotting region containing `inset` is a specific viewport in the `grid`
+#' layout. `inset_bg` is a list of arguments that affect the background of this
+#' part of the meme plot. They define a rectangle that by default is
+#' semi-transparent with rounded corners and no border color. This can be changed
+#' via the list arguments `fill`, `col` and `r`.
 #'
-#' The inset plot \code{inset} is placed above this layer and also fills the region.
-#' The default ggplot2 theme used my \code{meme}, \code{\link{memetheme}}, uses transparent ggplot plot and panel background fill and plot border color
-#' that allow the background viewport rectangle and its rounded corners to show through.
+#' The inset plot `inset` is placed above this layer and also fills the region.
+#' The default ggplot2 theme used my `meme()`, [memetheme()], uses transparent
+#' ggplot plot and panel background fill and plot border color that allow the
+#' background viewport rectangle and its rounded corners to show through.
 #' The default theme also has no plot margins.
 #'
-#' If you supply a different theme via \code{ggtheme}, you can provide different plot and panel background fill and plot border color as part of the theme.
-#' For similar no-margin themes, if the plot background fill or border color are not fully transparent,
-#' set the viewport rectangle corner radius to zero so that rounded corners do not show inside the panel background.
-#' For opaque plot background fill this will not matter.
+#' If you supply a different theme via `ggtheme`, you can provide different plot
+#' and panel background fill and plot border color as part of the theme.
+#' For similar no-margin themes, if the plot background fill or border color are
+#' not fully transparent, set the viewport rectangle corner radius to zero so
+#' that rounded corners do not show inside the panel background. For opaque plot
+#' background fill this will not matter.
 #'
-#' Of course, the plot and panel background fill should still be transparent or semi-transparent if occupying a large amount of the total meme plot area
-#' or it will obscure the meme image itself. An alternative is to use \code{inset} as, for example,
-#' a tiny thumbnail in the corner of the meme plot, in which case full opacity is not necessarily an issue.
-#' If you do not want to override the theme of your plot and do not wish to pass a theme explicitly by \code{ggtheme}, you can set \code{ggtheme = NULL}
+#' Of course, the plot and panel background fill should still be transparent or
+#' semi-transparent if occupying a large amount of the total meme plot area or
+#' it will obscure the meme image itself. An alternative is to use `inset` as,
+#' for example, a tiny thumbnail in the corner of the meme plot, in which case
+#' full opacity is not necessarily an issue. If you do not want to override the
+#' theme of your plot and do not wish to pass a theme explicitly by `ggtheme`,
+#' you can set `ggtheme = NULL`.
 #'
 #' @section Dimensions and image processing:
-#' Specifying \code{width} and \code{height} is not required. By default, output file dimensions are taken from the input file, \code{img}.
-#' However, these arguments can be used to override the default dimension matching. The aspect ratio is fixed so if you change the two
-#' disproportionately, you will increasing the canvas, adding bars on two sides; it will not stretch the image.
+#' Specifying `width` and `height` is not required. By default, output file
+#' dimensions are taken from the input file, `img`. However, these arguments can
+#' be used to override the default dimension matching. The aspect ratio is fixed
+#' so if you change the two disproportionately, you will increasing the canvas,
+#' adding bars on two sides; it will not stretch the image.
 #'
-#' \code{mult} can be set less than one if relying on \code{img} dimension for meme plot width and height and \code{img} is large.
-#' It is equivalent to scaling proportionately with \code{width} and \code{height} maintaining the original aspect ratio.
-#' Whether or not \code{width} and/or \code{height} are provided, \code{mult} is always applied (defaults to \code{mult = 1}).
+#' `mult` can be set less than one if relying on `img` dimension for meme plot
+#' width and height and `img` is large. It is equivalent to scaling
+#' proportionately with `width` and `height` maintaining the original aspect ratio.
+#' Whether or not `width` and/or `height` are provided, `mult` is always applied
+#' (defaults to `mult = 1`).
 #'
-#' Beyond this basic resizing to help control output file size, it is not the intent of \code{memery} to offer general image processing capabilities.
-#' If adjustments to source images are desired, you should use a dedicated package for image processing.
-#' \code{magick} is recommended.
+#' Beyond this basic resizing to help control output file size, it is not the
+#' intent of `memery` to offer general image processing capabilities. If
+#' adjustments to source images are desired, you should use a dedicated package
+#' for image processing. `magick` is recommended.
 #'
 #' @section Reading and writing gifs:
-#' Reading and writing gifs requires the \code{magick} package.
-#' Since this is not required for any other part of \code{memery} and it represents a minor use case, the package does not have these dependencies.
-#' \code{magick} is listed as a suggested package for memery; it is not imported as a dependency.
-#' \code{meme_gif} is an optional extra function. In order to use it, install the \code{magick} package.
+#' Reading and writing gifs requires the `magick` package. Since this is not
+#' required for any other part of `memery` and it represents a minor use case,
+#' the package does not have these dependencies. `magick` is listed as a
+#' suggested package for `memery`; it is not imported as a dependency.
+#' `meme_gif()` is an optional extra function. In order to use it, install the
+#' `magick` package.
 #'
-#' See the example below if your system meets these requirements.
-#' As with jpg or png image inputs, if additional control is required for making custom adjustments to gif image frames,
-#' use the \code{magick} package for image pre-processing.
-#' \code{meme} only provides basic control over output size and \code{meme_gif} only adds control over gif frame selection and rate.
+#' See the example below if your system meets these requirements. As with jpg
+#' or png image inputs, if additional control is required for making custom
+#' adjustments to gif image frames, use the `magick` package for image
+#' pre-processing. `meme()` only provides basic control over output size and
+#' `meme_gif()` only adds control over gif frame selection and rate.
 #'
 #' @param img path to image file, png or jpg.
-#' @param label character, meme text. May be a vector, matched to \code{label_pos}.
+#' @param label character, meme text. May be a vector, matched to `label_pos`.
 #' @param file output file, png or jpg.
-#' @param size label size. Actual size affected by image size (i.e., \code{cex}).
-#' @param family character, defaults to \code{"Impact"}, the classic meme font. See details.
+#' @param size label size. Actual size affected by image size, i.e., `cex`.
+#' @param family character, defaults to `"Impact"`, the classic meme font. See
+#' details.
 #' @param col label color.
 #' @param shadow label shadow/outline color.
-#' @param label_pos named list of position elements for the meme text \code{w}, \code{h}, \code{x} and \code{y}. Each element may be a vector. See details.
+#' @param label_pos named list of position elements for the meme text `w`, `h`,
+#' `x` and `y`. Each element may be a vector. See details.
 #' @param inset a ggplot object. This is an optional inset plot and may be excluded.
-#' @param ggtheme optional ggplot2 theme. If ignored, the default \code{memery} ggplot2 theme is used.
-#' @param inset_bg a list of background settings for the plotting region containing \code{inset}. See details.
-#' @param inset_pos named list of position elements for the \code{inset} inset plot: \code{w}, \code{h}, \code{x} and \code{y}.
-#' @param width numeric, width of overall meme plot in pixels. If missing, taken from \code{img} size.
-#' @param height numeric, height of overall meme plot in pixels. If missing, taken from \code{img} size.
+#' @param ggtheme optional ggplot2 theme. If ignored, the default `memery`
+#' ggplot2 theme is used.
+#' @param inset_bg a list of background settings for the plotting region
+#' containing `inset`. See details.
+#' @param inset_pos named list of position elements for the `inset` inset plot:
+#' `w`, `h`, `x` and `y`.
+#' @param width numeric, width of overall meme plot in pixels. If missing, taken
+#' from `img` size.
+#' @param height numeric, height of overall meme plot in pixels. If missing,
+#' taken from `img` size.
 #' @param bg character, background color for graphics device.
 #' @param mult numeric, a multiplier. Used to adjust width and height. See details.
-#' @param fps frames per second, only applicable to \code{meme_gif}. See details.
-#' @param frame integer, frame numbers to include. The default \code{frame = 0} retains all frames. Only applicable to \code{meme_gif}. See details.
-#' @param ... additional arguments passed to \code{meme_gif}.
+#' @param fps frames per second, only applicable to `meme_gif()`. See details.
+#' @param frame integer, frame numbers to include. The default `frame = 0`
+#' retains all frames. Only applicable to `meme_gif()`. See details.
+#' @param ... additional arguments passed to `meme_gif()`.
 #'
 #' @return nothing is returned; file written to disk.
 #'

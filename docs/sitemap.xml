@@ -1,54 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://leonawicz.github.io/memery/404.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/articles/memery.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/car_shiny.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/inset.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/meme.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/memeApp.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/memery.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/memetheme.html</loc>
-  </url>
-  <url>
-    <loc>https://leonawicz.github.io/memery/reference/text_position.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://leonawicz.github.io/memery/404.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/articles/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/articles/memery.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/authors.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/LICENSE-text.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/LICENSE.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/news/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/car_shiny.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/index.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/inset.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/meme.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/memeApp.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/memery.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/memetheme.html</loc></url>
+<url><loc>https://leonawicz.github.io/memery/reference/text_position.html</loc></url>
 </urlset>
+

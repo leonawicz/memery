@@ -10,16 +10,19 @@ text_position(n)
 \item{n}{integer, number of meme text labels.}
 }
 \value{
-a list of meme text label position arguments: \code{w} (width), \code{h} (height), and \code{x} and \code{y} coordinates.
+a list of meme text label position arguments: \code{w} (width), \code{h} (height),
+and \code{x} and \code{y} coordinates.
 }
 \description{
 Convenience function for meme text position in a meme plot.
 }
 \details{
-This function takes an integer 1 or 2 and returns, respectively, top or symmetrical top and bottom meme text position arguments.
-This function is used as the default for the \code{label_pos} argument in \code{meme}.
-It is provided if you do not want to bother with specifying coordinates and exact placement does not matter.
-It is not intended for placement of more than two meme text labels and any value other than 1 or 2 returns an error.
+This function takes an integer 1 or 2 and returns, respectively, top or
+symmetrical top and bottom meme text position arguments. This function is
+used as the default for the \code{label_pos} argument in \code{meme}. It is provided if
+you do not want to bother with specifying coordinates and exact placement
+does not matter. It is not intended for placement of more than two meme text
+labels and any value other than 1 or 2 returns an error.
 }
 \examples{
 text_position(1)
