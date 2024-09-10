@@ -126,7 +126,7 @@
 #'   "Figure 1. (A) shows a plot and (B) shows another plot.")
 #' out <- tempfile("meme", fileext = c("1.png", "2.png", "3.png", "4.gif"))
 #'
-#' p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", size = 2) +
+#' p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", linewidth = 2) +
 #'   geom_point(colour = "orange", size = 4) + facet_wrap(~grp) +
 #'   labs(title = txt[1], subtitle = txt[2], caption = txt[3])
 #'
@@ -160,7 +160,7 @@
 #' \dontrun{
 #' # Not run due to file size, software requirements, web source
 #' # GIF meme. Requires magick package.
-#' p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
+#' p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", linewidth = 2) +
 #'   geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
 #'   labs(title = "The wiggles", subtitle = "Plots for cats",
 #'        caption = "Figure 1. Gimme sine waves.")
@@ -213,7 +213,7 @@ meme <- function(img, label, file, size = 1, family = "Impact", col = "white", s
     shadow <- rep(shadow, length.out = n)
   }
 
-  p0 <- ggplot2::ggplot(data.frame(x = c(0, 1), y = c(0, 1)), ggplot2::aes_string("x", "y")) +
+  p0 <- ggplot2::ggplot(data.frame(x = c(0, 1), y = c(0, 1)), ggplot2::aes(.data[["x"]], .data[["y"]])) +
     ggplot2::annotation_custom(g0, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) +
     cowplot::theme_nothing()
   if(ext2 == "png") Cairo::CairoPNG(file, width = width, height = height, bg = bg)

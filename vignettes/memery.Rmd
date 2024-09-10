@@ -25,7 +25,7 @@ The `memery` package is used for generating internet memes suited specifically t
 Before getting to the code and other details, you can explore a quick visual example using the Shiny app packaged with `memery`.
 It displays an input meme background image and an inset plot which are combined to form the analyst's meme.
 The app makes available any ggplot objects in the global environment created by the user to be used as inset plots for memes.
-If none exist, `memeApp` will generate a test plot ggplot object, `memery_testplot`, for the app session.
+If none exist, `memeApp()` will generate a test plot ggplot object, `memery_testplot`, for the app session.
 Available plots populate the inset plot selection menu.
 
 ```{r app, eval=FALSE}
@@ -35,10 +35,10 @@ memeApp()
 
 ### magick suggested but not required
 
-If the `magick` package is installed, `memeApp` will launch in complete mode and the default image will be an animated gif.
+If the `magick` package is installed, `memeApp()` will launch in complete mode and the default image will be an animated gif.
 If not installed, a simplified version of the example app will launch, and only jpg and png files can be used.
 It is only listed as a suggested package. Any package functionality that uses the `magick` package returns gracefully with a notification about the missing package.
-The only function in `memery` that uses `magick` is `meme_gif`.
+The only function in `memery` that uses `magick` is `meme_gif()`.
 
 ## The meme
 
@@ -46,8 +46,8 @@ Now onto the core of the package. This consists of the background image and over
 
 ### Note on fonts
 
-Note that Impact is a Windows font. If using `memery` on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme`, e.g. `family = "Consolas"`, is not installed on an operating system,
-`meme` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which `memery` leverages.
+Note that Impact is a Windows font. If using `memery` on Linux for example, you would have to first install the font if not already installed on the system. If Impact or any other font family passed to `meme()`, e.g. `family = "Consolas"`, is not installed on an operating system,
+`meme()` will ignore it and fall back on `family = "serif"` internally. If unfamiliar, explore the documentation and examples available for the `showtext` and `sysfonts` packages, which `memery` leverages.
 
 ```{r sources_and_outputs1}
 out <- system.file("philosoraptor.jpg", package = "memery")
@@ -57,7 +57,7 @@ meme(out, lab[1], "meme1.jpg")
 
 <p style="text-align:center;"><img src="meme1.jpg"></p>
 
-There is sensible default label placement. If `label` is a vector of length two, `meme` will make a symmetrical top and bottom title/subtitle pair of text labels.
+There is sensible default label placement. If `label` is a vector of length two, `meme()` will make a symmetrical top and bottom title/subtitle pair of text labels.
 
 ```{r two_labels}
 meme(out, lab, "meme2.jpg")
@@ -65,7 +65,7 @@ meme(out, lab, "meme2.jpg")
 
 <p style="text-align:center;"><img src="meme2.jpg"></p>
 
-This is done using the default `lab_pos` argument, which calls `text_position`. This convenience function is only useful for one or two text labels. `meme` allows you to place an arbitrary number of labels on the plot with arbitrary positioning by passing your own list to `lab_pos` where each list element is the same length as `label`. You can see what to do by looking at the output of `text_position`.
+This is done using the default `lab_pos` argument, which calls `text_position()`. This convenience function is only useful for one or two text labels. `meme()` allows you to place an arbitrary number of labels on the plot with arbitrary positioning by passing your own list to `lab_pos` where each list element is the same length as `label`. You can see what to do by looking at the output of `text_position()`.
 
 ```{r text_pos, results="show"}
 text_position(n = 2)
@@ -90,9 +90,9 @@ Avoid using `mult` to *increase* your image size as it will expand the shadow ef
 
 ## Optional plot overlay
 
-In addition to drawing text labels on top of the background image, `meme` offers the ability to overlay an inset plot, a plot within the meme plot. This could be a thumbnail inset appearing in a corner of the plot. For example, it could be a logo. But generally speaking, this kind of behavior is directly accessible using the `grid` framework and `memery` does not attempt to duplicate this generality. Instead, it expects the `inset` argument to be any ggplot object; `inset is not for reading in a second image file. It is meant to be a plot.
+In addition to drawing text labels on top of the background image, `meme()` offers the ability to overlay an inset plot, a plot within the meme plot. This could be a thumbnail inset appearing in a corner of the plot. For example, it could be a logo. But generally speaking, this kind of behavior is directly accessible using the `grid` framework and `memery` does not attempt to duplicate this generality. Instead, it expects the `inset` argument to be any ggplot object; `inset is not for reading in a second image file. It is meant to be a plot.
 
-By default, a ggplot object passed to `meme` via `inset` will take up approximately the lower two thirds of the plot and the full with, accounting for some margin space. It has a semi-transparent background so that it does not completely obscure the meme background image. These settings, background color, transparency, size and position, can all be specified in the call to `meme` as the following examples demonstrate.
+By default, a ggplot object passed to `meme()` via `inset` will take up approximately the lower two thirds of the plot and the full with, accounting for some margin space. It has a semi-transparent background so that it does not completely obscure the meme background image. These settings, background color, transparency, size and position, can all be specified in the call to `meme()` as the following examples demonstrate.
 
 ```{r inset1}
 library(ggplot2)
@@ -100,7 +100,7 @@ x <- seq(0, 2*pi , length.out = 50)
 panels <- rep(paste("Philosoraptor's plot", c("A", "B")), each = 50)
 d <- data.frame(x = x, y = sin(x), grp = panels)
 txt <- c("Philosoraptor's plots", "I like to make plots", "Figure 1. (A) shows a plot and (B) shows another plot.")
-p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", size = 2) +
+p <- ggplot(d, aes(x, y)) + geom_line(colour = "cornflowerblue", linewidth = 2) +
   geom_point(colour = "orange", size = 4) + facet_wrap(~grp) +
   labs(title = txt[1], subtitle = txt[2], caption = txt[3])
 
@@ -109,7 +109,7 @@ meme(out, lab, "meme4a.jpg", inset = p)
 
 <p style="text-align:center;"><img src="meme4a.jpg"></p>
 
-Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the `grid` package. It is a rectangle layer in the same viewport as `p`; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to `ggtheme` or setting this to `NULL`, which falls back on whatever theme is set for your plot `p`. The default theme for meme plots comes from `memetheme`. Naturally, the theme will need to be customized for many meme plots because underlying meme images are arbitrary.
+Note the default semi-transparent background that allows the meme image to show through when the inset has a large coverage area. The style includes rounded corners. This is from the `grid` package. It is a rectangle layer in the same viewport as `p`; it is not part of the ggplot theme. The latter is separate and can be controlled by passing your own theme to `ggtheme` or setting this to `NULL`, which falls back on whatever theme is set for your plot `p`. The default theme for meme plots comes from `memetheme()`. Naturally, the theme will need to be customized for many meme plots because underlying meme images are arbitrary.
 
 ### Alternate inset templates
 
@@ -122,7 +122,7 @@ set.seed(1)
 
 ```{r inset1b}
 p2 <- ggplot(data.frame(x = rnorm(10000)), aes(x)) +
-  geom_density(adjust = 2, colour = "white", size = 1)
+  geom_density(adjust = 2, colour = "white", linewidth = 1)
 pos <- list(w = 0.2, h = 0.2, x = 0.125, y = 0.125)
 meme(out, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue", col = "black"), inset_pos = pos, ggtheme = theme_void())
 ```
@@ -130,7 +130,7 @@ meme(out, lab[1], "meme4b.jpg", inset = p2, inset_bg = list(fill = "dodgerblue",
 <p style="text-align:center;"><img src="meme4b.jpg"></p>
 
 Above, the size and position was specified explicitly with `pos`. However, the same could be done using `inset_position(type = "bl")`. The available position templates include the four corners via `tl`, `tr`, `br` and `bl` for top right, top left, bottom left and bottom right, respectively.
-There is also a `center` thumbnail option. `inset_position` also takes `size` and `margin` arguments to further specify the thumbnail placement.
+There is also a `center` thumbnail option. `inset_position()` also takes `size` and `margin` arguments to further specify the thumbnail placement.
 
 ```{r inset1c}
 pos <- inset_position("bl", size = c(0.4, 0.2), margin = c(0.025, 0.05))
@@ -186,7 +186,7 @@ If ImageMagick is installed on your system, animated gifs can be used for data a
 
 ```{r gifs, eval=FALSE}
 d$grp <- gsub("Philosoraptor's", "Cat's", d$grp)
-p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", size = 2) +
+p <- ggplot(d, aes(x, y)) + geom_line(colour = "white", linewidth = 2) +
   geom_point(colour = "orange", size = 1) + facet_wrap(~grp) +
   labs(title = "The wiggles", subtitle = "Plots for cats",
        caption = "Figure 1. Gimme sine waves.")

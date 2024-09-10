@@ -135,11 +135,11 @@ inset_templates <- function(type){
 memetheme <- function(base_size = 14, base_family = "", base_col = "white"){
   ggplot2::theme_gray(base_size = base_size, base_family = base_family) +
   ggplot2::theme(
-    panel.grid.major = ggplot2::element_line(size = 0.5, colour = "gray"),
+    panel.grid.major = ggplot2::element_line(linewidth = 0.5, colour = "gray"),
     title = ggplot2::element_text(colour = base_col),
     axis.text = ggplot2::element_text(colour = base_col),
     axis.ticks = ggplot2::element_line(colour = base_col),
-    axis.line = ggplot2::element_line(size = 1, colour = base_col),
+    axis.line = ggplot2::element_line(linewidth = 1, colour = base_col),
     axis.ticks.length = ggplot2::unit(0.35, "cm"), legend.position = "bottom",
     legend.justification = "right", legend.title = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(size = base_size), text = ggplot2::element_text(size = 18),

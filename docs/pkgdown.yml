@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   memery: memery.html
-last_built: 2024-09-10T22:16Z
+last_built: 2024-09-10T22:38Z
 urls:
   reference: https://leonawicz.github.io/memery/reference
   article: https://leonawicz.github.io/memery/articles

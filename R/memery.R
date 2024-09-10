@@ -1,3 +1,5 @@
+globalVariables(".data")
+
 #' @name memery
 "_PACKAGE"
 

@@ -31,7 +31,7 @@
 #' file <- "memery-car-shiny.gif" # outfile
 #' set.seed(1)
 #' p1 <- ggplot(data.frame(x = rbeta(100000, 10, 3)), aes(x)) +
-#'   geom_histogram(colour = "white", fill = "#88888880", size = 1, bins = 30)
+#'   geom_histogram(colour = "white", fill = "#88888880", linewidth = 1, bins = 30)
 #'
 #' means <- (8:1)^3
 #' sds <- 10*(8:1)
@@ -42,7 +42,7 @@
 #'
 #' p2 <- ggplot(d, aes(x, y)) +
 #'   geom_boxplot(colour = "white", fill = "#5495CF80", outlier.colour = NA) +
-#'   geom_point(shape = 21, colour = "white", fill = "#5495CF80", size = 1,
+#'   geom_point(shape = 21, colour = "white", fill = "#5495CF80", linewidth = 1,
 #'              position = position_jitter(0.15)) +
 #'   scale_x_discrete(expand = c(0, 0.02)) + scale_y_continuous(expand = c(0.02, 0)) +
 #'   theme_void() +

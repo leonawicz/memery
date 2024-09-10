@@ -98,23 +98,25 @@ visual example using the Shiny app packaged with <code>memery</code>. It
 displays an input meme background image and an inset plot which are
 combined to form the analyst’s meme. The app makes available any ggplot
 objects in the global environment created by the user to be used as
-inset plots for memes. If none exist, <code>memeApp</code> will generate
-a test plot ggplot object, <code>memery_testplot</code>, for the app
-session. Available plots populate the inset plot selection menu.</p>
+inset plots for memes. If none exist, <code><a href="../reference/memeApp.html">memeApp()</a></code> will
+generate a test plot ggplot object, <code>memery_testplot</code>, for
+the app session. Available plots populate the inset plot selection
+menu.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leonawicz/memery" class="external-link">memery</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/memeApp.html">memeApp</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="magick-suggested-but-not-required">magick suggested but not required<a class="anchor" aria-label="anchor" href="#magick-suggested-but-not-required"></a>
 </h3>
-<p>If the <code>magick</code> package is installed, <code>memeApp</code>
-will launch in complete mode and the default image will be an animated
-gif. If not installed, a simplified version of the example app will
-launch, and only jpg and png files can be used. It is only listed as a
-suggested package. Any package functionality that uses the
-<code>magick</code> package returns gracefully with a notification about
-the missing package. The only function in <code>memery</code> that uses
-<code>magick</code> is <code>meme_gif</code>.</p>
+<p>If the <code>magick</code> package is installed,
+<code><a href="../reference/memeApp.html">memeApp()</a></code> will launch in complete mode and the default
+image will be an animated gif. If not installed, a simplified version of
+the example app will launch, and only jpg and png files can be used. It
+is only listed as a suggested package. Any package functionality that
+uses the <code>magick</code> package returns gracefully with a
+notification about the missing package. The only function in
+<code>memery</code> that uses <code>magick</code> is
+<code><a href="../reference/meme.html">meme_gif()</a></code>.</p>
 </div>
 </div>
 <div class="section level2">
@@ -133,8 +135,8 @@ use.</p>
 <p>Note that Impact is a Windows font. If using <code>memery</code> on
 Linux for example, you would have to first install the font if not
 already installed on the system. If Impact or any other font family
-passed to <code>meme</code>, e.g. <code>family = "Consolas"</code>, is
-not installed on an operating system, <code>meme</code> will ignore it
+passed to <code><a href="../reference/meme.html">meme()</a></code>, e.g. <code>family = "Consolas"</code>, is
+not installed on an operating system, <code><a href="../reference/meme.html">meme()</a></code> will ignore it
 and fall back on <code>family = "serif"</code> internally. If
 unfamiliar, explore the documentation and examples available for the
 <code>showtext</code> and <code>sysfonts</code> packages, which
@@ -146,19 +148,19 @@ unfamiliar, explore the documentation and examples available for the
 <p style="text-align:center;">
 <img src="meme1.jpg"></p>
 <p>There is sensible default label placement. If <code>label</code> is a
-vector of length two, <code>meme</code> will make a symmetrical top and
-bottom title/subtitle pair of text labels.</p>
+vector of length two, <code><a href="../reference/meme.html">meme()</a></code> will make a symmetrical top
+and bottom title/subtitle pair of text labels.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/meme.html">meme</a></span><span class="op">(</span><span class="va">out</span>, <span class="va">lab</span>, <span class="st">"meme2.jpg"</span><span class="op">)</span></span></code></pre></div>
 <p style="text-align:center;">
 <img src="meme2.jpg"></p>
 <p>This is done using the default <code>lab_pos</code> argument, which
-calls <code>text_position</code>. This convenience function is only
-useful for one or two text labels. <code>meme</code> allows you to place
-an arbitrary number of labels on the plot with arbitrary positioning by
-passing your own list to <code>lab_pos</code> where each list element is
-the same length as <code>label</code>. You can see what to do by looking
-at the output of <code>text_position</code>.</p>
+calls <code><a href="../reference/text_position.html">text_position()</a></code>. This convenience function is only
+useful for one or two text labels. <code><a href="../reference/meme.html">meme()</a></code> allows you to
+place an arbitrary number of labels on the plot with arbitrary
+positioning by passing your own list to <code>lab_pos</code> where each
+list element is the same length as <code>label</code>. You can see what
+to do by looking at the output of <code><a href="../reference/text_position.html">text_position()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/text_position.html">text_position</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $w</span></span>
@@ -219,7 +221,7 @@ dimensions.</p>
 <h2 id="optional-plot-overlay">Optional plot overlay<a class="anchor" aria-label="anchor" href="#optional-plot-overlay"></a>
 </h2>
 <p>In addition to drawing text labels on top of the background image,
-<code>meme</code> offers the ability to overlay an inset plot, a plot
+<code><a href="../reference/meme.html">meme()</a></code> offers the ability to overlay an inset plot, a plot
 within the meme plot. This could be a thumbnail inset appearing in a
 corner of the plot. For example, it could be a logo. But generally
 speaking, this kind of behavior is directly accessible using the
@@ -227,20 +229,20 @@ speaking, this kind of behavior is directly accessible using the
 duplicate this generality. Instead, it expects the <code>inset</code>
 argument to be any ggplot object; `inset is not for reading in a second
 image file. It is meant to be a plot.</p>
-<p>By default, a ggplot object passed to <code>meme</code> via
+<p>By default, a ggplot object passed to <code><a href="../reference/meme.html">meme()</a></code> via
 <code>inset</code> will take up approximately the lower two thirds of
 the plot and the full with, accounting for some margin space. It has a
 semi-transparent background so that it does not completely obscure the
 meme background image. These settings, background color, transparency,
-size and position, can all be specified in the call to <code>meme</code>
-as the following examples demonstrate.</p>
+size and position, can all be specified in the call to
+<code><a href="../reference/meme.html">meme()</a></code> as the following examples demonstrate.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span><span class="op">*</span><span class="va">pi</span> , length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="va">panels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Philosoraptor's plot"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">sin</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, grp <span class="op">=</span> <span class="va">panels</span><span class="op">)</span></span>
 <span><span class="va">txt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Philosoraptor's plots"</span>, <span class="st">"I like to make plots"</span>, <span class="st">"Figure 1. (A) shows a plot and (B) shows another plot."</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"cornflowerblue"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"cornflowerblue"</span>, linewidth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"orange"</span>, size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">grp</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="va">txt</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, subtitle <span class="op">=</span> <span class="va">txt</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, caption <span class="op">=</span> <span class="va">txt</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
@@ -255,8 +257,9 @@ it is not part of the ggplot theme. The latter is separate and can be
 controlled by passing your own theme to <code>ggtheme</code> or setting
 this to <code>NULL</code>, which falls back on whatever theme is set for
 your plot <code>p</code>. The default theme for meme plots comes from
-<code>memetheme</code>. Naturally, the theme will need to be customized
-for many meme plots because underlying meme images are arbitrary.</p>
+<code><a href="../reference/memetheme.html">memetheme()</a></code>. Naturally, the theme will need to be
+customized for many meme plots because underlying meme images are
+arbitrary.</p>
 <div class="section level3">
 <h3 id="alternate-inset-templates">Alternate inset templates<a class="anchor" aria-label="anchor" href="#alternate-inset-templates"></a>
 </h3>
@@ -270,7 +273,7 @@ since there is no room in the inset for plot annotations.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density</a></span><span class="op">(</span>adjust <span class="op">=</span> <span class="fl">2</span>, colour <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density</a></span><span class="op">(</span>adjust <span class="op">=</span> <span class="fl">2</span>, colour <span class="op">=</span> <span class="st">"white"</span>, linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">pos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>w <span class="op">=</span> <span class="fl">0.2</span>, h <span class="op">=</span> <span class="fl">0.2</span>, x <span class="op">=</span> <span class="fl">0.125</span>, y <span class="op">=</span> <span class="fl">0.125</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/meme.html">meme</a></span><span class="op">(</span><span class="va">out</span>, <span class="va">lab</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"meme4b.jpg"</span>, inset <span class="op">=</span> <span class="va">p2</span>, inset_bg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"dodgerblue"</span>, col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>, inset_pos <span class="op">=</span> <span class="va">pos</span>, ggtheme <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p style="text-align:center;">
@@ -281,7 +284,7 @@ since there is no room in the inset for plot annotations.</p>
 templates include the four corners via <code>tl</code>, <code>tr</code>,
 <code>br</code> and <code>bl</code> for top right, top left, bottom left
 and bottom right, respectively. There is also a <code>center</code>
-thumbnail option. <code>inset_position</code> also takes
+thumbnail option. <code><a href="../reference/inset.html">inset_position()</a></code> also takes
 <code>size</code> and <code>margin</code> arguments to further specify
 the thumbnail placement.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -348,7 +351,7 @@ elements in <code>label_pos</code> must match the length of
 for data analyst memes.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">d</span><span class="op">$</span><span class="va">grp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"Philosoraptor's"</span>, <span class="st">"Cat's"</span>, <span class="va">d</span><span class="op">$</span><span class="va">grp</span><span class="op">)</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"white"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"white"</span>, linewidth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"orange"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">grp</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"The wiggles"</span>, subtitle <span class="op">=</span> <span class="st">"Plots for cats"</span>,</span>
 <span>       caption <span class="op">=</span> <span class="st">"Figure 1. Gimme sine waves."</span><span class="op">)</span></span>

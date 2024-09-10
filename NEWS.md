@@ -1,6 +1,7 @@
 # memery 0.6.0
 
 * Documentation updates.
+* Minor code updates and fixes.
 
 # memery 0.5.7
 
